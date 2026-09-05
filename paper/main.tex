@@ -66,7 +66,6 @@ Evaluation methodology \sep Reproducibility \sep Channel modelling
 
 % =====================================================================
 \section{Introduction}
-\label{sec:intro}
 
 Semantic communication proposes to transmit what a message means for a downstream task rather
 than the symbols that encode it, and it is increasingly recommended for non-terrestrial networks
@@ -123,7 +122,6 @@ trained under the assumption counted on the right.}
 
 % =====================================================================
 \section{Background}
-\label{sec:background}
 
 \subsection{Why non-terrestrial links are said to be different}
 
@@ -184,8 +182,11 @@ accessibility of the literature and not a gap to be filled by inference.
 
 \subsection{Checklist}
 
-The checklist in Table~\ref{tab:census} covers the physical effects an NTN evaluation could
-instantiate and the channel models it could use. Two design decisions matter. The effects are
+Table~\ref{tab:checklist} states the checklist: \numChecklist{} items covering the physical
+effects an NTN evaluation could instantiate and the channel models it could use, each with the
+source it is anchored to. \numFromSurvey{} of the items restate structural constraints the
+field's own survey names, the standardised-model item points at the 3GPP studies, and the
+remainder are protocol conventions rather than physical effects. Two design decisions matter. The effects are
 those the field's own survey names as structural NTN constraints, and the channel-model entries
 follow the 3GPP non-terrestrial studies~\cite{tr38811,tr38821}, so neither list is ours. And the checklist is deliberately
 about \emph{conditions of evaluation}, not about quality: a work that evaluates over additive
@@ -250,7 +251,8 @@ over a median visibility window of \numDurMed~s, and one-way delay reaches \numO
 \centering
 \includegraphics[width=\textwidth]{../figures/out/fig2-orbital.pdf}
 \caption{Distributions over \numPassesStation{} passes at one station with a minimum elevation of
-$25^\circ$. Dashed lines mark medians. The bimodality of the centre panel reflects the difference
+$25^\circ$: peak Doppler shift at Ka-band, the swing of the geometric link-budget term across a
+pass, and the visibility window. Dashed lines mark medians. The bimodality of the centre panel reflects the difference
 between overhead passes, which sweep the full range of slant range, and grazing passes, which
 do not.}
 \label{fig:orbital}
@@ -263,6 +265,54 @@ by at most \numDopSpread~kHz in Doppler across $65$ degrees of latitude, so they
 of the orbital shell rather than of a chosen site.}
 \label{tab:stations}
 \input{../figures/out/tab3-stations.tex}
+\end{table}
+
+\subsection{One pass, in detail}
+
+Figure~\ref{fig:pass} follows a single pass, and the pass is chosen by a stated rule rather than
+for appearance: it is the one whose maximum elevation lies closest to the median of the
+distribution. Over its \numPassDur~s the Ka-band shift runs from \numPassDopLo~kHz to
+\numPassDopHi~kHz, an excursion of \numPassDopSpan~kHz that passes through zero at closest
+approach, so the sign of the offset reverses within a single contact. The shaded band marks a
+one-second transmission block at the same scale. Its width against the pass is the visual form
+of the two results of this section: nothing of consequence happens to the link budget inside the
+block, and a great deal happens across the pass that contains it.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.65\textwidth]{../figures/out/fig3-pass.pdf}
+\caption{One pass of \numPassSat{} over the station, reaching \numPassElMax$^\circ$. The
+selection rule is stated in the text and in the released code. Path loss is plotted relative to
+its minimum.}
+\label{fig:pass}
+\end{figure}
+
+\subsection{Sensitivity to the elevation threshold}
+
+The minimum elevation a link supports is a design choice, and it moves every quantity above.
+Figure~\ref{fig:elev} and Table~\ref{tab:orbital} report the three thresholds the 3GPP studies
+use. Raising the threshold from $10^\circ$ to $30^\circ$ cuts the number of usable passes at
+one station from \numPassTen{} to \numPassThirty{} per day while shortening the window, so a
+stricter threshold buys a better link at the cost of contact time. The Doppler extremes fall
+because the geometry excludes the low-elevation part of the pass where the range rate is
+largest, but they remain in the hundreds of kilohertz at every threshold.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{../figures/out/fig4-elevation.pdf}
+\caption{Medians of the same three quantities, visibility window, peak Ka-band Doppler and
+link-budget swing, against the minimum elevation threshold, for four stations. The station used
+elsewhere in this paper is drawn in colour and the others in grey; the curves lie close together,
+which is the same shell property Table~\ref{tab:stations} reports.}
+\label{fig:elev}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Full statistics at one station for the three elevation thresholds. Link-budget figures
+are the geometric term only and are therefore lower bounds.}
+\label{tab:orbital}
+\input{../figures/out/tab4-orbital.tex}
 \end{table}
 
 \subsection{The result that runs against the audit}
@@ -305,15 +355,63 @@ and do fire elsewhere in the same corpus. Read against Section~\ref{sec:orbit}, 
 drift the orbit produces, up to \numDopRateMax~kHz/s, is instantiated by no evaluation in the
 population, and that no evaluation is driven by the geometry that produces it.
 
+\paragraph{The structure behind the counts.}
+Figure~\ref{fig:matrix} resolves the census to individual works. No evaluation in the population
+instantiates more than \numMaxCover{} of the \numChecklist{} items, and \numZeroCover{} works
+instantiate none of them. The two empty rows are the zeros discussed above, and seeing them as
+rows rather than as bars makes clear that they are not the result of one or two works dominating
+a count.
+
+\paragraph{A second source describes the same works.}
+The survey's own channel-consideration column is an independent record of what each work
+considers, so it can be compared against what the evaluation sections contain.
+Table~\ref{tab:agreement} does that for the \numAgrN{} works where both are available. Two
+things follow, and the first is not a criticism. The column is a phrase of a few words and cannot
+enumerate an evaluation, so the entries naming fewer items than the evaluations contain is
+expected. What is informative is what the entries name at all: across \numAgrN{} works they
+name \numAgrNamedTot{} checklist items in total, because most entries describe an architecture
+or a topology rather than a propagation environment. The column is the closest thing the
+literature has to a record of channel realism, and it is not one. In \numAgrExtra{} case the
+comparison runs the other way, with the column naming an effect the evaluation section does not
+contain.
+
+\begin{table}[t]
+\centering
+\caption{The survey's channel-consideration entry against the evaluation sections, for the
+\numAgrN{} works where both could be read. ``Named'' counts checklist items the entry mentions,
+``In eval.'' counts items the evaluation instantiates.}
+\label{tab:agreement}
+\input{../figures/out/tab5-agreement.tex}
+\end{table}
+
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.62\textwidth]{../figures/out/fig3-census.pdf}
+\includegraphics[width=\textwidth]{../figures/out/fig6-matrix.pdf}
+\caption{Every codeable work against every checklist item, ordered by coverage. Grey marks an
+effect that appears only while the problem is being motivated; orange marks one the evaluation
+instantiates.}
+\label{fig:matrix}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.62\textwidth]{../figures/out/fig5-census.pdf}
 \caption{Where each effect appears, for the \numCoded{} codeable works. Grey counts works that
 mention the effect only while motivating the problem; orange counts works whose evaluation
 instantiates it. Zeros are labelled explicitly so that a measured zero is not read as a missing
 bar.}
 \label{fig:census}
 \end{figure}
+
+\begin{table}[t]
+\centering
+\caption{The checklist, with the source each item is anchored to. ``Survey'' items restate
+structural constraints named by the field's own survey, ``3GPP'' points at the non-terrestrial
+channel studies, ``Orbit'' follows from orbital mechanics, and ``Protocol'' items are evaluation
+conventions rather than physical effects.}
+\label{tab:checklist}
+\input{../figures/out/tab1-checklist.tex}
+\end{table}
 
 \begin{table}[t]
 \centering
@@ -359,7 +457,6 @@ $\varepsilon$ near $3.6\times10^{-4}$.
 
 % =====================================================================
 \section{Recommendations}
-\label{sec:reco}
 
 Three things follow, in decreasing order of confidence.
 
@@ -408,13 +505,12 @@ the direction of the bound is known even though its tightness is not.
 
 % =====================================================================
 \section{Conclusion}
-\label{sec:conclusion}
 
 Surveys of semantic communication for non-terrestrial networks map each constraint of the
 satellite link onto the works said to address it. Measuring both sides of that mapping shows
 where it is load-bearing and where it is not. The orbit produces a Doppler shift with a median
 peak of \numDopKaMed~kHz drifting at up to \numDopRateMax~kHz/s and a link budget that sweeps
-\numFsplMed~dB across a \numDurMed~s window. Of \numCoded{} works that could be read and coded,
+\numFsplMed~dB across a \numDurMed~s window. Of the \numCoded{} works of Section~\ref{sec:census} that could be read and coded,
 \numEvCHAWGN{} evaluate over additive white Gaussian noise, \numEvCHGPP{} use a standardised
 non-terrestrial model, and none instantiates either the drift or the geometry that produces it.
 
