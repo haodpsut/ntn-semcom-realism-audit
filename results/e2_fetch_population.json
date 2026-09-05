@@ -1,0 +1,475 @@
+{
+ "n_population": 46,
+ "n_fulltext": 27,
+ "pct_fulltext": 58.7,
+ "items": [
+  {
+   "ref": 95,
+   "table": "TABLE III",
+   "cite": "S. S. Hassan, L. X. Nguyen, Y. K. Tun, Z. Han, and C. S. Hong (2024) Semantic enabled 6G LEO satellite communication for earth observation: a resource-constrained network optimization . In IEEE Glob. Commun. Conf. (GLOBECOM) , Cape Town, South Africa . Cited by: §II-C2 , §III-B , TABLE II , §IV-A , §V-A , TABLE III .",
+   "title": "Semantic enabled 6G LEO satellite communication for earth observation: a resource-constrained network optimization",
+   "survey_channel_col": "EO downlink, visibility window",
+   "arxiv_id": "2408.03959v1",
+   "source": "https://arxiv.org/html/2408.03959v1",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref095.html"
+  },
+  {
+   "ref": 115,
+   "table": "TABLE III",
+   "cite": "L. X. Nguyen, S. S. Hassan, Y. K. Tun, K. Kim, Z. Han, and C. S. Hong (2025) Semantic communication enabled 6G-NTN framework: a novel denoising and gateway hop integration mechanism . IEEE Trans. Wirel. Commun. 24 ( 12 ), pp. 10149–10165 . Cited by: §III-C , TABLE II , §IV-C , §V-A , TABLE III .",
+   "title": "Semantic communication enabled 6G-NTN framework: a novel denoising and gateway hop integration mechanism",
+   "survey_channel_col": "Multi-gateway hops, SNR-aware",
+   "arxiv_id": "2409.14726v1",
+   "source": "https://arxiv.org/html/2409.14726v1",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref115.html"
+  },
+  {
+   "ref": 154,
+   "table": "TABLE III",
+   "cite": "H. F. Chou, V. N. Ha, P. Thiruvasagam, T. D. Le, G. Eappen, T. T. Nguyen, D. D. Tran, L. M. Garces-Socarras, J. C. Merlano-Duncan, and S. Chatzinotas (2024) Cognitive semantic augmentation LEO satellite networks for earth observation . Note: Preprint arXiv:2410.21916 Cited by: §V-A , TABLE III .",
+   "title": "Cognitive semantic augmentation LEO satellite networks for earth observation",
+   "survey_channel_col": "Inter-satellite links",
+   "arxiv_id": "2410.21916v1",
+   "source": "https://arxiv.org/html/2410.21916v1",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref154.html"
+  },
+  {
+   "ref": 113,
+   "table": "TABLE III",
+   "cite": "P. Bhattacharjee and P. Jung (2024) Compressed learning-based onboard semantic compression for remote sensing platforms . In Proc. Artif. Intell. Image Signal Process. Remote Sens. , Vol. 13196 , pp. . Cited by: §III-C , TABLE II , §V-A , TABLE III , TABLE VII .",
+   "title": "Compressed learning-based onboard semantic compression for remote sensing platforms",
+   "survey_channel_col": "On-board sparse encoder",
+   "arxiv_id": "2409.01988v1",
+   "source": "https://arxiv.org/html/2409.01988v1",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref113.html"
+  },
+  {
+   "ref": 109,
+   "table": "TABLE III",
+   "cite": "H. Cao, S. Han, R. Meng, X. Xu, and P. Zhang (2025) Channel code-book (CCB): semantic image-adaptive transmission in satellite-ground scenario . Sensors 25 ( 1 ), pp. 269 . Cited by: §III-A , TABLE II , §V-B , TABLE III .",
+   "title": "Channel code-book (CCB): semantic image-adaptive transmission in satellite-ground scenario",
+   "survey_channel_col": "Channel-state code-book",
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 137,
+   "table": "TABLE III",
+   "cite": "J. Seon, S. Lee, S. H. Kim, Y. G. Sun, H. Seo, D. I. Kim, and J. Y. Kim (2025) Doppler-adaptive digital semantic communication for low earth orbit satellite systems . IEEE Internet Things J. 12 ( 24 ), pp. 52900–52912 . Cited by: §IV-B , §V-B , TABLE III .",
+   "title": "Doppler-adaptive digital semantic communication for low earth orbit satellite systems",
+   "survey_channel_col": "Doppler-aware DRL",
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 94,
+   "table": "TABLE III",
+   "cite": "H. Cao, R. Meng, X. Xu, S. Han, and P. Zhang (2026) Importance-aware robust semantic transmission for LEO satellite–ground communication . IEEE Internet Things J. 13 ( 5 ), pp. 9665–9681 . Cited by: §II-C2 , §III-A , TABLE II , TABLE II , 7th item , §V-B , TABLE III , §VIII-B .",
+   "title": "Importance-aware robust semantic transmission for LEO satellite–ground communication",
+   "survey_channel_col": "SNR-aware codec",
+   "arxiv_id": "2508.11457v2",
+   "source": "https://arxiv.org/html/2508.11457v2",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref094.html"
+  },
+  {
+   "ref": 100,
+   "table": "TABLE III",
+   "cite": "F. Liu, P. Jiang, W. Wang, C.-K. Wen, X. Li, and S. Jin (2026) Semantic satellite communications for synchronized audiovisual reconstruction . Note: Preprint arXiv:2603.10791 Cited by: §II-C2 , §III-A , §III-B , TABLE II , TABLE II , TABLE II , 3rd item , §IV-A , §IV-A , §IV-D , §V-B , TABLE III , §VIII-H , TABLE VII .",
+   "title": "Semantic satellite communications for synchronized audiovisual reconstruction",
+   "survey_channel_col": "Doppler, weather fading",
+   "arxiv_id": "2603.10791v2",
+   "source": "https://arxiv.org/html/2603.10791v2",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref100.html"
+  },
+  {
+   "ref": 93,
+   "table": "TABLE III",
+   "cite": "P. Jiang, C.-K. Wen, X. Li, S. Jin, and G. Y. Li (2025) Semantic satellite communications based on generative foundation model . IEEE J. Sel. Areas Commun. 43 ( 7 ), pp. 2431–2445 . Cited by: §II-C2 , §III-A , TABLE II , TABLE II , 3rd item , §IV-A , §IV-D , §V-C , TABLE III , §VIII-H , TABLE VII .",
+   "title": "Semantic satellite communications based on generative foundation model",
+   "survey_channel_col": "Adaptive encoder-decoder",
+   "arxiv_id": "2404.11941v1",
+   "source": "https://arxiv.org/html/2404.11941v1",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref093.html"
+  },
+  {
+   "ref": 161,
+   "table": "TABLE III",
+   "cite": "R. Zhang, H. Du, Y. Liu, D. Niyato, J. Kang, Z. Xiong, A. Jamalipour, and D. In Kim (2024) Generative ai agents with large language model for satellite networks via a mixture of experts transmission . IEEE J. Sel. Areas Commun. 42 ( 12 ), pp. 3581–3596 . External Links: Document Cited by: §V-C , TABLE III .",
+   "title": "Generative ai agents with large language model for satellite networks via a mixture of experts transmission",
+   "survey_channel_col": "Satellite interference",
+   "arxiv_id": "2404.09134v2",
+   "source": "https://arxiv.org/html/2404.09134v2",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref161.html"
+  },
+  {
+   "ref": 162,
+   "table": "TABLE III",
+   "cite": "H. Lee, S. Kim, H. Kim, J. Park, J. Choi, and D. Oh (2025) Generative semantic communication for efficient utilization of satellite resources in 6g . Int. J. Satell. Commun. Netw. . Cited by: §V-C , TABLE III .",
+   "title": "Generative semantic communication for efficient utilization of satellite resources in 6g",
+   "survey_channel_col": "Satellite downlink",
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 81,
+   "table": "TABLE IV",
+   "cite": "H. Zeng, J. Luo, and Y. Ran (2026) Joint semantic coding and routing for multi-hop semantic transmission in LEO satellite networks . Note: Preprint arXiv:2604.13361 Cited by: §II-B , §III-C , TABLE II , §V-D , TABLE IV .",
+   "title": "Joint semantic coding and routing for multi-hop semantic transmission in LEO satellite networks",
+   "survey_channel_col": "Multi-hop ISL routing",
+   "arxiv_id": "2604.13361v1",
+   "source": "https://arxiv.org/html/2604.13361v1",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref081.html"
+  },
+  {
+   "ref": 164,
+   "table": "TABLE IV",
+   "cite": "B. Guo, Z. Xiong, B. Wang, T. Q. S. Quek, and Z. Han (2024) Semantic communication-aware end-to-end routing in large-scale leo satellite networks . In IEEE Int. Conf. Metaverse Comput. Netw. Appl. (MetaCom) , Vol. , pp. . External Links: Document Cited by: §V-D , TABLE IV .",
+   "title": "Semantic communication-aware end-to-end routing in large-scale leo satellite networks",
+   "survey_channel_col": "Temporal-graph ISL",
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 117,
+   "table": "TABLE IV",
+   "cite": "J. Huang, M. Sun, X. Xu, J. Zhu, Z. Fang, J. Zhang, R. Zhang, C. Dong, P. Zhang, and D. Niyato (2026) Semantic forwarding and codebook-enhanced model division multiple access for satellite-terrestrial networks . Note: Preprint arXiv:2603.02536 Cited by: §III-C , TABLE II , §IV-C , §V-D , TABLE IV , §VIII-G3 .",
+   "title": "Semantic forwarding and codebook-enhanced model division multiple access for satellite-terrestrial networks",
+   "survey_channel_col": "Semantic forwarding",
+   "arxiv_id": "2603.02536v2",
+   "source": "https://arxiv.org/abs/2603.02536",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref117.html"
+  },
+  {
+   "ref": 165,
+   "table": "TABLE IV",
+   "cite": "C. Huang, X. Chen, J. Cui, J. Li, P. Xiao, G. Chen, and R. Tafazolli (2026) Semantic transmission framework in direct satellite communications . Preprint arXiv:2601.00381 . Cited by: §V-D , TABLE IV .",
+   "title": "Semantic transmission framework in direct satellite communications",
+   "survey_channel_col": "Direct Satellite Communication",
+   "arxiv_id": "2601.00381v2",
+   "source": "https://arxiv.org/html/2601.00381v2",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref165.html"
+  },
+  {
+   "ref": 116,
+   "table": "TABLE IV",
+   "cite": "W. Lin, Y. Yan, L. Li, Z. Han, and T. Matsumoto (2024) Semantic-forward relaying: a novel framework towards 6G cooperative communications . IEEE Commun. Lett. . External Links: Document Cited by: §III-C , TABLE II , §IV-C , TABLE IV .",
+   "title": "Semantic-forward relaying: a novel framework towards 6G cooperative communications",
+   "survey_channel_col": "Cooperative relaying",
+   "arxiv_id": "2310.07987v2",
+   "source": "https://arxiv.org/html/2310.07987v2",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref116.html"
+  },
+  {
+   "ref": 167,
+   "table": "TABLE IV",
+   "cite": "Z. Zhao, Z. Yang, M. Chen, X. Gan, C. Huang, W. Xu, and Z. Zhang (2024) Energy efficient probabilistic semantic communication over sagin . In IEEE Glob. Commun. Conf. , Vol. , pp. . External Links: Document Cited by: §V-E , TABLE IV .",
+   "title": "Energy efficient probabilistic semantic communication over sagin",
+   "survey_channel_col": "Satellite-UAV-Ground User",
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 168,
+   "table": "TABLE IV",
+   "cite": "F. Minani, M. Kobayashi, T. Fujihashi, Md. A. Alim, S. Saruwatari, and T. Watanabe (2024) QoSem-based resource allocation for semantic communication in ntn downlinks . In IEEE Glob. Commun. Conf. , Vol. , pp. . External Links: Document Cited by: §V-E , TABLE IV .",
+   "title": "QoSem-based resource allocation for semantic communication in ntn downlinks",
+   "survey_channel_col": "Satellite-HAPS-Ground downlink",
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 170,
+   "table": "TABLE IV",
+   "cite": "H. Nguyen-Kha, T. T. Nguyen, V. N. Ha, E. Lagunas, S. Chatzinotas, and B. Ottersten (2026) A joint jscc-resource allocation framework for qos-aware semantic communication in leo satellite-based eo missions . Preprint arXiv:2603.12027 . Cited by: §V-E , TABLE IV .",
+   "title": "A joint jscc-resource allocation framework for qos-aware semantic communication in leo satellite-based eo missions",
+   "survey_channel_col": "SNR-aware link",
+   "arxiv_id": "2603.12027v1",
+   "source": "https://arxiv.org/html/2603.12027v1",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref170.html"
+  },
+  {
+   "ref": 110,
+   "table": "TABLE IV",
+   "cite": "E. Delfani and N. Pappas (2025) Semantics-aware updates from remote IoT devices to interconnected LEO satellites . Note: Preprint arXiv:2502.07069 Cited by: §III-B , TABLE II , 6th item , TABLE IV , §VIII-B , §VIII-B , §VIII-B , TABLE VII .",
+   "title": "Semantics-aware updates from remote IoT devices to interconnected LEO satellites",
+   "survey_channel_col": "Energy harvesting",
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 104,
+   "table": "TABLE IV",
+   "cite": "L. X. Nguyen, S. S. Hassan, Y. M. Park, Y. K. Tun, Z. Han, and C. S. Hong (2026) SemSpaceFL: a collaborative hierarchical federated learning framework for semantic communication in 6G LEO satellites . IEEE Trans. Commun. 74 , pp. 1269–1286 . Cited by: §III-D , TABLE II , TABLE II , §IV-D , §V-F , TABLE IV , §VIII-G3 , TABLE VII .",
+   "title": "SemSpaceFL: a collaborative hierarchical federated learning framework for semantic communication in 6G LEO satellites",
+   "survey_channel_col": "Hierarchical FL",
+   "arxiv_id": "2505.00966v2",
+   "source": "https://arxiv.org/html/2505.00966v2",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref104.html"
+  },
+  {
+   "ref": 118,
+   "table": "TABLE IV",
+   "cite": "A. H. Razlighi, P. Dhingra, E. Beck, B. Matthiesen, and A. Dekorsy (2026) Semantic-aware task clustering for federated cooperative multi-task semantic communication . Note: Preprint arXiv:2601.17419 Cited by: §III-D , TABLE II , §IV-D , §V-F , TABLE IV , TABLE VII .",
+   "title": "Semantic-aware task clustering for federated cooperative multi-task semantic communication",
+   "survey_channel_col": "Task-clustered FL",
+   "arxiv_id": "2601.17419v1",
+   "source": "https://arxiv.org/html/2601.17419v1",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref118.html"
+  },
+  {
+   "ref": 171,
+   "table": "TABLE IV",
+   "cite": "G. Zheng, Q. Ni, K. Navaie, and H. Pervaiz (2024) Semantic communication in satellite-borne edge cloud network for computation offloading . IEEE J. Sel. Areas Commun. 42 ( 5 ), pp. 1145–1158 . External Links: Document Cited by: §V-F , TABLE IV .",
+   "title": "Semantic communication in satellite-borne edge cloud network for computation offloading",
+   "survey_channel_col": "Satellite-ground offloading",
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 174,
+   "table": "TABLE V",
+   "cite": "C. M. W. Basnayaka, D. N. K. Jayakody, and M. Beko (2023) Semantics-empowered UAV-assisted wireless communication system for wildfire detection . In Proc. IEEE Int. Workshop Comput.-Aided Model. Des. Commun. Links Netw. , Edinburgh, United Kingdom . Cited by: §VI-A , TABLE V .",
+   "title": "Semantics-empowered UAV-assisted wireless communication system for wildfire detection",
+   "survey_channel_col": null,
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 178,
+   "table": "TABLE V",
+   "cite": "J. Tian, J. Chen, and P. Y. Kam (2026) Robust semantic transmission for low-altitude UAVs: predictive channel-aware scheduling and generative reconstruction . Note: Preprint arXiv:2602.10482 Cited by: §VI-A , TABLE V .",
+   "title": "Robust semantic transmission for low-altitude UAVs: predictive channel-aware scheduling and generative reconstruction",
+   "survey_channel_col": null,
+   "arxiv_id": "2602.10482v1",
+   "source": "https://arxiv.org/html/2602.10482v1",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref178.html"
+  },
+  {
+   "ref": 179,
+   "table": "TABLE V",
+   "cite": "P. Joshi and M. Gurusamy (2026) Context-aware information transfer via digital semantic communication in UAV-based networks . Note: Preprint arXiv:2601.01430 Cited by: §VI-A , TABLE V .",
+   "title": "Context-aware information transfer via digital semantic communication in UAV-based networks",
+   "survey_channel_col": null,
+   "arxiv_id": "2601.01430v2",
+   "source": "https://arxiv.org/html/2601.01430v2",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref179.html"
+  },
+  {
+   "ref": 102,
+   "table": "TABLE V",
+   "cite": "X. Song, L. Yuan, Z. Qu, F. Zhou, Q. Wu, T. Q. S. Quek, and R. Q. Hu (2024) Knowledge graph driven UAV cognitive semantic communication systems for efficient object detection . In Proc. IEEE Int. Conf. Commun. (ICC) , Denver, CO . Cited by: §II-C3 , 4th item , §IV-A , §IV-A , §VI-B , TABLE V .",
+   "title": "Knowledge graph driven UAV cognitive semantic communication systems for efficient object detection",
+   "survey_channel_col": null,
+   "arxiv_id": "2401.13995v3",
+   "source": "https://arxiv.org/html/2401.13995v3",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref102.html"
+  },
+  {
+   "ref": 180,
+   "table": "TABLE V",
+   "cite": "J. Kang, H. Du, Z. Li, Z. Xiong, S. Ma, D. Niyato, and Y. Li (2023) Personalized saliency in task-oriented semantic communications: image transmission and performance analysis . IEEE J. Sel. Areas Commun. 41 ( 1 ), pp. 186–201 . Cited by: §VI-B , TABLE V .",
+   "title": "Personalized saliency in task-oriented semantic communications: image transmission and performance analysis",
+   "survey_channel_col": null,
+   "arxiv_id": "2209.12274v1",
+   "source": "https://arxiv.org/html/2209.12274v1",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref180.html"
+  },
+  {
+   "ref": 182,
+   "table": "TABLE V",
+   "cite": "H. Wang, L. Wang, and W. Wu (2023) Resource allocation and intelligent trajectory optimization for uav-assisted semantic communication system . In IEEE Int. Conf. Commun. Technol. (ICCT) , Vol. , pp. . External Links: Document Cited by: §VI-C , TABLE V , TABLE V .",
+   "title": "Resource allocation and intelligent trajectory optimization for uav-assisted semantic communication system",
+   "survey_channel_col": null,
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 184,
+   "table": "TABLE V",
+   "cite": "P. Xie, Q. Chen, J. Wu, X. Gao, L. Xing, Y. Zhang, and H. Sun (2025) NOMA-based intelligent resource allocation and trajectory optimization for multi-uavs assisted semantic communication networks . Ad Hoc Networks 171 , pp. 103762 . External Links: ISSN 1570-8705 , Document Cited by: §VI-C , TABLE V .",
+   "title": "NOMA-based intelligent resource allocation and trajectory optimization for multi-uavs assisted semantic communication networks",
+   "survey_channel_col": null,
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 186,
+   "table": "TABLE V",
+   "cite": "A. Sankara, D. B. Licea, and H. E. Hammouti (2026) Semantic-aware UAV command and control for efficient IoT data collection . In Proc. IEEE Int. Conf. Acoust. Speech Signal Process. , Barcelona, Spain , pp. . External Links: Document Cited by: §VI-C , TABLE V .",
+   "title": "Semantic-aware UAV command and control for efficient IoT data collection",
+   "survey_channel_col": null,
+   "arxiv_id": "2604.08153v2",
+   "source": "https://arxiv.org/html/2604.08153v2",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref186.html"
+  },
+  {
+   "ref": 190,
+   "table": "TABLE V",
+   "cite": "X. Zheng, G. Sun, J. Li, J. Wang, W. Yuan, Q. Wu, D. Niyato, and A. Jamalipour (2026) Low-altitude multi-uav-assisted data collection and semantic forwarding for post-disaster relief . Preprint arXiv:2601.16146 . Cited by: §VI-C , TABLE V .",
+   "title": "Low-altitude multi-uav-assisted data collection and semantic forwarding for post-disaster relief",
+   "survey_channel_col": null,
+   "arxiv_id": "2601.16146v1",
+   "source": "https://arxiv.org/html/2601.16146v1",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref190.html"
+  },
+  {
+   "ref": 191,
+   "table": "TABLE V",
+   "cite": "L. Siyun, C. Zhu, Z. Yang, C. You, D. Niyato, K. Wong, and Z. Zhang (2025) Fair resource allocation in uav-based semantic communication system with fluid antenna . Preprint arXiv:2504.05955 . Cited by: §VI-C , TABLE V .",
+   "title": "Fair resource allocation in uav-based semantic communication system with fluid antenna",
+   "survey_channel_col": null,
+   "arxiv_id": "2504.05955v1",
+   "source": "https://arxiv.org/html/2504.05955v1",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref191.html"
+  },
+  {
+   "ref": 196,
+   "table": "TABLE V",
+   "cite": "S. Du, Y. Zhang, Z. Tao, H. Li, and H. Mei (2026) Federated learning semantic communication in UAV systems: PPO-based joint trajectory and resource allocation optimization . Sensors 26 ( 2 ), pp. 675 . Cited by: §VI-D , TABLE V .",
+   "title": "Federated learning semantic communication in UAV systems: PPO-based joint trajectory and resource allocation optimization",
+   "survey_channel_col": null,
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 198,
+   "table": "TABLE V",
+   "cite": "F. Minani, M. Kobayashi, T. Fujihashi, Md. A. Alim, S. Saruwatari, M. Nishi, and T. Watanabe (2025) Resource allocation for semantic communication in ntn downlinks . IEEE Trans. Cogn. Commun. Netw. 12 ( ), pp. 524–544 . External Links: Document Cited by: §VI-E , TABLE V .",
+   "title": "Resource allocation for semantic communication in ntn downlinks",
+   "survey_channel_col": null,
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 199,
+   "table": "TABLE V",
+   "cite": "P. Nkurunziza and D. Umehara (2026) Attention–based haps–to–ground nodes optimization for differential privacy towards secure semantic communications . Neural Computing and Applications 38 ( 5 ), pp. 105 . Cited by: §VI-E , TABLE V .",
+   "title": "Attention–based haps–to–ground nodes optimization for differential privacy towards secure semantic communications",
+   "survey_channel_col": null,
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 108,
+   "table": "TABLE VI",
+   "cite": "E. Uysal (2024) Goal-oriented communications for interplanetary and non-terrestrial networks . Preprint arXiv:2409.14534 . Cited by: §III-B , TABLE II , §VII-A , TABLE VI .",
+   "title": "Goal-oriented communications for interplanetary and non-terrestrial networks",
+   "survey_channel_col": null,
+   "arxiv_id": "2409.14534v2",
+   "source": "https://arxiv.org/html/2409.14534v2",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref108.html"
+  },
+  {
+   "ref": 200,
+   "table": "TABLE VI",
+   "cite": "Y. Qiu, T. Liao, X. Jin, Q. Zhang, and S. Wu (2025) Twinning for space-air-ground-sea integrated networks: beyond conventional digital twin towards goal-oriented semantic twin . ArXiv:2512.16058 . Cited by: §VII-A , TABLE VI .",
+   "title": "Twinning for space-air-ground-sea integrated networks: beyond conventional digital twin towards goal-oriented semantic twin",
+   "survey_channel_col": null,
+   "arxiv_id": "2512.16058v3",
+   "source": "https://arxiv.org/html/2512.16058v3",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref200.html"
+  },
+  {
+   "ref": 202,
+   "table": "TABLE VI",
+   "cite": "S. M. Waqas, A. Liang, X. Xue, F. Huang, W. Liu, J. Hu, M. Wu, S. Raza, and F. Abbas (2026) Perception-aware offloading with collaborative ground–space beamforming for resilient sagin communications . IEEE Internet Things J. 13 ( 9 ), pp. 18044–18059 . External Links: Document Cited by: §VII-B , TABLE VI .",
+   "title": "Perception-aware offloading with collaborative ground–space beamforming for resilient sagin communications",
+   "survey_channel_col": null,
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 203,
+   "table": "TABLE VI",
+   "cite": "Y. Yin, D. Wen, C. You, X. Cao, T.-M. Lok, and D. Niyato (2025) Aerial semantic relay-enabled SAGIN: joint UAV deployment and resource allocation . Note: Preprint arXiv:2511.18456 Cited by: §VII-B , TABLE VI .",
+   "title": "Aerial semantic relay-enabled SAGIN: joint UAV deployment and resource allocation",
+   "survey_channel_col": null,
+   "arxiv_id": "2511.18456v1",
+   "source": "https://arxiv.org/html/2511.18456v1",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref203.html"
+  },
+  {
+   "ref": 112,
+   "table": "TABLE VI",
+   "cite": "C. Huang, X. Chen, G. Chen, P. Xiao, G. Y. Li, and W. Huang (2025) Deep reinforcement learning-based resource allocation for hybrid bit and generative semantic communications in space-air-ground integrated networks . IEEE J. Sel. Areas Commun. 43 ( 12 ), pp. 3942–3954 . Cited by: §III-A , §III-C , TABLE II , TABLE II , §VII-B , TABLE VI , TABLE VII .",
+   "title": "Deep reinforcement learning-based resource allocation for hybrid bit and generative semantic communications in space-air-ground integrated networks",
+   "survey_channel_col": null,
+   "arxiv_id": "2412.05647v3",
+   "source": "https://arxiv.org/html/2412.05647v3",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref112.html"
+  },
+  {
+   "ref": 204,
+   "table": "TABLE VI",
+   "cite": "Y. Liu, F. Yin, Q. Liu, D. Liu, L. Jin, and S. Li (2025) Semantic-aware resource allocation in mec-assisted sagin: a deep reinforcement learning-based approach . In Proc. IEEE Veh. Technol. Conf. (VTC2025-Fall) , Vol. , pp. . External Links: Document Cited by: §VII-C , TABLE VI .",
+   "title": "Semantic-aware resource allocation in mec-assisted sagin: a deep reinforcement learning-based approach",
+   "survey_channel_col": null,
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 114,
+   "table": "TABLE VI",
+   "cite": "Z. Zhao, Z. Yang, M. Chen, C. Zhu, W. Xu, Z. Zhang, and K. Huang (2025) Energy-efficient probabilistic semantic communication over space-air-ground integrated networks . IEEE Trans. Wirel. Commun. 24 ( 10 ), pp. 8814–8829 . Cited by: §III-C , §III-C , TABLE II , §VII-C , TABLE VI , §VIII-B , TABLE VII .",
+   "title": "Energy-efficient probabilistic semantic communication over space-air-ground integrated networks",
+   "survey_channel_col": null,
+   "arxiv_id": "2407.03776v1",
+   "source": "https://arxiv.org/html/2407.03776v1",
+   "status": "toan van OK",
+   "path": "data/fulltext/ref114.html"
+  },
+  {
+   "ref": 205,
+   "table": "TABLE VI",
+   "cite": "Y. Liu, C. Dong, H. Liang, W. Li, X. Xu, and P. Zhang (2026) Semantic communication for high-speed mobility scenarios: a semantic-otfs scheme . IEEE Trans. Veh. Technol. ( ), pp. . External Links: Document Cited by: §VII-D , TABLE VI .",
+   "title": "Semantic communication for high-speed mobility scenarios: a semantic-otfs scheme",
+   "survey_channel_col": null,
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 206,
+   "table": "TABLE VI",
+   "cite": "S. Tao, M. Yuan, Q. Wu, R. Wang, and J. Hao (2025) Generative ai-aided vertical handover decision in sagin for iot with integrated sensing and communication . IEEE Internet Things J. 12 ( 10 ), pp. 13297–13310 . External Links: Document Cited by: §VII-D , TABLE VI .",
+   "title": "Generative ai-aided vertical handover decision in sagin for iot with integrated sensing and communication",
+   "survey_channel_col": null,
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 207,
+   "table": "TABLE VI",
+   "cite": "Q. Jia, J. Zheng, L. Gao, J. Niu, R. Cao, and J. Ren (2026) Satellite-aided low-altitude uav service migration with semantic extraction and generated graphs . IEEE Trans. Cogn. Commun. Netw. 12 ( ), pp. 5136–5147 . External Links: Document Cited by: §VII-D , TABLE VI .",
+   "title": "Satellite-aided low-altitude uav service migration with semantic extraction and generated graphs",
+   "survey_channel_col": null,
+   "arxiv_id": null,
+   "status": "khong co ban arXiv khop tieu de"
+  }
+ ]
+}

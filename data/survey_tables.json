@@ -1,0 +1,456 @@
+{
+ "TABLE III": {
+  "caption": "TABLE III: Representative Works on Semantic Communication for Satellite Networks (Part I)",
+  "rows": [
+   [
+    "Theme",
+    "Ref.",
+    "Modality",
+    "SemCom paradigm",
+    "Channel/protocol consideration",
+    "Performance metric",
+    "Key contribution"
+   ],
+   [
+    "EO Semantic Downlink",
+    "[95]",
+    "Satellite imagery",
+    "D-JSCC",
+    "EO downlink, visibility window",
+    "Latency, SemCom-QoS",
+    "SemCom-QoS-aware EO downlink latency minimization via whale optimization for compression rate and matching-game association."
+   ],
+   [
+    "",
+    "[115]",
+    "Satellite imagery",
+    "D-JSCC",
+    "Multi-gateway hops, SNR-aware",
+    "Semantic similarity",
+    "Gateway is leveraged to assist SemCom user under low SNR value through latent-space denoising and signal hopping mechanism."
+   ],
+   [
+    "",
+    "[154]",
+    "Multi-spectral imagery",
+    "DT-JSCC + augmentation",
+    "Inter-satellite links",
+    "Detection accuracy",
+    "Cognitive semantic augmentation is proposed at the routing satellite by on-board semantic inference to enhance the performance."
+   ],
+   [
+    "",
+    "[113]",
+    "Remote-sensing image",
+    "Sparse compressed learning",
+    "On-board sparse encoder",
+    "Reconstruction quality",
+    "Semantic compression via compressed learning, a linear compressor encodes features using a single matrix-vector multiplication."
+   ],
+   [
+    "Channel-Adaptive Transmission",
+    "[109]",
+    "Image",
+    "D-JSCC + decoder bank",
+    "Channel-state code-book",
+    "PSNR, SSIM",
+    "Propose Channel-Code-Book indexing that encodes channel information as parameters to address satellite dynamic environments."
+   ],
+   [
+    "",
+    "[137]",
+    "IoT data",
+    "Digital SemCom (VQ-VAE)",
+    "Doppler-aware DRL",
+    "Throughput, accuracy",
+    "Address digital gap and Doppler effects with DRL-based modulation adaptation using real-time Doppler and delay spread."
+   ],
+   [
+    "",
+    "[94]",
+    "Remote-sensing image",
+    "D-JSCC",
+    "SNR-aware codec",
+    "Accuracy, Task target region",
+    "Segment the images into regions and task-driven selection is considered to prioritize the vital content under bandwidth scarcity."
+   ],
+   [
+    "",
+    "[100]",
+    "Audio + video",
+    "Multi-modal + LLM agent",
+    "Doppler, weather fading",
+    "Bandwidth, AKD",
+    "An LLM-driven dual-stream multimodal framework enables adaptive audio/video generation and dynamic keyframe updates for high-fidelity synchronized reconstruction in satellite scenarios."
+   ],
+   [
+    "Generative-AI SemCom",
+    "[93]",
+    "Remote-sensing image",
+    "Generative AI (FM/diffusion)",
+    "Adaptive encoder-decoder",
+    "Perceptual loss and SSIM",
+    "Foundation-model segmentation reduces communication requirements, the diffusion-based generator enables robust reconstruction."
+   ],
+   [
+    "",
+    "[161]",
+    "Generic data",
+    "Generative AI (LLM + RAG)",
+    "Satellite interference",
+    "Achievable Sum Rate, Accuracy",
+    "Generative AI models the math for SatCom, and utilizes retrieval-augmented generation to extract satellite expert knowledge."
+   ],
+   [
+    "",
+    "[162]",
+    "Generic data",
+    "Generative SemCom",
+    "Satellite downlink",
+    "Power, BW efficiency, fidelity",
+    "Ground users are divided into 2 groups: generative user received clue for data generation, offloading user received complete data"
+   ],
+   [
+    "",
+    "𝒢⁡(t)=(𝒱,ℰ⁡(t)),\\mathcal{G}(t)=\\left(\\mathcal{V},\\mathcal{E}(t)\\right),",
+    "",
+    "(7)"
+   ],
+   [
+    "",
+    "𝐚i​(t)=(aihop​(t),aic​(t),airelay​(t)),\\mathbf{a}_{i}(t)=\\left(a_{i}^{\\mathrm{hop}}(t),\\ a_{i}^{c}(t),\\ a_{i}^{\\mathrm{relay}}(t)\\right),",
+    "",
+    "(8)"
+   ]
+  ]
+ },
+ "TABLE IV": {
+  "caption": "TABLE IV: Representative Works on Semantic Communication for Satellite Networks (Part II)",
+  "rows": [
+   [
+    "Theme",
+    "Ref.",
+    "Modality",
+    "SemCom paradigm",
+    "Channel/protocol consideration",
+    "Performance metric",
+    "Key contribution"
+   ],
+   [
+    "Multi-Hop & Inter-Satellite",
+    "[81]",
+    "Image",
+    "D-JSCC",
+    "Multi-hop ISL routing",
+    "Latency, drop rate",
+    "Graph-based joint routing & semantic coding method is proposed for multi-hop ISL, exploits local topology & state information."
+   ],
+   [
+    "",
+    "[164]",
+    "Generic data",
+    "KB-aware SC routing",
+    "Temporal-graph ISL",
+    "Acceptance ratio, throughput, delay",
+    "The work identified the inapplicability of traditional routing in SC, proposed SC-aware routing that enhances bandwidth efficiency."
+   ],
+   [
+    "",
+    "[117]",
+    "Image",
+    "Codebook-based D-JSCC",
+    "Semantic forwarding",
+    "PSNR and MS-SSIM",
+    "Semantic encoder and semantic codebook are jointly optimized, a forwarding mechanism to eliminate the noise accumulation."
+   ],
+   [
+    "",
+    "[165]",
+    "Image",
+    "Generative hybrid SemCom",
+    "Direct Satellite Communication",
+    "Semantic efficiency",
+    "The work proposed three modes for the direct Satellite communications: bit mode, text mode, and visual-text mode. Studied the trade-off among communication, computation, generation quality."
+   ],
+   [
+    "",
+    "[116]",
+    "Image",
+    "D-JSCC + relaying",
+    "Cooperative relaying",
+    "Euclidean distance",
+    "Proposed a semantic-assisted relaying system, where the relay reconstructs the image & extracts semantics for destination nodes."
+   ],
+   [
+    "Resource Allocation",
+    "[167]",
+    "Satellite imagery",
+    "Probabilistic SemCom",
+    "Satellite-UAV-Ground User",
+    "Energy Consumption",
+    "Studied the trade-off between communication & computation in Graph-based SemCom, satellite-UAV task allocation is considered."
+   ],
+   [
+    "",
+    "[168]",
+    "Image",
+    "D-JSCC",
+    "Satellite-HAPS-Ground downlink",
+    "Quality of Semantic",
+    "Computing, power, bandwidth resources, selected semantic information are optimized by SAC-based DRL [169]."
+   ],
+   [
+    "",
+    "[170]",
+    "Satellite imagery",
+    "D-JSCC",
+    "SNR-aware link",
+    "Accuracy, resource cost",
+    "Approximate the relationship among image quality, compression ratio, and SNR through curve fitting, enabling conventional RA."
+   ],
+   [
+    "",
+    "[110]",
+    "Status updates",
+    "Semantics-aware (AoI)",
+    "Energy harvesting",
+    "Version AoI",
+    "The paper focused on the timely and efficient transmission from ground IoT to a network with interconnected LEO satellites."
+   ],
+   [
+    "Federated SemCom Learning",
+    "[104]",
+    "Image (multi-task)",
+    "D-JSCC",
+    "Hierarchical FL",
+    "MS-SSIM, training time",
+    "Leverage LEO satellite data for rapid SemCom training while considering orbit movement for optimal gateway association."
+   ],
+   [
+    "",
+    "[118]",
+    "Multiple modalities",
+    "D-JSCC",
+    "Task-clustered FL",
+    "Task accuracy",
+    "Acknowledge the negative updates due to different task, semantic-similarity-based task clustering for cooperative FL-SemCom."
+   ],
+   [
+    "",
+    "[171]",
+    "Imagery",
+    "D-JSCC + split learning",
+    "Satellite-ground offloading",
+    "Accuracy, training cost",
+    "Consider the FL for updating the SemCom model, while the trained model is used for computation offloading."
+   ]
+  ]
+ },
+ "TABLE V": {
+  "caption": "TABLE V: Representative Works on Semantic Communication for UAV and HAPS Networks",
+  "rows": [
+   [
+    "Ref.",
+    "SemCom paradigm",
+    "Optimization / key technique",
+    "Performance metric",
+    "Key contribution"
+   ],
+   [
+    "[174]",
+    "D-JSCC",
+    "Joint encoder/decoder training",
+    "Detection Accuracy, PSNR",
+    "D-JSCC wildfire detection from UAV aerial imagery, reconstruction skipped for fast inference, and accuracy depends on the altitude of UAVs."
+   ],
+   [
+    "[178]",
+    "D-JSCC and Generative Reconstruction",
+    "Predictive channel-aware scheduling, Structure-Texture VAE",
+    "PSNR, SSIM",
+    "Under time slots experience deep fading, structural information is prioritized transmitted, receiver employs conditional generative prior to hallucinate missing textures, 5.6 dB PSNR gain over D-JSCC."
+   ],
+   [
+    "[179]",
+    "Digital SemCom (ViT + prompt)",
+    "Context-adaptive coding through prompt",
+    "Semantic Structural Similarity, AoI",
+    "Context-adaptive digital from ground user to base station is proposed, where the UAV acts as a relay layer and is required to optimize trajectory and the associated user; up to 22% SSS gain and 14% AoI reduction."
+   ],
+   [
+    "[102]",
+    "UAV Cognitive SemCom",
+    "Multi-scale codec + Relational Graph Attention Network",
+    "Detection Accuracy, Computing Complexity",
+    "Multi-scale compression network is designed to reduce data transmission, and the knowledge graph is leveraged to secure high-accuracy detection from the received semantic features. More robust against low SNR values."
+   ],
+   [
+    "[180]",
+    "Knowledge Graph SemCom",
+    "Triple-based scene graph to determine user preference image",
+    "Task accuracy",
+    "Only transmit the interested image of the user instead of all sensing images obtained by UAV. The interested image is determined by the user’s triplet, which helps the author derive a semantic encoder."
+   ],
+   [
+    "[182]",
+    "D-JSCC",
+    "4-Soft Actor-Critic Multi-agent DRL",
+    "Average Task Accuracy, Energy",
+    "Four agents jointly optimize the UAV trajectory, the number of semantic symbols, and the UAV transmit power for image gathering."
+   ],
+   [
+    "[184]",
+    "D-JSCC + NOMA",
+    "K-means clustering to determine a set of served users for UAV",
+    "Semantic Spectral Efficiency",
+    "Improved from the scenario [182], consider an UAV to serve multiple users in a shared spectrum resource, where the author adopted NOMA for spectrum utilization. UAV trajectory, symbols, and power are optimized."
+   ],
+   [
+    "[186]",
+    "Goal-oriented D-JSCC",
+    "DDQN flight policy (MDP)",
+    "Reconstruction quality- PSNR",
+    "The work approach studied the trade-off relationship between the UAV’s trajectory and the need of high-quality semantic data recovery."
+   ],
+   [
+    "[190]",
+    "D-JSCC + relaying",
+    "LLM-assisted alternating optimization",
+    "Flight Energy Consumption, Transmit Rate",
+    "The study focuses on the current trend in the low-altitude economy, where multiple UAVs collaboratively collect data, perform semantic forwarding, act as a virtual antenna array for beamforming to communicate with BS."
+   ],
+   [
+    "[191]",
+    "D-JSCC",
+    "Gurobi solvers for user associate, Ant colony for UAV trajectory",
+    "Min equivalent rate",
+    "The paper studies the integration of SemCom with fluid antenna, where UAV optimizes trajectory, transmit covariance matrix, compression rate, and port selection for image users equipped with the fluid antenna."
+   ],
+   [
+    "[196]",
+    "D-JSCC",
+    "Distributed SemCom, jointly optimize trajectory & bandwidth",
+    "Energy-delay product, fairness",
+    "UAV as the central coordinator for distributed SemCom learning devices, where edge intelligence is leveraged to handle computation tasks due to D-JSCC nature, and reduce the burden on resource-constrained UAVs."
+   ],
+   [
+    "[198]",
+    "D-JSCC",
+    "Mixed-action decision intelligent semantic-aware SAC",
+    "QoSem (information accuracy, semantic rate, time)",
+    "LEO satellite conduct SemCom toward HAP, where to facilitate the complex requirement of QoSem, the semantic information, transmit power, communication, and computation resources are jointly optimized."
+   ],
+   [
+    "[199]",
+    "D-JSCC",
+    "GDPFT-Gaussian differential privacy feature transformation",
+    "Reconstruction quality, secrecy",
+    "To avoid eavesdropping in SemCom NTN, the author proposed a channel spatial attention mechanism for nodes optimization and GDPFT for secure semantic information routed from HAPS to legitimate receiver."
+   ]
+  ]
+ },
+ "TABLE VI": {
+  "caption": "TABLE VI: Representative Works on Semantic Communication for Integrated SAGIN/SAGSIN",
+  "rows": [
+   [
+    "Ref.",
+    "Category",
+    "Architecture",
+    "SemCom paradigm",
+    "Key technique",
+    "Performance metric",
+    "Key contribution"
+   ],
+   [
+    "[108]",
+    "Architectural Visions",
+    "LEO/GEO-HAPS-ground IoT",
+    "Goal-oriented random access & flow control",
+    "Joint sampling and scheduling + DTN bundle protocol",
+    "Information relevance, delivery",
+    "Goal-oriented semantic flow control across heterogeneous NTN layers based on new KPIs."
+   ],
+   [
+    "[200]",
+    "Architectural Visions",
+    "Space-air-ground-sea",
+    "Goal-oriented semantic twin",
+    "Knowledge/data/goal three-layer framework",
+    "Utility/Accuracy, Timeliness",
+    "GOST: reframes twinning around task utility over physical fidelity."
+   ],
+   [
+    "[202]",
+    "Multi-Tier Relay",
+    "LEO-UAV-Ground User",
+    "Perception-aware SemCom",
+    "Hybrid-action DRL (SAC) + SCA",
+    "Offloading success, delay",
+    "PAHA-DRL for joint offloading and uplink beamforming."
+   ],
+   [
+    "[203]",
+    "Multi-Tier Relay",
+    "Multi-cluster SAGIN",
+    "SemCom co-exsit BitCom",
+    "Joint UAV position and RA by AO",
+    "Sum-rate, SE",
+    "UAVs as adaptive aerial semantic relays for heterogeneous users."
+   ],
+   [
+    "[112]",
+    "Multi-Tier Relay",
+    "LEO-UAV-Ground User",
+    "Hybrid bit & Gen-SemCom",
+    "DSAC mode switching + trajectory opt.",
+    "Latency, quality (SCE),",
+    "The UAV assists LEO in the hybrid paradigm with a low budget."
+   ],
+   [
+    "[204]",
+    "Resource-Efficient",
+    "Sat-UAV-Ground IoT (MEC)",
+    "Probabilistic sem compression",
+    "MAPPO + SCA decomposition",
+    "Energy, latency",
+    "PSC-based offloading balancing compression-computation-energy."
+   ],
+   [
+    "[114]",
+    "Resource-Efficient",
+    "Sat-UAV-ground",
+    "Probabilistic SemCom",
+    "Probability-graph KB + six-block AO",
+    "Energy efficiency",
+    "First SemCom resource allocation work with closed-form solutions."
+   ],
+   [
+    "[205]",
+    "Mobility & Dynamics",
+    "LEO / V2X links",
+    "D-JSCC + Semi-OTFS-MA",
+    "Chunk Mapping to combat Doppler Shift",
+    "Reconstruction, rate region",
+    "Differentiate the high-speed user and low-speed user for SemCom."
+   ],
+   [
+    "[206]",
+    "Mobility & Dynamics",
+    "Space-Air-Ground User",
+    "Generative decision-making",
+    "Diffusion-empowered MAPPO",
+    "Jitter, load balance",
+    "Diffusion-based vertical handover decision under LEO dynamics."
+   ],
+   [
+    "[207]",
+    "Mobility & Dynamics",
+    "Sat-aided low-altitude UAV",
+    "Semantic-graph MARL",
+    "Diffusion topology gen. + message passing",
+    "Delay, throughput",
+    "Semantic graph learning for routing and service migration."
+   ]
+  ]
+ }
+}

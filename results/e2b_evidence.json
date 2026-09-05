@@ -1,0 +1,3544 @@
+{
+ "n_items": 46,
+ "n_fulltext": 27,
+ "n_eval_section_located": 26,
+ "checklist": [
+  {
+   "code": "DOPPLER",
+   "desc": "do dich Doppler"
+  },
+  {
+   "code": "DOPPLER_RATE",
+   "desc": "Doppler bien thien theo thoi gian"
+  },
+  {
+   "code": "DELAY",
+   "desc": "tre lan truyen"
+  },
+  {
+   "code": "PATHLOSS_ELEV",
+   "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay"
+  },
+  {
+   "code": "VISIBILITY",
+   "desc": "cua so nhin thay huu han / gian doan"
+  },
+  {
+   "code": "ATMOS",
+   "desc": "suy hao khi quyen / mua"
+  },
+  {
+   "code": "ONBOARD",
+   "desc": "rang buoc tinh toan tren khoang"
+  },
+  {
+   "code": "CH_AWGN",
+   "desc": "kenh AWGN"
+  },
+  {
+   "code": "CH_FADING",
+   "desc": "kenh pha-dinh thong ke"
+  },
+  {
+   "code": "CH_3GPP",
+   "desc": "mo hinh kenh NTN theo chuan"
+  },
+  {
+   "code": "CH_TRACE",
+   "desc": "vet do thuc / bo mo phong quy dao"
+  },
+  {
+   "code": "SNR_SWEEP",
+   "desc": "quet SNR / lech SNR giua huan luyen va kiem thu"
+  }
+ ],
+ "note": "TEP NAY KHONG RA PHAN QUYET. Moi truong la SO CAU va CAU TRICH; phan quyet ghi rieng o phieu ma hoa.",
+ "items": [
+  {
+   "ref": 95,
+   "title": "Semantic enabled 6G LEO satellite communication for earth observation: a resource-constrained network optimization",
+   "fulltext": true,
+   "n_sentences": 203,
+   "eval_section_found": true,
+   "eval_start_sentence": 3,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 115,
+   "title": "Semantic communication enabled 6G-NTN framework: a novel denoising and gateway hop integration mechanism",
+   "fulltext": true,
+   "n_sentences": 411,
+   "eval_section_found": true,
+   "eval_start_sentence": 16,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 1,
+     "n_eval": 1,
+     "intro": [
+      {
+       "i": 8,
+       "s": "However, limited bandwidth, latency, rain attenuation, long propagation delays, and co-channel interference pose challenges to efficient satellite communication."
+      }
+     ],
+     "eval": [
+      {
+       "i": 95,
+       "s": "An adaptive encoder-decoder is introduced to safeguard critical features and minimize re-transmissions, while a novel error detection method at both the satellite and gateway addresses long propagation delays."
+      }
+     ]
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 1,
+     "n_eval": 0,
+     "intro": [
+      {
+       "i": 8,
+       "s": "However, limited bandwidth, latency, rain attenuation, long propagation delays, and co-channel interference pose challenges to efficient satellite communication."
+      }
+     ],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 5,
+     "intro": [],
+     "eval": [
+      {
+       "i": 140,
+       "s": "Here we consider both the additive white Gaussian noise (AWGN) channel and the Rayleigh fading channel."
+      },
+      {
+       "i": 279,
+       "s": "We experimented with both AWGN and Rayleigh fading channels across a wide range of noise power levels."
+      },
+      {
+       "i": 316,
+       "s": "8: Reconstructed images under direct and hop connections under the AWGN channel analysis."
+      },
+      {
+       "i": 327,
+       "s": "VI-C 5 Advantages of the Medium-Computing Decoder & Denoise Module at the Gateway In Table II , we present the average PSNR and Multi-Scale Structural Similarity Index Measure (MS-SSIM) metrics for GUs equipped with low-computing capabilities, the gateway with medium-computing power, and the gateway equipped with a denoising module, evaluated for both AWGN and Rayleigh fading channels."
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 5,
+     "intro": [],
+     "eval": [
+      {
+       "i": 140,
+       "s": "Here we consider both the additive white Gaussian noise (AWGN) channel and the Rayleigh fading channel."
+      },
+      {
+       "i": 141,
+       "s": "(10) where denotes the fading coefficient of the Rayleigh channel between communication devices."
+      },
+      {
+       "i": 279,
+       "s": "We experimented with both AWGN and Rayleigh fading channels across a wide range of noise power levels."
+      },
+      {
+       "i": 327,
+       "s": "VI-C 5 Advantages of the Medium-Computing Decoder & Denoise Module at the Gateway In Table II , we present the average PSNR and Multi-Scale Structural Similarity Index Measure (MS-SSIM) metrics for GUs equipped with low-computing capabilities, the gateway with medium-computing power, and the gateway equipped with a denoising module, evaluated for both AWGN and Rayleigh fading channels."
+      }
+     ]
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 339,
+       "s": "Under the same noise power, transmitting the image to the gateway instead of directly to the GU results in an SNR increase from dB to dB, significantly improving the PSNR from (first row, middle) to (second row, first)."
+      }
+     ]
+    }
+   }
+  },
+  {
+   "ref": 154,
+   "title": "Cognitive semantic augmentation LEO satellite networks for earth observation",
+   "fulltext": true,
+   "n_sentences": 251,
+   "eval_section_found": true,
+   "eval_start_sentence": 55,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 2,
+     "intro": [],
+     "eval": [
+      {
+       "i": 130,
+       "s": "• LEO Rician Channel : Incorporates Rician fading, doppler shift, and satellite-specific effects: , where is a Rician-distributed fading gain, accounting for scintillation and atmospheric losses summarized in Table II ."
+      },
+      {
+       "i": 145,
+       "s": "The complex baseband downlink space domain channel at a time instance and frequency can be expressed as follows using a ray-tracing-based channel modeling method: (4) (5) where , are the Doppler shift, and , are the propagation delay."
+      }
+     ]
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 145,
+       "s": "The complex baseband downlink space domain channel at a time instance and frequency can be expressed as follows using a ray-tracing-based channel modeling method: (4) (5) where , are the Doppler shift, and , are the propagation delay."
+      }
+     ]
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 3,
+     "intro": [],
+     "eval": [
+      {
+       "i": 136,
+       "s": "For a distance also known as slant range, the free space path loss ( ) in dB range in meters and frequency in GHz."
+      },
+      {
+       "i": 137,
+       "s": "Hence, the slant distance can be expressed as: (1) where is the radius of the Earth, and are the satellite altitude and its elevation angle, respectively."
+      },
+      {
+       "i": 138,
+       "s": "Thereby, the free space path loss ( ) can be calculated as: , Shadow fading (SF) is modeled by a log-normal distribution as with zero-mean and standard deviation."
+      }
+     ]
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 2,
+     "intro": [],
+     "eval": [
+      {
+       "i": 130,
+       "s": "• LEO Rician Channel : Incorporates Rician fading, doppler shift, and satellite-specific effects: , where is a Rician-distributed fading gain, accounting for scintillation and atmospheric losses summarized in Table II ."
+      },
+      {
+       "i": 132,
+       "s": "TABLE II: Simulation Parameters Parameter Value Carrier frequency 28 GHz Satellite antenna gain 35 dBi User antenna gain 37 dBi Scintillation loss 0.5 dB Atmospheric loss 0.3 dB Rician factor 2.8 To simulate propagation and attenuation, the channel model incorporates both small- and large-scale fading; the path loss components are the large-scale fading between the satellite and UT [ 12 ] : , in w"
+      }
+     ]
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 2,
+     "n_eval": 1,
+     "intro": [
+      {
+       "i": 8,
+       "s": "Index Terms: Earth observation, remote sensing, semantic data augmentation, on-board processing, deep joint source-channel coding, cognitive semantic satellite networks, semantic communication I Introduction The United Nations has acknowledged Earth observation (EO) as a crucial instrument for accomplishing many Sustainable Development Goals."
+      },
+      {
+       "i": 41,
+       "s": "• The framework integrates inter-satellite communication and deep learning models for on-board processing, enabling an end-to-end semantic-augmented communication process."
+      }
+     ],
+     "eval": [
+      {
+       "i": 70,
+       "s": "Furthermore, deep learning models for on-board processing are revisited based on complexity and efficiency, focusing on metrics like model size, parameters, and training/inference time."
+      }
+     ]
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 2,
+     "intro": [],
+     "eval": [
+      {
+       "i": 129,
+       "s": "• AWGN Channel : No fading, so which results in , where is Gaussian noise with variance ."
+      },
+      {
+       "i": 149,
+       "s": "We show accuracy for the AWGN (Additive White Gaussian Noise) and Rician channels, with different K-factor values (32, 64, 128), where a higher K-factor generally corresponds to better channel quality."
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 13,
+     "intro": [],
+     "eval": [
+      {
+       "i": 130,
+       "s": "• LEO Rician Channel : Incorporates Rician fading, doppler shift, and satellite-specific effects: , where is a Rician-distributed fading gain, accounting for scintillation and atmospheric losses summarized in Table II ."
+      },
+      {
+       "i": 131,
+       "s": "• LEO Rayleigh Channel : The fading gain follows a Rayleigh distribution with LEO-specific noise characteristics: ."
+      },
+      {
+       "i": 132,
+       "s": "TABLE II: Simulation Parameters Parameter Value Carrier frequency 28 GHz Satellite antenna gain 35 dBi User antenna gain 37 dBi Scintillation loss 0.5 dB Atmospheric loss 0.3 dB Rician factor 2.8 To simulate propagation and attenuation, the channel model incorporates both small- and large-scale fading; the path loss components are the large-scale fading between the satellite and UT [ 12 ] : , in w"
+      },
+      {
+       "i": 141,
+       "s": "We consider the Rician model to express the channel between LEO satellite and the UT and ISL between LEO satellite and ."
+      }
+     ]
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 113,
+   "title": "Compressed learning-based onboard semantic compression for remote sensing platforms",
+   "fulltext": true,
+   "n_sentences": 287,
+   "eval_section_found": true,
+   "eval_start_sentence": 43,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 2,
+     "n_eval": 12,
+     "intro": [
+      {
+       "i": 37,
+       "s": "Further camera noise; additive Gaussian, photon noise, and impulse noise and an AWGN communication channel are considered as the source of distortions."
+      },
+      {
+       "i": 38,
+       "s": "The complete semantic compression pipeline then consists of a learned compression matrix that acts on the noisy camera output to generate onboard a vector of observations that is downlinked through an AWGN channel, processed through a unrolled network and then fed to a deep learning model performing the necessary downstream tasks."
+      }
+     ],
+     "eval": [
+      {
+       "i": 51,
+       "s": "An AWGN channel model is considered, (3) where is the channel matrix and represents the possible quantization noise and the additive channel noise."
+      },
+      {
+       "i": 114,
+       "s": "Middle column : MNIST with AWGN."
+      },
+      {
+       "i": 115,
+       "s": "Right column : MNIST with reduced contrast and AWGN."
+      },
+      {
+       "i": 120,
+       "s": "To test the GloCal method with noisy input, the n-MNIST [ 12 ] dataset was used, specifically the AWGN (Additive White Gaussian Noise) and Reduced Contrast + AWGN corruptions."
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 109,
+   "title": "Channel code-book (CCB): semantic image-adaptive transmission in satellite-ground scenario",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 137,
+   "title": "Doppler-adaptive digital semantic communication for low earth orbit satellite systems",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 94,
+   "title": "Importance-aware robust semantic transmission for LEO satellite–ground communication",
+   "fulltext": true,
+   "n_sentences": 504,
+   "eval_section_found": true,
+   "eval_start_sentence": 76,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 1,
+     "n_eval": 1,
+     "intro": [
+      {
+       "i": 37,
+       "s": "[ 15 ] propose a method combining SemCom with Orthogonal Time-Frequency Space (OTFS) modulation to effectively alleviate the severe Doppler effect and improve transmission efficiency."
+      }
+     ],
+     "eval": [
+      {
+       "i": 439,
+       "s": "Moreover, channel modeling and feedback mechanisms are based on idealized assumptions, without fully accounting for the dynamic variations and latency inherent in real-world satellite-ground links, including Doppler effects and energy consumption, which may compromise the accuracy of semantic selection."
+      }
+     ]
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 302,
+       "s": "Typically structured as an autoencoder, it comprises a Convolutional Neural Network (CNN)-based encoder and decoder, with a non-trainable channel simulation module—commonly modeled as an Additive White Gaussian Noise (AWGN) or Rayleigh fading channel—embedded between them."
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 4,
+     "intro": [],
+     "eval": [
+      {
+       "i": 93,
+       "s": "We use the Shadowed-Rician (SR) fading channel, which is widely used in the S-band and ka-band satellite channels for data transmission [ 38 , 39 , 19 ] ."
+      },
+      {
+       "i": 95,
+       "s": "According to [ 38 ] , the Probability Density Function (PDF) of the SR channel gain is expressed as (1) where , , and denote the average power of the scatter component, the Nakagami- parameter, and the LoS component, respectively."
+      },
+      {
+       "i": 99,
+       "s": "Under this scenario, the statistical characteristics of the SR distribution converge toward those of the Rayleigh distribution, as the influence of multipath fading becomes predominant in the absence of significant shadowing effects [ 19 ] ."
+      },
+      {
+       "i": 302,
+       "s": "Typically structured as an autoencoder, it comprises a Convolutional Neural Network (CNN)-based encoder and decoder, with a non-trainable channel simulation module—commonly modeled as an Additive White Gaussian Noise (AWGN) or Rayleigh fading channel—embedded between them."
+      }
+     ]
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 1,
+     "n_eval": 16,
+     "intro": [
+      {
+       "i": 74,
+       "s": "We further develop a specialized SNR-adaptive codec to accommodate varying SNR environments."
+      }
+     ],
+     "eval": [
+      {
+       "i": 217,
+       "s": "3: The fuzzy filtering effect under different SNR conditions, the lower the SNR, the stronger the fuzzy filtering."
+      },
+      {
+       "i": 243,
+       "s": "This three-tier design enables flexible channel coding and decoding across varying SNR levels: it activates only the first layer under high-SNR conditions, while utilizing all three layers when the SNR deteriorates."
+      },
+      {
+       "i": 258,
+       "s": "V-C The Training Scheme of SNR Channel Codec To address the challenges posed by varying SNR conditions, we propose a dynamic SNR channel codec employing a three-tier architecture in the previous subsection."
+      },
+      {
+       "i": 263,
+       "s": "As a result, the model achieves tailored encoding strategies for different SNR environments while maintaining a unified parameter set, thereby significantly reducing memory usage without compromising coding performance."
+      }
+     ]
+    }
+   }
+  },
+  {
+   "ref": 100,
+   "title": "Semantic satellite communications for synchronized audiovisual reconstruction",
+   "fulltext": true,
+   "n_sentences": 423,
+   "eval_section_found": true,
+   "eval_start_sentence": 10,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 5,
+     "intro": [],
+     "eval": [
+      {
+       "i": 13,
+       "s": "However, links between ground stations and diverse user terminals are subject to severe physical layer constraints, including rain attenuation, significant Doppler shifts in non-geostationary orbits, and propagation delays exceeding several hundred milliseconds [ 2 ] ."
+      },
+      {
+       "i": 67,
+       "s": "• Dynamic and constrained channel: The satellite link is affected by FSPL, rainfall attenuation (RA) [ 22 ] , and Doppler shifts caused by high-speed motion."
+      },
+      {
+       "i": 78,
+       "s": "The corresponding channel impulse response is modeled as (4) where is the number of channel taps, denotes the channel gain, is the propagation delay, and is the Doppler shift of the th path."
+      },
+      {
+       "i": 79,
+       "s": "Small-scale fading effects, such as Doppler shifts, can be mitigated by OFDM and dense pilot-aided channel estimation."
+      }
+     ]
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 1,
+     "n_eval": 2,
+     "intro": [
+      {
+       "i": 3,
+       "s": "Abstract Satellite communications face severe bottlenecks in supporting high-fidelity synchronized audiovisual services, as conventional schemes struggle with cross-modal coherence under fluctuating channel conditions, limited bandwidth, and long propagation delays."
+      }
+     ],
+     "eval": [
+      {
+       "i": 13,
+       "s": "However, links between ground stations and diverse user terminals are subject to severe physical layer constraints, including rain attenuation, significant Doppler shifts in non-geostationary orbits, and propagation delays exceeding several hundred milliseconds [ 2 ] ."
+      },
+      {
+       "i": 78,
+       "s": "The corresponding channel impulse response is modeled as (4) where is the number of channel taps, denotes the channel gain, is the propagation delay, and is the Doppler shift of the th path."
+      }
+     ]
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 4,
+     "intro": [],
+     "eval": [
+      {
+       "i": 67,
+       "s": "• Dynamic and constrained channel: The satellite link is affected by FSPL, rainfall attenuation (RA) [ 22 ] , and Doppler shifts caused by high-speed motion."
+      },
+      {
+       "i": 80,
+       "s": "However, large-scale fading caused by long propagation distance and weather conditions, including FSPL and RA, significantly degrades the received SNR."
+      },
+      {
+       "i": 81,
+       "s": "The FSPL [ 23 ] is given by (5) where is the carrier frequency in hertz, and is the satellite link distance in meters, determined by the orbit altitude and the ground terminal elevation angle."
+      },
+      {
+       "i": 84,
+       "s": "Accordingly, the SNR of the satellite link [ 24 ] is given by (7) where is the transmit power in dBm, and are the transmit and receive antenna gains in dBi, is the equivalent gain of the relay satellite, and are the total FSPL and RA of the satellite channel, respectively, and denotes the receiver thermal noise power, computed as ."
+      }
+     ]
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 2,
+     "intro": [],
+     "eval": [
+      {
+       "i": 13,
+       "s": "However, links between ground stations and diverse user terminals are subject to severe physical layer constraints, including rain attenuation, significant Doppler shifts in non-geostationary orbits, and propagation delays exceeding several hundred milliseconds [ 2 ] ."
+      },
+      {
+       "i": 205,
+       "s": "In complex environments characterized by high-mobility dynamics and rain attenuation, static configurations often fail to ensure optimal performance."
+      }
+     ]
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 228,
+       "s": "To simulate the satellite environment, we employed the NTN-TDL-A channel model."
+      }
+     ]
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 264,
+       "s": "8: Performance of different video transmission methods under varying SNR conditions."
+      }
+     ]
+    }
+   }
+  },
+  {
+   "ref": 93,
+   "title": "Semantic satellite communications based on generative foundation model",
+   "fulltext": true,
+   "n_sentences": 416,
+   "eval_section_found": true,
+   "eval_start_sentence": 14,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 3,
+     "intro": [],
+     "eval": [
+      {
+       "i": 73,
+       "s": "Additionally, substantial Doppler shift and CCI are present in satellite channels."
+      },
+      {
+       "i": 77,
+       "s": "The channel impulse response is detailed as (2) where indicats the Dirac delta function, is the number of multipath components, the uplink channel gain, the Doppler shift, and the delay for the -th path."
+      },
+      {
+       "i": 368,
+       "s": "Kumar, “Analysis of variable bit rate SOFDM transmission scheme over multi-relay hybrid satellite-terrestrial system in the presence of cfo and phase noise,” IEEE Trans."
+      }
+     ]
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 2,
+     "n_eval": 2,
+     "intro": [
+      {
+       "i": 6,
+       "s": "Peiwen Jiang Chao-Kai Wen Affiliation: Xiao Li, Shi Jin, and Geoffrey Ye Li, Abstract Satellite communications can provide massive connections and seamless coverage, but they also face several challenges, such as rain attenuation, long propagation delays, and co-channel interference."
+      },
+      {
+       "i": 12,
+       "s": "Since acknowledgment feedback is subject to long propagation delays when retransmission is unavoidable, a novel error detection method is proposed to roughly detect semantic errors at the regenerative satellite."
+      }
+     ],
+     "eval": [
+      {
+       "i": 166,
+       "s": "For long propagation delay, preemptive re-transmission without ACK is a good choice."
+      },
+      {
+       "i": 258,
+       "s": "The propagation delay of the LEO satellite varies between 2 and 20 ms as it orbits."
+      }
+     ]
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 1,
+     "n_eval": 3,
+     "intro": [
+      {
+       "i": 6,
+       "s": "Peiwen Jiang Chao-Kai Wen Affiliation: Xiao Li, Shi Jin, and Geoffrey Ye Li, Abstract Satellite communications can provide massive connections and seamless coverage, but they also face several challenges, such as rain attenuation, long propagation delays, and co-channel interference."
+      }
+     ],
+     "eval": [
+      {
+       "i": 72,
+       "s": "Another critical distinction is the strong LoS channel characteristics, which include path loss, atmospheric attenuation, and the impact of rainfall."
+      },
+      {
+       "i": 301,
+       "s": "Fortunately, satellites follow predictable trajectories, and noise along with interference from phenomena like rain attenuation and other devices can be somewhat estimated or forecasted."
+      },
+      {
+       "i": 397,
+       "s": "Lv, “A new rain attenuation prediction model for the earth-space links,” IEEE Trans."
+      }
+     ]
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 3,
+     "intro": [],
+     "eval": [
+      {
+       "i": 20,
+       "s": "A regenerative satellite, acting as a base station (BS) of the terrestrial network through on-board processing like modulation and coding, also supports inter-satellite links in the LEO satellite constellation, a key technique for global networking."
+      },
+      {
+       "i": 64,
+       "s": "A satellite has two primary modes of operation: it can either relay signals directly (transparent mode) or perform on-board processing (regenerative mode)."
+      },
+      {
+       "i": 68,
+       "s": "In a transparent configuration, on-board processing and inter-satellite links (ISLs) are not supported, necessitating both feeder and service links in SatComs."
+      }
+     ]
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 251,
+       "s": "V-A Settings Satellite scenarios: We utilize a NTN-TDL-A channel model."
+      }
+     ]
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 230,
+       "s": "Semantic encoder-decoder and adaptive methods: The basic semantic encoder-decoder discussed in Section III A undergoes end-to-end training at an SNR of 10 dB without CCI."
+      }
+     ]
+    }
+   }
+  },
+  {
+   "ref": 161,
+   "title": "Generative ai agents with large language model for satellite networks via a mixture of experts transmission",
+   "fulltext": true,
+   "n_sentences": 414,
+   "eval_section_found": true,
+   "eval_start_sentence": 15,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 3,
+     "intro": [],
+     "eval": [
+      {
+       "i": 120,
+       "s": "For the time-varying channel model, it is typically that channel statistical characteristics such as Doppler shift change rapidly with time."
+      },
+      {
+       "i": 121,
+       "s": "Following Jakes model [ 35 ] , keeping the large-scale fading in ( 9 ) unchanged, the small-scale fading vector g is modeled as a first-order complex Gauss Markov process, i.e., (10) In ( 10 ), e denotes the additive complex Gaussian noise with the same distribution as g and the correlation coefficient is determined by (11) where , , and denote the first kind zero-order Bessel function, the time i"
+      },
+      {
+       "i": 259,
+       "s": "TABLE I: Hyper Parameters Settings System Parameter Value Carrier frequency 4 GHZ Satellite antenna gain 35 dBi LEO altitude 300 KM GEO altitude 4000 KM Doppler frequency 10Hz Time interval s Rician factor 4 The number of NN layers 4 Clipping parameter 0.2 DNN optimizer Adam Activation function ReLU and Tanh Hidden layer size 256 Learning rate Discount factor 0 Clipped probability ratio 0.2 Memory"
+      }
+     ]
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 3,
+     "intro": [],
+     "eval": [
+      {
+       "i": 118,
+       "s": "g is the small-scale fading vector with Rician distribution."
+      },
+      {
+       "i": 259,
+       "s": "TABLE I: Hyper Parameters Settings System Parameter Value Carrier frequency 4 GHZ Satellite antenna gain 35 dBi LEO altitude 300 KM GEO altitude 4000 KM Doppler frequency 10Hz Time interval s Rician factor 4 The number of NN layers 4 Clipping parameter 0.2 DNN optimizer Adam Activation function ReLU and Tanh Hidden layer size 256 Learning rate Discount factor 0 Clipped probability ratio 0.2 Memory"
+      },
+      {
+       "i": 283,
+       "s": "4 , the agent precisely updates the channel model from Rayleigh fading to Rician when the network dynamics decrease."
+      }
+     ]
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 162,
+   "title": "Generative semantic communication for efficient utilization of satellite resources in 6g",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 81,
+   "title": "Joint semantic coding and routing for multi-hop semantic transmission in LEO satellite networks",
+   "fulltext": true,
+   "n_sentences": 185,
+   "eval_section_found": true,
+   "eval_start_sentence": 10,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 53,
+       "s": "II-D Delay Model For a packet transmitted from satellite to satellite at time slot , the propagation delay is given by (4) where is the Euclidean distance between the two satellites and is the speed of light."
+      }
+     ]
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 5,
+     "intro": [],
+     "eval": [
+      {
+       "i": 114,
+       "s": "3: Semantic quality comparison of different schemes under varying SNR conditions."
+      },
+      {
+       "i": 115,
+       "s": "Semantic Quality under Different SNRs: Fig."
+      },
+      {
+       "i": 116,
+       "s": "3 (b) compare the semantic consistency and structural fidelity of different schemes under varying SNRs."
+      },
+      {
+       "i": 117,
+       "s": "GraphJSCR achieves the best or near-best CLIP score across the whole SNR range, with a particularly clear advantage in the low- and medium-SNR regimes."
+      }
+     ]
+    }
+   }
+  },
+  {
+   "ref": 164,
+   "title": "Semantic communication-aware end-to-end routing in large-scale leo satellite networks",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 117,
+   "title": "Semantic forwarding and codebook-enhanced model division multiple access for satellite-terrestrial networks",
+   "fulltext": true,
+   "n_sentences": 32,
+   "eval_section_found": true,
+   "eval_start_sentence": 6,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 1,
+     "n_eval": 0,
+     "intro": [
+      {
+       "i": 3,
+       "s": "To mitigate noise accumulation and reduce on-board computational burden, we introduce a satellite semantic forwarding mechanism, enabling relay satellites to forward signals directly at the semantic level without full decoding and re-encoding."
+      }
+     ],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 165,
+   "title": "Semantic transmission framework in direct satellite communications",
+   "fulltext": true,
+   "n_sentences": 180,
+   "eval_section_found": true,
+   "eval_start_sentence": 3,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 2,
+     "intro": [],
+     "eval": [
+      {
+       "i": 53,
+       "s": "Considering channel aging due to Doppler and transmission delay, the outdated channel is expressed as (2) where has the same variance as the real CSI, and measures the correlation between the outdated CSI and the real CSI."
+      },
+      {
+       "i": 54,
+       "s": ", where is the -th order Bessel function of the first kind, and is the Doppler frequency."
+      }
+     ]
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 22,
+       "s": "Long distance transmission between satellites and ground communication devices suffers from severe signal attenuation and propagation delay, spectrum efficiency becomes increasingly important for future satellite networks."
+      }
+     ]
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 10,
+     "intro": [],
+     "eval": [
+      {
+       "i": 10,
+       "s": "Chong Huang Xuyang Chen Jingjing Cui Jingfu Li Affiliation: Pei Xiao, , Gaojie Chen, , Rahim Tafazolli, Abstract Insufficient link budget has become a bottleneck problem for direct access in current satellite communications."
+      },
+      {
+       "i": 21,
+       "s": "However, due to limited transmit power, constrained bandwidth, and extremely long transmission distances, direct satellite communications face stringent link budget limitations [ 5 ] ."
+      },
+      {
+       "i": 36,
+       "s": "To address challenges of stringent link budget, bursty service demands and low-latency constraints in satellite scenarios, we further introduce inter-satellite links (ISLs) to provide task migration among satellites, thereby improving transmission flexibility under link-budget limitations in satellite communications."
+      },
+      {
+       "i": 50,
+       "s": "Moreover, we introduce the satellite coverage with a minimum elevation angle as in [ 14 ] ."
+      }
+     ]
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 55,
+       "s": "Thus, we can obtain the channel capacity for the link between and as (3) where denotes the transmit power at a satellite, is the additive white Gaussian noise."
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 116,
+   "title": "Semantic-forward relaying: a novel framework towards 6G cooperative communications",
+   "fulltext": true,
+   "n_sentences": 208,
+   "eval_section_found": true,
+   "eval_start_sentence": 11,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 2,
+     "intro": [],
+     "eval": [
+      {
+       "i": 128,
+       "s": "Additive white Gaussian noise (AWGN) channels are adopted for the S-D and R-D links."
+      },
+      {
+       "i": 186,
+       "s": "Zhao, “Near-Shannon/Slepian-Wolf performance for unknown correlated sources over AWGN channels,” IEEE Transactions on Communications , vol."
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 167,
+   "title": "Energy efficient probabilistic semantic communication over sagin",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 168,
+   "title": "QoSem-based resource allocation for semantic communication in ntn downlinks",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 170,
+   "title": "A joint jscc-resource allocation framework for qos-aware semantic communication in leo satellite-based eo missions",
+   "fulltext": true,
+   "n_sentences": 213,
+   "eval_section_found": true,
+   "eval_start_sentence": 8,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 104,
+       "s": "This phenomenon arises from the time-varying channel gain–affected by factors such as slant range and antenna beam gain–caused by the LSAT’s orbital movement."
+      }
+     ]
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 151,
+       "s": "Chatzinotas (2022) GEO payload power minimization: joint precoding and beam hopping design ."
+      }
+     ]
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 52,
+       "s": "The received symbol at at TS over SC is expressed as (3) where and are the transmit power and channel coefficient from LSAT to at TS over SC , and is the additive white Gaussian noise (AWGN)."
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 195,
+       "s": "Technical report (TR) Technical Report 38.821 , 3rd Generation Partnership Project (3GPP) ."
+      }
+     ]
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 110,
+   "title": "Semantics-aware updates from remote IoT devices to interconnected LEO satellites",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 104,
+   "title": "SemSpaceFL: a collaborative hierarchical federated learning framework for semantic communication in 6G LEO satellites",
+   "fulltext": true,
+   "n_sentences": 380,
+   "eval_section_found": true,
+   "eval_start_sentence": 16,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 2,
+     "intro": [],
+     "eval": [
+      {
+       "i": 142,
+       "s": "Assuming a suburban environment with negligible attenuation from rain or clouds, we model the multiple-input single-output (MISO) channel between satellite and gateway at time and subcarrier frequency as: (8) where represents the complex channel gain incorporating path loss and antenna gains, is the Doppler shift caused by the satellite’s high mobility, and is the signal propagation delay between "
+      },
+      {
+       "i": 222,
+       "s": "TABLE I: Simulation Parameters Notation Definition Value Number of Satellites 10 Number of Gateways 3 Max Computing Frequency 1 GHz CPU Requirement for One Sample Cycles Gateway Gain 45 dBi Satellite Gain 25 dBi Path Loss 1.5 dB Ka-band Carrier Frequency 10 GHz Communication Bandwidth 1 GHz Satellite Altitude 500 km Doppler Shift 20 kHz Radii of Orbits [1200, 1700, 2200] km V-A Simulation Setup, T"
+      }
+     ]
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 142,
+       "s": "Assuming a suburban environment with negligible attenuation from rain or clouds, we model the multiple-input single-output (MISO) channel between satellite and gateway at time and subcarrier frequency as: (8) where represents the complex channel gain incorporating path loss and antenna gains, is the Doppler shift caused by the satellite’s high mobility, and is the signal propagation delay between "
+      }
+     ]
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 4,
+     "intro": [],
+     "eval": [
+      {
+       "i": 27,
+       "s": "Nevertheless, the deployment of FL in LEO satellite networks is hindered by several factors, which are given as follows: • High Mobility and Intermittent Connectivity: Frequent satellite handovers and dynamic link availability result in outdated updates and transmission delays."
+      },
+      {
+       "i": 35,
+       "s": "By transmitting only the essential information required for accurate message interpretation, semantic communication significantly reduces bandwidth consumption—an essential benefit in bandwidth-constrained and intermittently connected satellite environments."
+      },
+      {
+       "i": 43,
+       "s": "This architecture addresses the key challenges of bandwidth limitations, data privacy, and intermittent connectivity in 6G satellite networks."
+      },
+      {
+       "i": 67,
+       "s": "Due to the low contact time between the satellite and the gateway, [ 23 ] proposed two aggregation algorithms named sub-structure and pseudo-synchronous for visible and invisible satellites, respectively."
+      }
+     ]
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 144,
+       "s": "This path loss includes free-space propagation loss, atmospheric gas attenuation, and scintillation effects, which are consistent with recommendations from 3GPP and ITU-R channel modeling guidelines."
+      }
+     ]
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 148,
+       "s": "The received signal at gateway is expressed as: (12) where is the channel vector from satellite to gateway , is the beamforming vector used by satellite for gateway , is the local model transmitted by satellite , and is the AWGN at gateway ."
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 118,
+   "title": "Semantic-aware task clustering for federated cooperative multi-task semantic communication",
+   "fulltext": true,
+   "n_sentences": 199,
+   "eval_section_found": true,
+   "eval_start_sentence": 3,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 53,
+       "s": "The encoded signal is transmitted over an orthogonal additive white Gaussian noise (AWGN) channel."
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 171,
+   "title": "Semantic communication in satellite-borne edge cloud network for computation offloading",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 174,
+   "title": "Semantics-empowered UAV-assisted wireless communication system for wildfire detection",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 178,
+   "title": "Robust semantic transmission for low-altitude UAVs: predictive channel-aware scheduling and generative reconstruction",
+   "fulltext": true,
+   "n_sentences": 188,
+   "eval_section_found": true,
+   "eval_start_sentence": 7,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 164,
+       "s": "Pappas, “Joint CFO-Channel Estimation over CFO-Coherent SS Burst Sets for Low-Altitude Radio Mapping,” arXiv preprint , arXiv:2512.01386, 2025."
+      }
+     ]
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 2,
+     "intro": [],
+     "eval": [
+      {
+       "i": 38,
+       "s": "The instantaneous UAV-GU distance is given by: (1) The elevation angle is defined as: (2) which dictates the LOS probability in low-altitude propagation environments."
+      },
+      {
+       "i": 41,
+       "s": "The LOS probability is modeled as a logistic function of the elevation angle: (3) where , , and are environment-dependent constants."
+      }
+     ]
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 1,
+     "n_eval": 1,
+     "intro": [
+      {
+       "i": 3,
+       "s": "The rapid fluctuation of the air-to-ground (A2G) link creates a regime where reliable transmission slots are intermittent and future channel quality can only be predicted with uncertainty."
+      }
+     ],
+     "eval": [
+      {
+       "i": 13,
+       "s": "Coupled with distance-dependent path loss and large-scale shadowing, these factors create a highly volatile channel characterized by deep fades and intermittent outages."
+      }
+     ]
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 2,
+     "intro": [],
+     "eval": [
+      {
+       "i": 49,
+       "s": "The received signal is: (7) where is the additive white Gaussian noise (AWGN), with denoting the noise power spectral density and representing the system bandwidth."
+      },
+      {
+       "i": 114,
+       "s": "Define the slot weight (25) Here, we choose as a monotonic reliability-to-weight mapping inspired by the AWGN capacity expression, and use it purely as a heuristic to rank slots by their effective information-carrying capability under analog transmission."
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 142,
+       "s": "Over the entire SNR range, the proposed method maintains a gain between 4.8 dB and 5.8 dB relative to DeepJSCC."
+      }
+     ]
+    }
+   }
+  },
+  {
+   "ref": 179,
+   "title": "Context-aware information transfer via digital semantic communication in UAV-based networks",
+   "fulltext": true,
+   "n_sentences": 320,
+   "eval_section_found": true,
+   "eval_start_sentence": 36,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 108,
+       "s": "The term represents the path loss exponent, while accounts for the Doppler frequency shift due to GU mobility and is given by (8) where is the speed of GU , is the carrier frequency, is the angle between the GU’s velocity vector and the line connecting GU and UAV , and is the speed of light."
+      }
+     ]
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 85,
+       "s": "The position of the UAV at timestamp is expressed as Each UAV moves with speed , covering a distance in unit time, in the direction of the angular vector Here, is the elevation angle, and is the azimuthal angle in the horizontal plane."
+      }
+     ]
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 2,
+     "intro": [],
+     "eval": [
+      {
+       "i": 109,
+       "s": "The signal represents the portion of the encoded data symbols of GU transmitted with unit power to UAV in the time slot based on the allocation ratio , and denotes the complex additive white Gaussian noise at the UAV receiver, modeled as III-C 2 A2G Transmission In the A2G (Air-to-Ground) phase, UAV forwards—via amplify-and-forward (AF)—the signal it received from GU in slot ."
+      },
+      {
+       "i": 111,
+       "s": "The received signal at the central server is (9) where denotes the A2G small-scale fading coefficient (Nakagami- ), and is the AWGN at the central server."
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 5,
+     "intro": [],
+     "eval": [
+      {
+       "i": 70,
+       "s": "The wireless channel in the system follow the Nakagami- distribution [ 3 ] ."
+      },
+      {
+       "i": 107,
+       "s": "The received signal at UAV can be expressed as (7) where denotes the channel coefficient between GU and UAV that follows a Nakagami- fading distribution, and is the distance between GU and UAV during the time slot."
+      },
+      {
+       "i": 111,
+       "s": "The received signal at the central server is (9) where denotes the A2G small-scale fading coefficient (Nakagami- ), and is the AWGN at the central server."
+      },
+      {
+       "i": 201,
+       "s": "TABLE I : Key Simulation Parameters Symbol Description Value Region of operation Number of GUs 20 Number of UAVs 2 UAV altitude [100,150] m GU speed range [0.3, 1.5] m/s Max UAV speed 15 m/s (54 km/h) GU image arrival rate [0.05, 0.2] images/s Compression factor [1,4] Mission duration 1000 s Time slot duration 5 s UAV hovering power coefficient 120 W Channel model Nakagami- ( ) Carrier frequency 2"
+      }
+     ]
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 211,
+       "s": "In the practically relevant SNR range of 5-10 dB, DSC-UAV+TQC achieves approximately 14% lower AoI and 22% higher SSS relative to the purely digital communication baseline (D+TQC)."
+      }
+     ]
+    }
+   }
+  },
+  {
+   "ref": 102,
+   "title": "Knowledge graph driven UAV cognitive semantic communication systems for efficient object detection",
+   "fulltext": true,
+   "n_sentences": 195,
+   "eval_section_found": true,
+   "eval_start_sentence": 9,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 5,
+     "intro": [],
+     "eval": [
+      {
+       "i": 57,
+       "s": "Additive white Gaussian noise (AWGN) channel and fading channel are considered in our work."
+      },
+      {
+       "i": 119,
+       "s": "5: mAP versus SNR under AWGN channel while R=1/6 and R=1/12."
+      },
+      {
+       "i": 141,
+       "s": "7: mAP versus bandwidth compression ratio R under AWGN channel while SNR=0."
+      },
+      {
+       "i": 143,
+       "s": "5 shows the mAP of all systems versus SNR under the AWGN channel when the bandwidth compression ratio R = 1/6 and R = 1/12."
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 3,
+     "intro": [],
+     "eval": [
+      {
+       "i": 120,
+       "s": "6: mAP versus SNR under Rayleigh fading channel while R=1/6 and R=1/12."
+      },
+      {
+       "i": 149,
+       "s": "To further verify the scalability and robustness of the proposed system, experiments are also conducted under Rayleigh channel."
+      },
+      {
+       "i": 150,
+       "s": "6 presents the mAP of all systems versus SNR under the Rayleigh channel when the bandwidth compression ratio R = 1/6 and R = 1/12."
+      }
+     ]
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 180,
+   "title": "Personalized saliency in task-oriented semantic communications: image transmission and performance analysis",
+   "fulltext": true,
+   "n_sentences": 473,
+   "eval_section_found": true,
+   "eval_start_sentence": 18,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 6,
+     "intro": [],
+     "eval": [
+      {
+       "i": 134,
+       "s": "[ 32 ] explored the performance of their framework over Rayleigh and Rician channels in semantic communication systems."
+      },
+      {
+       "i": 135,
+       "s": "However, reference [ 31 , 32 ] only explored the communication performance in Rayleigh and Rician fading channels that are the traditional multipath fading models."
+      },
+      {
+       "i": 209,
+       "s": "The Fisher-Snedecor composite fading model assumes that small-scale variations follow the Nakagami- distribution and shadowing follows the inverse Nakagami- distribution."
+      },
+      {
+       "i": 216,
+       "s": "We consider the interference signals follow the Rayleigh distribution, i.e., ."
+      }
+     ]
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 182,
+   "title": "Resource allocation and intelligent trajectory optimization for uav-assisted semantic communication system",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 184,
+   "title": "NOMA-based intelligent resource allocation and trajectory optimization for multi-uavs assisted semantic communication networks",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 186,
+   "title": "Semantic-aware UAV command and control for efficient IoT data collection",
+   "fulltext": true,
+   "n_sentences": 196,
+   "eval_section_found": true,
+   "eval_start_sentence": 3,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 190,
+   "title": "Low-altitude multi-uav-assisted data collection and semantic forwarding for post-disaster relief",
+   "fulltext": true,
+   "n_sentences": 629,
+   "eval_section_found": true,
+   "eval_start_sentence": 17,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 152,
+       "s": "The encoded symbols are transmitted to the receiver via a fading channel, which is modeled as follows [ 34 ] : (2) where denotes the channel coefficient and is the additive white Gaussian noise (AWGN)."
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 191,
+   "title": "Fair resource allocation in uav-based semantic communication system with fluid antenna",
+   "fulltext": true,
+   "n_sentences": 239,
+   "eval_section_found": true,
+   "eval_start_sentence": 13,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 65,
+       "s": "The received signal is expressed as: (6) where is the channel coefficient matrix from the transmit antennas to the activated ports in the FAS, and is the complex additive white Gaussian noise with variance for each element in ."
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 196,
+   "title": "Federated learning semantic communication in UAV systems: PPO-based joint trajectory and resource allocation optimization",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 198,
+   "title": "Resource allocation for semantic communication in ntn downlinks",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 199,
+   "title": "Attention–based haps–to–ground nodes optimization for differential privacy towards secure semantic communications",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 108,
+   "title": "Goal-oriented communications for interplanetary and non-terrestrial networks",
+   "fulltext": true,
+   "n_sentences": 261,
+   "eval_section_found": false,
+   "eval_start_sentence": null,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 2,
+     "n_eval": 0,
+     "intro": [
+      {
+       "i": 55,
+       "s": "For example, the Earth–Mars RTT varies between 8.6-42 minutes across the orbital cycle."
+      },
+      {
+       "i": 58,
+       "s": "This motivates Pillar I for delay-aware generation and service, and Pillar III when relay queueing further compounds propagation delay."
+      }
+     ],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 20,
+     "n_eval": 0,
+     "intro": [
+      {
+       "i": 4,
+       "s": "Yet communications over space links face challenges beyond delay alone: a contact window is a rare chance, and it can be wasted by data that loses task value before feedback returns."
+      },
+      {
+       "i": 15,
+       "s": "Representative scenarios include training digital twins from data streams collected by Martian rovers or lunar robotic construction systems, delivering time-critical space-weather alerts from an L1 coronagraph telescope to the International Space Station, and tracking maritime cargo through intermittently accessible non-geostationary satellite constellations."
+      },
+      {
+       "i": 18,
+       "s": "This is particularly challenging when the timeliness requirements of these applications range from milliseconds to minutes, while links are delay/disruption-prone, relays are intermittently available, and interplanetary contact windows are limited."
+      },
+      {
+       "i": 22,
+       "s": "However, it does not scale to the rapidly increasing number of space assets and machine-type communication (MTC) flows sending short, time-sensitive packets within shared limited bandwidth and contact windows, often under power constraints."
+      }
+     ],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 200,
+   "title": "Twinning for space-air-ground-sea integrated networks: beyond conventional digital twin towards goal-oriented semantic twin",
+   "fulltext": true,
+   "n_sentences": 1007,
+   "eval_section_found": true,
+   "eval_start_sentence": 428,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 2,
+     "n_eval": 1,
+     "intro": [
+      {
+       "i": 133,
+       "s": "Communication must carry these streams across rapidly changing topologies, Doppler-impaired links, and propagation delays ranging from terrestrial to satellite scales [ 32 , 33 , 34 , 28 , 35 , 30 , 36 ] ."
+      },
+      {
+       "i": 154,
+       "s": "Due to factors such as Doppler shift, inter-node synchronization, and low bandwidth utilization, transmission delays are prolonged and subject to pronounced uncertainty, while success rates remain low."
+      }
+     ],
+     "eval": [
+      {
+       "i": 663,
+       "s": "(2021) Doppler shift estimation in 5G new radio non-terrestrial networks ."
+      }
+     ]
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 1,
+     "n_eval": 0,
+     "intro": [
+      {
+       "i": 133,
+       "s": "Communication must carry these streams across rapidly changing topologies, Doppler-impaired links, and propagation delays ranging from terrestrial to satellite scales [ 32 , 33 , 34 , 28 , 35 , 30 , 36 ] ."
+      }
+     ],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 3,
+     "n_eval": 1,
+     "intro": [
+      {
+       "i": 48,
+       "s": "A maritime emergency, for example, can require a satellite relay, a UAV, and a terrestrial controller to interpret the same event despite intermittent and asynchronous observations."
+      },
+      {
+       "i": 107,
+       "s": "Rather, SAG(S)IN surveys generally stop at architecture, security, or resource optimization; DT surveys span enabling technologies but are not organized around SAGSIN’s intermittent and asymmetric PCCA loop; and semantic twin surveys do not make runtime goal, resource, assurance, and retirement decisions co-dependent."
+      },
+      {
+       "i": 139,
+       "s": "Across space, air, ground, and sea segments, these requirements repeatedly encounter sparse sensing, intermittent links, asynchronous state, rapidly changing topology, and asymmetric computing resources."
+      }
+     ],
+     "eval": [
+      {
+       "i": 585,
+       "s": "The remaining SAGSIN gap is compositional: large-scale intermittent operation requires task scope, semantics, resources, interaction, assurance, and lifecycle to be selected together rather than added independently."
+      }
+     ]
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 1,
+     "n_eval": 0,
+     "intro": [
+      {
+       "i": 134,
+       "s": "Computing is consequently distributed toward UAVs, HAPs, and satellites, where SWaP limits make placement and offloading depend jointly on latency, link stability, energy, and available computation [ 28 , 37 , 38 ] ."
+      }
+     ],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 2,
+     "intro": [],
+     "eval": [
+      {
+       "i": 493,
+       "s": "Channel modeling for UAV-satellite links and inter-UAV communications adopts 3GPP TR38.811 NTN and IEEE 802.11n standards, respectively."
+      },
+      {
+       "i": 561,
+       "s": "VII-C Heterogeneous Protocol Compatibility SAGSIN protocol stacks are inherently heterogeneous across segments: space links follow delay-tolerant conventions, aerial segments rely on IEEE 802.11-class or 3GPP NTN air interfaces, and terrestrial and maritime segments operate their own cellular and dedicated stacks [ 31 , 44 , 3 ] ."
+      }
+     ]
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 1,
+     "n_eval": 0,
+     "intro": [
+      {
+       "i": 299,
+       "s": "Semantic communication fundamentally leverages advanced AI and DL technologies to realize the paradigm of “ understand first, then transmit .” For example, [ 98 ] designs an intelligent semantic communication system where the transmitter employs a domain-specific mobile segment anything model (MSAM) for semantic perception and extraction, while the receiver utilizes GAN to achieve high-quality dat"
+      }
+     ],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 202,
+   "title": "Perception-aware offloading with collaborative ground–space beamforming for resilient sagin communications",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 203,
+   "title": "Aerial semantic relay-enabled SAGIN: joint UAV deployment and resource allocation",
+   "fulltext": true,
+   "n_sentences": 336,
+   "eval_section_found": true,
+   "eval_start_sentence": 17,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 116,
+       "s": "• UAV-to-SemUser : For an arbitrary SemUser at , the Euclidean distance between and is given by (7) As the channels from UAV to GUs are more likely to be dominated by the LoS link, the channel gain is described by the free-space path loss model [ 36 ] , [ 37 ] , i.e., (8) where denotes the channel power gain at a reference distance m, is the path-loss exponent."
+      }
+     ]
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 3,
+     "intro": [],
+     "eval": [
+      {
+       "i": 19,
+       "s": "However, direct satellite-to-ground links often experience significant degradation due to substantial path loss over long distances and atmospheric attenuation, resulting in heavy communication overhead [ 3 , 4 ] ."
+      },
+      {
+       "i": 26,
+       "s": "Moreover, in urban areas, aerial relays can enhance satellite-to-ground links, which are affected by obstructions from tall buildings and dynamic atmospheric attenuations [ 6 ] ."
+      },
+      {
+       "i": 99,
+       "s": "The channel vector between and is denoted by and is influenced by various factors including space-propagation fading, atmospheric absorption, and rain attenuation."
+      }
+     ]
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 112,
+   "title": "Deep reinforcement learning-based resource allocation for hybrid bit and generative semantic communications in space-air-ground integrated networks",
+   "fulltext": true,
+   "n_sentences": 363,
+   "eval_section_found": true,
+   "eval_start_sentence": 14,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 3,
+     "intro": [],
+     "eval": [
+      {
+       "i": 108,
+       "s": "The outdated CSI is modeled as [ 27 ] (2) where , with being the Bessel function of the first kind of order 0, denoting the maximum Doppler frequency, and representing the transmission delay."
+      },
+      {
+       "i": 247,
+       "s": "The antenna gain of LEOs dB, the maximum Doppler frequency is based on Ka-band as in [ 38 ] , the carrier frequency of LEO transmission is 25 GHz, the transmit powers of LEOs and UAVs are 1 W and 0.2 W, respectively."
+      },
+      {
+       "i": 346,
+       "s": "Ding, “OTFS enabled LEO satellite communications: A promising solution to severe doppler effects,” IEEE Network , vol."
+      }
+     ]
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 1,
+     "n_eval": 22,
+     "intro": [
+      {
+       "i": 12,
+       "s": "Our hybrid communication framework effectively combines bit-level transmission with several semantic-level image generation modes, optimizing bandwidth usage to meet stringent satellite link budget constraints and ensure communication reliability and low latency under low signal-to-noise ratio (SNR) conditions."
+      }
+     ],
+     "eval": [
+      {
+       "i": 25,
+       "s": "However, the link budget problem remains a major challenge in satellite communications [ 5 ] ."
+      },
+      {
+       "i": 31,
+       "s": "Therefore, semantic communication is very suitable for solving the problem of limited satellite link budget."
+      },
+      {
+       "i": 52,
+       "s": "Considering the limitations of satellite link budget, semantic communications have gained significant attention in the current satellite communication research [ 23 , 24 ] ."
+      },
+      {
+       "i": 64,
+       "s": "This framework is designed to meet various transmission and delay requirements while adhering to the satellite link budget constraints."
+      }
+     ]
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 110,
+       "s": "Consequently, the transmission rate from satellite to UAV can be expressed as (3) where is the bandwidth for the downlink transmission between and , is the transmit power of satellite , and denotes the additive white Gaussian noise (AWGN) at UAV ."
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 2,
+     "intro": [],
+     "eval": [
+      {
+       "i": 120,
+       "s": "The channel coefficient between UAV and ground user can be expressed as (5) where denotes the Rician factor."
+      },
+      {
+       "i": 221,
+       "s": "Considering the time-varying Rician fading channels and dynamic locations of UAVs and LEO satellites in SAGINs, along with the uncertainty in task arrivals and requirements, this constitutes a long-term optimization problem."
+      }
+     ]
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 204,
+   "title": "Semantic-aware resource allocation in mec-assisted sagin: a deep reinforcement learning-based approach",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 114,
+   "title": "Energy-efficient probabilistic semantic communication over space-air-ground integrated networks",
+   "fulltext": true,
+   "n_sentences": 401,
+   "eval_section_found": true,
+   "eval_start_sentence": 18,
+   "evidence": {
+    "DOPPLER": {
+     "desc": "do dich Doppler",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DOPPLER_RATE": {
+     "desc": "Doppler bien thien theo thoi gian",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "DELAY": {
+     "desc": "tre lan truyen",
+     "n_intro": 0,
+     "n_eval": 4,
+     "intro": [],
+     "eval": [
+      {
+       "i": 172,
+       "s": "The communication latency of the satellite-to-UAV link is comprised of transmission delay and propagation delay."
+      },
+      {
+       "i": 173,
+       "s": "The propagation delay cannot be neglected since the vast distance between the satellite and the UAV, often spanning thousands of kilometers."
+      },
+      {
+       "i": 175,
+       "s": "The propagation delay of the satellite-to-UAV communication can be expressed as (17) where is the speed of light."
+      },
+      {
+       "i": 177,
+       "s": "Then, the total computation energy cost by the UAV can be written as (21) As the distance between the UAV and each GT is only a few hundred meters, the propagation delay in UAV-to-GT communication can be neglected."
+      }
+     ]
+    },
+    "PATHLOSS_ELEV": {
+     "desc": "suy hao phu thuoc goc ngang / ngan sach duong truyen theo luot bay",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 162,
+       "s": "(2-51)], the antenna gain within the azimuth angle and elevation angle can be expressed as (10) where , and represents the antenna gain outside the beamwidth."
+      }
+     ]
+    },
+    "VISIBILITY": {
+     "desc": "cua so nhin thay huu han / gian doan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "ATMOS": {
+     "desc": "suy hao khi quyen / mua",
+     "n_intro": 0,
+     "n_eval": 1,
+     "intro": [],
+     "eval": [
+      {
+       "i": 156,
+       "s": "II-D 1 Satellite to UAV Different from traditional terrestrial communication, the satellite communication channel is subject to various factors, including space propagation fading, atmospheric absorption fading, rain attenuation, among others."
+      }
+     ]
+    },
+    "ONBOARD": {
+     "desc": "rang buoc tinh toan tren khoang",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_AWGN": {
+     "desc": "kenh AWGN",
+     "n_intro": 0,
+     "n_eval": 2,
+     "intro": [],
+     "eval": [
+      {
+       "i": 158,
+       "s": "Consequently, the downlink transmission rate between the satellite and the UAV can be given by (9) where denotes the bandwidth of the satellite-to-UAV system, represents the transmit power of the satellite, and is the power spectral density of additive white Gaussian noise (AWGN)."
+      },
+      {
+       "i": 297,
+       "s": "TABLE I: Main System Parameters Parameter Value Number of GTs Original data size KB Satellite-UAV distance km Satellite beam gain dB Satellite-UAV wavelength mm Satellite bandwidth GHz Satellite transmit power W Power spectral density of AWGN dBm/Hz Reference gain Computation coefficient Satellite computation capacity GHz Maximum latency ms Total transmit power of the UAV W Feasible altitude range"
+      }
+     ]
+    },
+    "CH_FADING": {
+     "desc": "kenh pha-dinh thong ke",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_3GPP": {
+     "desc": "mo hinh kenh NTN theo chuan",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "CH_TRACE": {
+     "desc": "vet do thuc / bo mo phong quy dao",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    },
+    "SNR_SWEEP": {
+     "desc": "quet SNR / lech SNR giua huan luyen va kiem thu",
+     "n_intro": 0,
+     "n_eval": 0,
+     "intro": [],
+     "eval": []
+    }
+   }
+  },
+  {
+   "ref": 205,
+   "title": "Semantic communication for high-speed mobility scenarios: a semantic-otfs scheme",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 206,
+   "title": "Generative ai-aided vertical handover decision in sagin for iot with integrated sensing and communication",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  },
+  {
+   "ref": 207,
+   "title": "Satellite-aided low-altitude uav service migration with semantic extraction and generated graphs",
+   "fulltext": false,
+   "reason": "khong co ban arXiv khop tieu de"
+  }
+ ]
+}
