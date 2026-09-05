@@ -70,11 +70,38 @@ def load(fn):
     return json.load(io.open(p, encoding="utf-8")) if os.path.exists(p) else None
 
 
-def save(fig, name):
-    for ext in ("pdf", "png"):
-        fig.savefig(os.path.join(OUTD, "%s.%s" % (name, ext)), bbox_inches="tight")
+def save(fig, name, target_w=None):
+    """Ghi hinh sao cho be rong THAT cua tep PDF dung bang be rong se dung trong bai.
+
+    ⛔ VI SAO PHAI LAP. `bbox_inches="tight"` cat khung theo NOI DUNG, nen be rong tep ra khac
+    be rong `figsize` da yeu cau, va khac nhau tung hinh tuy nhan truc dai ngan. Dua tat ca vao
+    bai o `\textwidth` thi moi hinh bi co gian MOT HE SO KHAC NHAU, va co chu hieu dung chay tu
+    6,8pt den 10,0pt. Do la ly do mot so hinh trong nho han han cac hinh khac.
+
+    ⚠ Cong `check_figure_scale` bao PASS suot, vi no kiem TUNG hinh co nam trong nguong khong,
+    khong kiem cac hinh co NHAT QUAN voi nhau khong. Lop loi "cong dung nhung hoi thieu".
+
+    Cach chua: le phai (nhan truc, chu thich) gan nhu co dinh theo inch, nen
+    `figw_moi = figw + (dich - do_duoc)` hoi tu sau vai vong.
+    """
+    target_w = target_w or W_WIDE
+    path_pdf = os.path.join(OUTD, "%s.pdf" % name)
+    for _ in range(6):
+        fig.savefig(path_pdf, bbox_inches="tight")
+        with open(path_pdf, "rb") as fh:
+            blob = fh.read()
+        mm = re.findall(rb"/MediaBox\s*\[([^\]]*)\]", blob)
+        if not mm:
+            break
+        x0, y0, x1, y1 = [float(v) for v in mm[0].split()]
+        got = (x1 - x0) / 72.0
+        if abs(got - target_w) < 0.005:
+            break
+        w, h = fig.get_size_inches()
+        fig.set_size_inches(w + (target_w - got), h)
+    fig.savefig(os.path.join(OUTD, "%s.png" % name), bbox_inches="tight", dpi=200)
     plt.close(fig)
-    print("     %s" % name)
+    print("     %-16s %.2f in" % (name, got))
 
 
 def vn(x, d=2):
@@ -176,7 +203,7 @@ def fig_census(e2b, e2a):
 
     order = np.argsort(ev)
     y = np.arange(len(codes))
-    fig, ax = plt.subplots(figsize=(W_COL, 2.55))
+    fig, ax = plt.subplots(figsize=(W_WIDE, 2.45))
     ax.barh(y - 0.19, [it_[i] for i in order], 0.36, color=C["gray"], alpha=0.55,
             label="mentioned in framing")
     ax.barh(y + 0.19, [ev[i] for i in order], 0.36, color=C["verm"],
@@ -242,7 +269,7 @@ def fig_pass(tl):
     if not tl:
         return
     t = np.array(tl["t_s"])
-    fig, ax = plt.subplots(3, 1, figsize=(W_HALF, 3.45), sharex=True)
+    fig, ax = plt.subplots(3, 1, figsize=(W_WIDE, 3.20), sharex=True)
     ax[0].plot(t, tl["elev_deg"], color=C["green"])
     ax[0].set_ylabel("elevation ($^\\circ$)")
     ax[1].plot(t, tl["doppler_Ka_khz"], color=C["verm"], label="Ka, 20 GHz")

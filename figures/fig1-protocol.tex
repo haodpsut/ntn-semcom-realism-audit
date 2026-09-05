@@ -13,9 +13,9 @@
 
 \tikzset{
   bx/.style   = {draw=inkgray,line width=0.6pt,rounded corners=1pt,fill=white,
-                 align=center,inner sep=4pt,font=\footnotesize,text width=38mm,minimum height=8mm},
+                 align=center,inner sep=4pt,font=\footnotesize,text width=36mm,minimum height=8mm},
   acc/.style  = {bx,draw=accent,line width=0.9pt},
-  src/.style  = {bx,fill=black!4,text width=38mm},
+  src/.style  = {bx,fill=black!4,text width=36mm},
   fl/.style   = {-{Stealth[length=4pt]},draw=inkgray,line width=0.6pt},
   grp/.style  = {draw=inkgray,dashed,line width=0.5pt,rounded corners=2pt,inner sep=7pt},
   lb/.style   = {font=\scriptsize\scshape,text=inkgray},
@@ -33,13 +33,13 @@
 \node[acc,below=of geom] (dist) {Doppler, drift, link-budget\\swing, visibility window};
 
 % ---------------- nhanh phai: van lieu ----------------
-\node[src,right=34mm of tle] (surv) {Survey tables of\\representative works};
+\node[src,right=30mm of tle] (surv) {Survey tables of\\representative works};
 \node[bx,below=of surv] (pop) {Population: \numPop{} works\\full text for \numFull{}};
 \node[bx,below=of pop] (split) {Split each paper:\\framing vs.\ evaluation};
 \node[acc,below=of split] (cens) {Census against a checklist\\anchored to 3GPP TR 38.821};
 
 % ---------------- diem gap ----------------
-\node[acc,below=13mm of $(dist)!0.5!(cens)$,text width=64mm] (cost)
+\node[acc,below=13mm of $(dist)!0.5!(cens)$,text width=60mm] (cost)
      {What the gap costs: a codec trained under the modal\\
       assumption, evaluated under the measured conditions};
 
