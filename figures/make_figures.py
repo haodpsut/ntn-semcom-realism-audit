@@ -440,8 +440,11 @@ def fig_e3(e3):
         print("     (chua co e3, bo qua hinh 4)")
         return
     fig, ax = plt.subplots(1, 2, figsize=(W_WIDE, 2.05))
-    styles = {"fixed": (C["verm"], "o", "-", "trained at a single SNR"),
-              "aug": (C["blue"], "s", "--", "trained with randomised SNR and CFO")}
+    fig.subplots_adjust(wspace=0.34)
+    # ⛔ Nhan chu giai DAI thi hop chu giai tran sang ca bang ben canh. Rut ngan, giai thich
+    #    day du chuyen sang chu thich hinh.
+    styles = {"fixed": (C["verm"], "o", "-", "single SNR"),
+              "aug": (C["blue"], "s", "--", "randomised")}
     for mode, runs in e3["runs"].items():
         col, mk, ls, lb = styles[mode]
         xs = np.array([float(k) for k in e3["snr_eval_db"]])
@@ -454,13 +457,12 @@ def fig_e3(e3):
         ax[1].plot(xp, np.median(Z, 0), color=col, marker=mk, ls=ls)
         ax[1].fill_between(xp, Z.min(0), Z.max(0), color=col, alpha=0.16, lw=0)
     ax[0].axvline(e3["snr_train_db"], color="k", lw=0.8, ls=":")
-    ax[0].annotate("training SNR", xy=(e3["snr_train_db"], ax[0].get_ylim()[0]),
-                   xytext=(3, 3), textcoords="offset points", fontsize=7.5)
+    ax[0].text(0.52, 0.04, "training SNR", transform=ax[0].transAxes, fontsize=7)
     ax[0].set_xlabel("test SNR (dB)")
     ax[0].set_ylabel("PSNR (dB)")
-    ax[0].legend(loc="lower right", fontsize=7.5)
+    ax[0].legend(loc="upper left", fontsize=7, handlelength=1.6, borderpad=0.2)
     ax[1].set_xscale("log")
-    ax[1].set_xlabel(r"residual normalised CFO $\varepsilon = f_{\rm res}/R_s$")
+    ax[1].set_xlabel(r"residual CFO $\varepsilon$")
     ax[1].set_ylabel("PSNR (dB)")
     save(fig, "fig7-mismatch")
 
@@ -477,8 +479,47 @@ def fig_e3(e3):
     for e, tag in ((1e-4, "Ea"), (1e-3, "Eb"), (1e-2, "Ec")):
         M("numPsnrCfo" + tag, vn(ce(fx, e), 2))
         M("numDropCfo" + tag, vn(ce(fx, 0.0) - ce(fx, e), 2))
-    M("numPsnrAugLo", vn(at(e3["runs"]["aug"], lo), 2))
-    M("numAugGain", vn(at(e3["runs"]["aug"], lo) - at(fx, lo), 2))
+    ag = e3["runs"]["aug"]
+    M("numPsnrAugLo", vn(at(ag, lo), 2))
+    # ⚠ Ten cu la numAugGain, nhung gia tri AM: ngau nhien hoa KHONG giup o truc SNR.
+    #    Doi ten cho khoi doc nham thanh mot loi ich.
+    M("numAugSnrDelta", vn(at(ag, lo) - at(fx, lo), 2))
+    M("numPsnrAugTrain", vn(at(ag, e3["snr_train_db"]), 2))
+    M("numAugCost", vn(at(fx, e3["snr_train_db"]) - at(ag, e3["snr_train_db"]), 2))
+    M("numAugGainCfo", vn(ce(ag, 1e-3) - ce(fx, 1e-3), 2))
+    M("numPsnrAugCfoEb", vn(ce(ag, 1e-3), 2))
+    M("numPsnrAugCfoEc", vn(ce(ag, 1e-2), 2))
+    # ⭐ Vi tri vach da du doan tu (13): dat 2*pi*eps*(k-1) = pi
+    k = int(e3["c_channels"] * 8 * 8 / 2)
+    M("numK", "{:,}".format(k))
+    M("numCliffPred", "%.1f" % (1.0 / (2 * (k - 1)) * 1e4))     # don vi 1e-4
+    # ---- bang 6: so doc duoc, kem do trai giua cac seed ----
+    with io.open(os.path.join(OUTD, "tab6-mismatch.tex"), "w", encoding="utf-8") as f:
+        f.write("\\begin{tabular}{lrrrr}\n\\toprule\n")
+        f.write("& \\multicolumn{2}{c}{trained at one SNR} & "
+                "\\multicolumn{2}{c}{randomised training} \\\\\n")
+        f.write("\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\n")
+        f.write("Evaluation condition & median & range & median & range "
+                "\\\\\n\\midrule\n")
+
+        def cell(runs, kind, key):
+            v = [r[kind][key] for r in runs]
+            return vn(float(np.median(v)), 2), "%s--%s" % (vn(min(v), 2), vn(max(v), 2))
+
+        fx, ag = e3["runs"]["fixed"], e3["runs"]["aug"]
+        rows = [("SNR $=$ %s dB (training point)" % vn(e3["snr_train_db"], 0),
+                 "snr_curve", "%.1f" % e3["snr_train_db"]),
+                ("SNR $=$ %s dB (low end of pass)" % vn(lo, 0), "snr_curve", "%.1f" % lo),
+                ("SNR $=$ %s dB (high end of pass)" % vn(hi, 0), "snr_curve", "%.1f" % hi)]
+        for e in (1e-4, 1e-3, 1e-2):
+            rows.append(("residual CFO $\\varepsilon = %s$" % ("10^{-%d}" % int(round(-np.log10(e)))),
+                         "cfo_curve", "%.0e" % e))
+        for lab, kind, key in rows:
+            a1, a2 = cell(fx, kind, key)
+            b1, b2 = cell(ag, kind, key)
+            f.write("%s & %s & %s & %s & %s \\\\\n" % (lab, a1, a2, b1, b2))
+        f.write("\\bottomrule\n\\end{tabular}\n")
+    print("     tab6-mismatch")
     M("numEpochs", str(e3["epochs"]))
     M("numSeeds", str(len(e3["seeds"])))
     M("numBwRatio", vn(e3["bandwidth_ratio"], 3))

@@ -51,10 +51,17 @@ in full text, records for each whether an effect appears in the framing of the p
 evaluation. Of \numCoded{} codeable works, \numEvCHAWGN{} evaluate over an additive white
 Gaussian noise channel, \numEvCHGPP{} use a standardised non-terrestrial channel model,
 \numEvCHTRACE{} drive their channel from orbital data, and \numEvDOPPLERRATE{} instantiate the
-time-varying component of Doppler. One widely reasonable suspicion is not supported and we report
-it as a result: the link budget moves only \numSlew~dB/s, so treating the signal-to-noise ratio as
-static within a transmission block is sound. The checklist, the coding sheet with the sentence
-that justifies every decision, the orbital generator and the evaluation harness are released.
+time-varying component of Doppler. Third, training a semantic codec under the modal
+assumption and evaluating it under the measured conditions locates the cost precisely. It is not
+where an audit would expect: sweeping the signal-to-noise ratio across the full pass costs
+\numPsnrDrop~dB and degrades gracefully, so the fixed operating point most works adopt is
+defensible. The cost appears instead as a cliff on the axis nobody instantiates, with
+\numDropCfoEb~dB lost at a residual frequency offset of $10^{-3}$, an offset reached when
+compensation removes ninety-seven per cent of the measured shift. The location of that cliff
+follows from the accumulated phase across a coded block rather than from the experiment.
+Randomising the offset during training recovers \numAugGainCfo~dB of it. The checklist, the
+coding sheet with the sentence justifying every decision, the orbital generator and the
+evaluation harness are released.
 \end{abstract}
 
 \begin{keyword}
@@ -85,7 +92,8 @@ that gap exists, and how wide it is, has not been measured.
 \paragraph{What this paper does.}
 Figure~\ref{fig:protocol} sets out the audit. Two measurements are taken separately and neither
 depends on the other. The first establishes what the orbit does, by propagating public two-line
-element sets and computing the quantities an NTN-specific evaluation would have to instantiate.
+element sets and computing the quantities of Section~\ref{sec:model} that an NTN-specific
+evaluation would have to instantiate.
 The second establishes what the literature evaluates, by coding the works a survey lists as
 representative against a checklist anchored to the 3GPP non-terrestrial channel studies~\cite{tr38821} rather
 than to criteria of our own devising. A third measurement then asks what the gap costs, by
@@ -102,13 +110,24 @@ whether learned codecs beat classical separation-based baselines, a question the
 source-channel coding literature already treats carefully~\cite{bourtsoulatze2019deepjscc,kurka2020deepjsccf},
 including published cases where the classical baseline wins.
 
-\paragraph{A finding that runs the other way.}
-One suspicion motivates a natural version of this audit and turns out to be wrong. If the link
-budget swept quickly, a fixed signal-to-noise ratio would be indefensible even within a single
-image transmission. Section~\ref{sec:orbit} measures the sweep at \numSlew~dB/s, which over ten
-seconds is \numSlewTen~dB. Treating the channel as static within a transmission block is
-therefore sound, and we report this because it is the first objection a reader should raise and
-because it narrows the audit to the effects that survive measurement.
+\paragraph{Two findings that run the other way.}
+An audit is worth little if it only confirms its own premise, and two results here do not. The
+first is that the link budget moves slowly: Section~\ref{sec:orbit} measures the sweep at
+\numSlew~dB/s, which over ten seconds is \numSlewTen~dB, so treating the channel as static
+within a transmission block is sound. The second is that even the pass-scale sweep is survivable:
+Section~\ref{sec:cost} finds a codec trained at one operating point loses \numPsnrDrop~dB
+across the full range, degrading gradually and without a threshold. The commonest simplification
+in the population is therefore not the problem, and we report both because they narrow the audit
+to the one effect that does not survive measurement.
+
+\paragraph{Where the cost actually is.}
+That effect is the residual frequency offset. The same codec loses \numDropCfoEa~dB at
+$\varepsilon = 10^{-4}$ and \numDropCfoEb~dB at $\varepsilon = 10^{-3}$, a cliff rather than a
+slope, and the position of the cliff is predicted by the phase accumulated across a coded block
+rather than found by search. The offset at which it occurs corresponds to compensation that
+removes ninety-seven per cent of the measured Doppler, which is to say a competent system rather
+than a negligent one. It is also the axis that \numEvDOPPLERRATE{} of the works in the
+population instantiate.
 
 \begin{figure}[t]
 \centering
@@ -153,14 +172,206 @@ semantic success should be defined and measured across modalities and tasks~\cit
 complementary and asks about conditions rather than metrics: given any metric, under what channel
 was it computed.
 
-\subsection{Audits as a genre}
+\subsection{Semantic communication over non-terrestrial links}
 
-Reassessments that re-run a body of work under stricter conditions have an established place in
-networking. They have found reported gains in traffic classification that arose from dataset-specific
-shortcuts rather than task semantics~\cite{shortcuts2026}, and reality checks in adjacent areas
-have been published even when the reassessed method loses~\cite{spadari2025realitycheck}, because the contribution is the evaluation
-protocol rather than a new mechanism. This paper follows that genre. Its contribution is a
-protocol, a measurement of what the protocol is measuring against, and a released harness.
+The population audited in this paper spans three settings, and it is worth describing them
+because the audit's question applies differently to each.
+
+\paragraph{Satellite links.}
+Earth observation is the dominant application, since the downlink is the bottleneck and the
+receiver's task is usually known in advance. Work here ranges from resource-constrained network
+optimisation for observation downlinks~\cite{hassan2024r95} and on-board compression for
+platforms with limited payload compute~\cite{bhattacharjee2024r113}, through cognitive
+augmentation of observation constellations~\cite{chou2024r154}, to importance-aware transmission
+that protects the semantically salient part of an image~\cite{cao2025r94} and generative
+reconstruction at the receiver~\cite{jiang2024r93,zhang2024r161}. Multi-hop settings introduce
+inter-satellite routing as a further degree of freedom~\cite{zeng2026r81,huang2026r117}, and
+direct satellite-to-device links remove the gateway
+altogether~\cite{huang2026r165,nguyen2024r115}.
+
+\paragraph{Aerial platforms.}
+Unmanned aerial vehicles share the bandwidth pressure but not the orbital geometry: their
+relative velocity is orders of magnitude lower, so Doppler is not the binding constraint, while
+energy and trajectory are. Work here couples semantic transmission with scheduling and
+trajectory~\cite{tian2026r178,zheng2026r190}, with knowledge-graph representations for
+task-specific transfer~\cite{song2024r102,joshi2026r179}, and with resource allocation under
+fairness constraints~\cite{siyun2025r191,sankara2026r186}. This paper reports the census over
+aerial work alongside the satellite work, but the checklist items that concern orbital motion
+are correspondingly less demanding there, and Section~\ref{sec:threats} returns to the point.
+
+\paragraph{Integrated space-air-ground networks.}
+A third group treats the tiers jointly, with federated or cooperative learning spanning
+them~\cite{nguyen2025r104,razlighi2026r118}, digital twins of the integrated
+network~\cite{qiu2025r200}, aerial relays between tiers~\cite{yin2025r203}, and resource
+allocation that mixes conventional and semantic
+traffic~\cite{huang2024r112,zhao2024r114,nguyenkha2026r170}. Relaying frameworks that forward
+semantic representations rather than symbols~\cite{lin2023r116} and goal-oriented formulations
+aimed at links where round-trip delay dominates~\cite{uysal2024r108} sit alongside them.
+
+What none of this work is asked here is whether it is correct or useful. The question is
+narrower and mechanical: under which channel was the reported number computed.
+
+\subsection{Channel models and where the standards sit}
+
+The 3GPP non-terrestrial studies define reference scenarios, carrier bands and calibration
+assumptions for exactly the links these works target~\cite{tr38811,tr38821}. They are the natural
+anchor for a checklist about channel realism, because they are external to the semantic
+communication literature and were written for a different purpose, so a work cannot be accused of
+being measured against criteria invented to catch it. Their reference bands, S-band and Ka-band,
+are the two this paper reports, and their minimum elevation angles are the thresholds swept in
+Section~\ref{sec:orbit}.
+
+\subsection{Reassessment as a contribution}
+
+Re-running a body of work under stricter conditions has an established place in networking, and
+the contribution in such papers is the protocol rather than a new mechanism. Reported gains in
+encrypted traffic classification have been traced to dataset-specific shortcuts rather than to
+the task semantics the models were credited with learning~\cite{shortcuts2026}. In adjacent
+areas, reality checks have been published even where the reassessed method loses to a
+conventional baseline, because what the community gains is a fair comparison
+protocol~\cite{spadari2025realitycheck}. This paper is of that kind, and it is deliberately
+narrow: it does not evaluate the quality of any method, only the conditions under which quality
+was measured.
+
+% =====================================================================
+\section{System model}
+\label{sec:model}
+
+This section fixes the quantities an evaluation of semantic communication over a non-terrestrial
+link would have to instantiate. Each is a function of orbital geometry and carrier frequency
+alone, so each can be computed rather than assumed, and Section~\ref{sec:orbit} computes them.
+
+\subsection{Link geometry}
+
+Let $R_E$ denote the Earth radius, $h$ the orbital altitude of a satellite and $\varepsilon_{\rm
+el}$ the elevation angle at which a ground station sees it. The slant range follows from the
+triangle formed by the station, the satellite and the Earth centre,
+\begin{equation}
+  d(\varepsilon_{\rm el}) \;=\; \sqrt{R_E^{2}\sin^{2}\varepsilon_{\rm el} + h\,(2R_E + h)}
+  \;-\; R_E \sin \varepsilon_{\rm el} ,
+  \label{eq:slant}
+\end{equation}
+and the corresponding Earth-central angle, which fixes the ground footprint, is
+\begin{equation}
+  \gamma(\varepsilon_{\rm el}) \;=\;
+  \arccos\!\Bigl( \tfrac{R_E}{R_E + h}\, \cos \varepsilon_{\rm el} \Bigr)
+  \;-\; \varepsilon_{\rm el} .
+  \label{eq:central}
+\end{equation}
+A pass is the interval during which $\varepsilon_{\rm el}(t) \ge \varepsilon_{\min}$ for a
+minimum elevation $\varepsilon_{\min}$ set by the link budget, and its duration $T_{\rm vis}$ is
+the visibility window. Equations~\eqref{eq:slant} and~\eqref{eq:central} are monotone in
+$\varepsilon_{\rm el}$, so raising $\varepsilon_{\min}$ shortens $T_{\rm vis}$ and reduces the
+extremes of every quantity below; Section~\ref{sec:orbit} reports that trade at three thresholds.
+
+\subsection{What varies within a pass}
+
+\paragraph{Path loss.}
+The free-space term at carrier frequency $f_c$ is
+\begin{equation}
+  L(d, f_c) \;=\; 20 \log_{10} d \;+\; 20 \log_{10} f_c \;+\; 92.45 ,
+  \label{eq:fspl}
+\end{equation}
+with $d$ in kilometres and $f_c$ in gigahertz. The quantity that matters for an evaluation is
+not $L$ itself, which a link budget absorbs, but how much it moves across a pass:
+\begin{equation}
+  \Delta L \;=\; 20 \log_{10} \frac{d_{\max}}{d_{\min}}
+  \;=\; 20 \log_{10} \frac{d(\varepsilon_{\min})}{d(\varepsilon_{\rm el}^{\star})} ,
+  \label{eq:swing}
+\end{equation}
+where $\varepsilon_{\rm el}^{\star}$ is the maximum elevation reached. The frequency term
+of~\eqref{eq:fspl} cancels in~\eqref{eq:swing}, so the swing is a property of the geometry alone
+and is identical at S-band and at Ka-band.
+
+\paragraph{Rate of change.}
+Differentiating~\eqref{eq:fspl} gives the slew rate of the geometric term,
+\begin{equation}
+  \frac{\mathrm{d}L}{\mathrm{d}t} \;=\; \frac{20}{\ln 10}\, \frac{\dot d}{d} ,
+  \label{eq:slew}
+\end{equation}
+so a transmission of duration $T_{\rm blk}$ sees a change bounded by
+\begin{equation}
+  |\Delta L_{\rm blk}| \;\le\; T_{\rm blk} \cdot
+  \max_{t} \Bigl| \frac{\mathrm{d}L}{\mathrm{d}t} \Bigr| .
+  \label{eq:blk}
+\end{equation}
+Equations~\eqref{eq:swing} and~\eqref{eq:blk} are the two halves of the result in
+Section~\ref{sec:orbit} that runs against the audit: the first is large and the second is not.
+
+\paragraph{Doppler.}
+The shift and its rate are
+\begin{equation}
+  f_{\rm dop}(t) \;=\; -\frac{\dot d(t)}{c}\, f_c ,
+  \qquad
+  \dot f_{\rm dop}(t) \;=\; -\frac{\ddot d(t)}{c}\, f_c ,
+  \label{eq:doppler}
+\end{equation}
+with $c$ the speed of light. Both scale linearly with $f_c$, which is why a link that is
+untroubled at S-band is demanding at Ka-band, and $\dot d$ changes sign at closest approach, so
+$f_{\rm dop}$ reverses sign within a single pass. The one-way delay is $d/c$.
+
+\paragraph{What the model omits, and in which direction.}
+Equation~\eqref{eq:fspl} is the free-space term only. Antenna pattern roll-off as the beam sweeps
+across the station, atmospheric and rain attenuation, which grow as $\varepsilon_{\rm el}$ falls,
+and receiver noise all add variation over a pass. Every one of them increases the right-hand side
+of~\eqref{eq:swing}, so the figures reported in Section~\ref{sec:orbit} are lower bounds. A lower
+bound requires no contested modelling and is all the argument of this paper needs.
+
+\subsection{Semantic transmission over such a link}
+
+A learned joint source-channel codec maps a source $\mathbf{x} \in \mathbb{R}^{n}$ to channel
+symbols and back,
+\begin{equation}
+  \mathbf{z} = f_{\theta}(\mathbf{x}) \in \mathbb{R}^{2k},
+  \qquad
+  \hat{\mathbf{x}} = g_{\phi}(\mathbf{y}) ,
+  \label{eq:codec}
+\end{equation}
+where consecutive pairs of $\mathbf{z}$ form $k$ complex symbols $\mathbf{s} \in \mathbb{C}^{k}$
+and $R = k/n$ is the bandwidth ratio. Transmit power is normalised per source block,
+\begin{equation}
+  \tilde{\mathbf{s}} \;=\; \sqrt{k}\; \frac{\mathbf{s}}{\lVert \mathbf{s} \rVert_2} ,
+  \label{eq:power}
+\end{equation}
+so that $\mathbb{E}\,|\tilde s_m|^{2} = 1$ and the channel signal-to-noise ratio is
+$\gamma = 1/\sigma^{2}$.
+
+\paragraph{The channel the population assumes, and the one the orbit provides.}
+The modal choice in the population of Section~\ref{sec:census} is
+\begin{equation}
+  y_m \;=\; \tilde s_m + n_m , \qquad n_m \sim \mathcal{CN}(0, \sigma^{2}) ,
+  \label{eq:awgn}
+\end{equation}
+evaluated at a single $\gamma$. Adding the residual frequency offset that~\eqref{eq:doppler}
+implies gives
+\begin{equation}
+  y_m \;=\; \tilde s_m \, e^{\,j 2\pi \varepsilon m} + n_m ,
+  \qquad
+  \varepsilon \;=\; \frac{f_{\rm res}}{R_s} \;=\; \frac{\rho\, f_{\rm dop}}{R_s} ,
+  \label{eq:cfo}
+\end{equation}
+where $R_s$ is the symbol rate and $\rho \in [0,1]$ is the fraction of the shift that
+compensation leaves uncorrected. Parameterising by the normalised offset $\varepsilon$ rather
+than by $f_{\rm res}$ avoids committing to a symbol rate, which no work in the population states.
+The phase error is not a random perturbation but accumulates deterministically across the block,
+\begin{equation}
+  \Delta \varphi \;=\; 2\pi \varepsilon (k-1) ,
+  \label{eq:phase}
+\end{equation}
+so the last symbols of a block are rotated far more than the first. Setting $\Delta\varphi = \pi$
+in~\eqref{eq:phase} gives the offset at which the tail of a block is inverted,
+$\varepsilon = 1/(2(k-1))$, which for the operating point of Section~\ref{sec:cost} is close to
+$10^{-3}$ and is where the collapse reported there occurs.
+
+\paragraph{Fidelity.}
+Reconstruction quality is reported as
+\begin{equation}
+  \mathrm{PSNR} \;=\; 10 \log_{10} \frac{M^{2}}
+  {\tfrac{1}{n} \lVert \mathbf{x} - \hat{\mathbf{x}} \rVert_2^{2}} ,
+  \label{eq:psnr}
+\end{equation}
+with $M$ the peak source value, and the codec is trained by minimising the mean squared error
+in the denominator of~\eqref{eq:psnr} through~\eqref{eq:awgn}.
 
 % =====================================================================
 \section{The audit protocol}
@@ -195,7 +406,8 @@ audit records which condition.
 
 \subsection{Coding, and where a claim counts}
 
-The instrument is a distinction between two regions of a paper. A sentence about Doppler in an
+The instrument, stated formally in Section~\ref{sec:formal}, is a distinction between two
+regions of a paper. A sentence about Doppler in an
 introduction or a related-work section states a motivation. The same sentence in a simulation
 setup or results section is evidence that the evaluation instantiates the effect. Every paper is
 therefore split at the first heading that begins its evaluation, and every checklist item is
@@ -206,6 +418,65 @@ item, the harness collects the sentences that bear on the item, tagged by region
 is recorded against those sentences. The coding sheet released with this paper carries the
 sentence behind every decision, so any individual judgement can be disputed without repeating
 the collection.
+
+
+\subsection{The census, stated precisely}
+\label{sec:formal}
+
+Let $\mathcal{W}$ be the population and $\mathcal{I}$ the checklist of Table~\ref{tab:checklist},
+with $|\mathcal{I}| = \numChecklist$. Each work $w$ is partitioned at the first heading that
+begins its evaluation into a framing region and an evaluation region, and the coding function
+\begin{equation}
+  c(w, i) \;=\;
+  \begin{cases}
+    2, & \text{item } i \text{ is evidenced in the evaluation region of } w, \\
+    1, & \text{evidenced only in the framing region}, \\
+    0, & \text{not evidenced},
+  \end{cases}
+  \label{eq:code}
+\end{equation}
+records where each item appears. The distinction in~\eqref{eq:code} between $2$ and $1$ is the
+instrument of this paper: a statement about Doppler while motivating a problem is not evidence
+that the evaluation instantiates Doppler. Writing $\mathcal{W}_c \subseteq \mathcal{W}$ for the
+works that could be read and partitioned, the per-item count reported in
+Figure~\ref{fig:census} is
+\begin{equation}
+  n_{\rm ev}(i) \;=\; \bigl| \{\, w \in \mathcal{W}_c : c(w,i) = 2 \,\} \bigr| ,
+  \label{eq:count}
+\end{equation}
+and the per-work coverage plotted in Figure~\ref{fig:matrix} is
+\begin{equation}
+  \kappa(w) \;=\; \bigl| \{\, i \in \mathcal{I} : c(w,i) = 2 \,\} \bigr| .
+  \label{eq:cover}
+\end{equation}
+
+\paragraph{Comparing two descriptions of the same work.}
+The survey's channel-consideration entry is a second, independent description of what a work
+considers. Let $\mathcal{A}(w) \subseteq \mathcal{I}$ be the items that entry names and
+\begin{equation}
+  \mathcal{B}(w) \;=\; \{\, i \in \mathcal{I} : c(w,i) = 2 \,\}
+  \label{eq:setB}
+\end{equation}
+the items its evaluation instantiates. Because an entry of a few words cannot enumerate an
+evaluation, $\mathcal{A}(w) \subseteq \mathcal{B}(w)$ is the expected relation and carries no
+information. The informative quantity is the discrepancy set
+\begin{equation}
+  \mathcal{D}(w) \;=\; \mathcal{A}(w) \setminus \mathcal{B}(w) ,
+  \label{eq:disc}
+\end{equation}
+the effects a work is recorded as considering but does not instantiate where it matters.
+Table~\ref{tab:agreement} reports $|\mathcal{A}(w)|$, $|\mathcal{B}(w)|$ and $\mathcal{D}(w)$
+for every work where both descriptions could be read.
+
+\paragraph{Agreement between coders.}
+Where two coders assign~\eqref{eq:code} independently, agreement is reported as
+\begin{equation}
+  \kappa_{\rm C} \;=\; \frac{p_o - p_e}{1 - p_e} ,
+  \label{eq:kappa}
+\end{equation}
+with $p_o$ the observed proportion of matching decisions and $p_e$ the proportion expected by
+chance. The released coding sheet carries the sentence behind every decision, so a disputed entry
+can be settled against the evidence rather than against~\eqref{eq:kappa}.
 
 \subsection{Testing the instrument before trusting it}
 
@@ -230,11 +501,8 @@ pass we record slant range, elevation, one-way delay, the Doppler shift implied 
 rate at S-band and Ka-band, its time derivative, and the free-space path loss.
 
 \paragraph{Only geometry, deliberately.}
-We compute free-space path loss and nothing else. Antenna pattern roll-off across a pass,
-atmospheric and rain attenuation and receiver noise figure all \emph{add} variation rather than
-removing it, so the swing reported here is a lower bound on how much the link budget moves. A
-lower bound requires no contested modelling, and the argument of this paper needs only a lower
-bound.
+As set out after~\eqref{eq:swing}, we compute the free-space term and nothing else, so every
+figure below is a lower bound on the variation a deployed link would see.
 
 \subsection{Results}
 
@@ -317,7 +585,8 @@ are the geometric term only and are therefore lower bounds.}
 
 \subsection{The result that runs against the audit}
 
-The rate at which the link budget moves has a median of \numSlew~dB/s. Over a one-second
+The slew rate~\eqref{eq:slew} has a median of \numSlew~dB/s, so by~\eqref{eq:blk} a
+transmission block sees very little. Over a one-second
 transmission the signal-to-noise ratio therefore shifts by well under a tenth of a decibel, and
 over ten seconds by \numSlewTen~dB. The common practice of holding the signal-to-noise ratio
 fixed within a transmission block is sound, and an audit that attacked it would be attacking the
@@ -332,8 +601,9 @@ deployed across a window of \numDurMed~s over which the geometric term alone mov
 \section{What the literature actually evaluates}
 \label{sec:census}
 
-Figure~\ref{fig:census} and Table~\ref{tab:census} report the census over the \numCoded{} works
-for which full text was available and an evaluation section could be located.
+Figure~\ref{fig:census} and Table~\ref{tab:census} report $n_{\rm ev}(i)$ of~\eqref{eq:count}
+over the $|\mathcal{W}_c| = \numCoded{}$ works for which full text was available and an
+evaluation section could be located, alongside the corresponding count over framing regions.
 
 \paragraph{Channel models.}
 Additive white Gaussian noise is the modal choice, present in the evaluation of
@@ -356,24 +626,25 @@ drift the orbit produces, up to \numDopRateMax~kHz/s, is instantiated by no eval
 population, and that no evaluation is driven by the geometry that produces it.
 
 \paragraph{The structure behind the counts.}
-Figure~\ref{fig:matrix} resolves the census to individual works. No evaluation in the population
-instantiates more than \numMaxCover{} of the \numChecklist{} items, and \numZeroCover{} works
-instantiate none of them. The two empty rows are the zeros discussed above, and seeing them as
+Figure~\ref{fig:matrix} resolves the census to individual works. The coverage $\kappa(w)$ of~\eqref{eq:cover} never exceeds \numMaxCover{} of the
+\numChecklist{} items for any work in the population, and \numZeroCover{} works have
+$\kappa(w) = 0$. The two empty rows are the zeros discussed above, and seeing them as
 rows rather than as bars makes clear that they are not the result of one or two works dominating
 a count.
 
 \paragraph{A second source describes the same works.}
 The survey's own channel-consideration column is an independent record of what each work
 considers, so it can be compared against what the evaluation sections contain.
-Table~\ref{tab:agreement} does that for the \numAgrN{} works where both are available. Two
+Table~\ref{tab:agreement} reports $|\mathcal{A}(w)|$, the set $\mathcal{B}(w)$
+of~\eqref{eq:setB} and the discrepancy $\mathcal{D}(w)$ of~\eqref{eq:disc} for the \numAgrN{}
+works where both descriptions are available. Two
 things follow, and the first is not a criticism. The column is a phrase of a few words and cannot
 enumerate an evaluation, so the entries naming fewer items than the evaluations contain is
 expected. What is informative is what the entries name at all: across \numAgrN{} works they
 name \numAgrNamedTot{} checklist items in total, because most entries describe an architecture
 or a topology rather than a propagation environment. The column is the closest thing the
-literature has to a record of channel realism, and it is not one. In \numAgrExtra{} case the
-comparison runs the other way, with the column naming an effect the evaluation section does not
-contain.
+literature has to a record of channel realism, and it is not one. In \numAgrExtra{} case $\mathcal{D}(w)$ is non-empty, with the column naming an effect the
+evaluation section does not contain.
 
 \begin{table}[t]
 \centering
@@ -432,9 +703,10 @@ to a codec trained under it when the conditions of Section~\ref{sec:orbit} are a
 
 \subsection{Setup}
 
-A convolutional joint source-channel codec~\cite{bourtsoulatze2019deepjscc} is trained end to
-end through a differentiable complex additive white Gaussian noise channel on a standard image
-benchmark~\cite{krizhevsky2009cifar}. Two training regimes are compared. The first
+The codec of~\eqref{eq:codec} and~\eqref{eq:power} is instantiated as a convolutional encoder
+and decoder~\cite{bourtsoulatze2019deepjscc} and trained end to end through the differentiable
+channel~\eqref{eq:awgn} on a standard image benchmark~\cite{krizhevsky2009cifar}, with fidelity
+measured by~\eqref{eq:psnr}. Two training regimes are compared. The first
 fixes the signal-to-noise ratio during training, which is the modal practice in the population.
 The second randomises it, together with a residual frequency offset, over the ranges
 Section~\ref{sec:orbit} measured. The second regime is included so that the paper reports a
@@ -448,12 +720,102 @@ conservative end of what a deployed codec would see.
 
 \paragraph{Residual offset, not raw Doppler.}
 No deployed system leaves \numDopKaMed~kHz uncompensated, so evaluating at raw Doppler would be a
-straw man. We parameterise instead by the normalised residual offset
-$\varepsilon = f_{\mathrm{res}}/R_s$, the phase advance added per channel use, which avoids
-committing to a symbol rate that no work in the population states. A reader substitutes their own
+straw man. We parameterise instead by the normalised residual offset $\varepsilon$ of~\eqref{eq:cfo},
+which avoids committing to a symbol rate that no work in the population states, and whose effect
+accumulates across a block as~\eqref{eq:phase} describes. A reader substitutes their own
 $R_s$ to locate their operating point: at the median Ka-band shift of \numDopKaMed~kHz and a
 symbol rate of $10$~Msym/s, leaving one per cent of the shift uncorrected puts
 $\varepsilon$ near $3.6\times10^{-4}$.
+
+
+\subsection{Configuration}
+
+The codec of~\eqref{eq:codec} uses a bandwidth ratio of $R = \numBwRatio$, giving $\numK{}$
+complex symbols per source block. Each configuration is trained for \numEpochs{} epochs with
+\numSeeds{} seeds, and every figure below reports the median across seeds with the range in
+parentheses or as a band, because the spread turns out to differ sharply between the two axes.
+
+\subsection{The signal-to-noise axis is not where the problem is}
+
+Figure~\ref{fig:mismatch}(a) and Table~\ref{tab:mismatch} sweep the test signal-to-noise ratio
+across $\numSnrLo$ to $\numSnrHi$~dB, a range chosen to contain the link-budget swing measured
+in Section~\ref{sec:orbit} rather than picked for effect. A codec trained at a single operating
+point reaches \numPsnrTrain~dB there and \numPsnrLo~dB at the low end of the sweep, a loss of
+\numPsnrDrop~dB. The degradation is monotone and gradual, with no threshold.
+
+This is the second result in this paper that runs against the audit rather than for it, and it is
+consistent with the first. Section~\ref{sec:orbit} found that the geometric term moves slowly
+enough that a transmission block sees a static channel; this section finds that even the
+pass-scale sweep, which is not small, costs a codec only a few decibels. Training at a single
+signal-to-noise ratio is a defensible choice, and the \numEvSNRSWEEP{} works that sweep it are
+not thereby buying much. An audit that stopped at the channel model and declared the fixed
+operating point a flaw would be wrong.
+
+\subsection{The residual frequency offset is where the problem is, and it is a cliff}
+
+Figure~\ref{fig:mismatch}(b) tells a different story. At $\varepsilon = 10^{-4}$ the same codec
+loses \numDropCfoEa~dB, which is negligible. At $\varepsilon = 10^{-3}$ it loses
+\numDropCfoEb~dB, falling from \numPsnrCfoClean~dB to \numPsnrCfoEb~dB. The transition is not a
+slope but a cliff, and it lies between two adjacent decades.
+
+The location of that cliff is predicted by~\eqref{eq:phase} rather than discovered empirically.
+Setting the accumulated phase across a block to $\pi$ gives $\varepsilon = 1/(2(k-1))$, which for
+$k = \numK{}$ symbols is $\numCliffPred \times 10^{-4}$. The measured collapse occurs between
+$10^{-4}$ and $10^{-3}$, so the mechanism is the one the model names: the tail of a block is
+rotated past quadrature and the decoder, which never saw a rotation during training, has no way
+to undo it.
+
+\paragraph{What that offset corresponds to.}
+By~\eqref{eq:cfo}, $\varepsilon = 10^{-3}$ at a symbol rate of $10$~Msym/s is a residual of
+$10$~kHz. Against the median Ka-band shift of \numDopKaMed~kHz measured in
+Section~\ref{sec:orbit}, that is $\rho \approx 0.03$, meaning the collapse occurs when
+compensation removes ninety-seven per cent of the shift. The regime in which a semantic codec
+fails is therefore not one of neglected Doppler but one of ordinary, competently compensated
+Doppler, which is precisely the regime a deployed system operates in and precisely the regime
+that \numEvDOPPLERRATE{} of the works in the population instantiate.
+
+\paragraph{The spread is informative.}
+At the training point the three seeds agree closely, spanning 27.72 to 28.34~dB. At
+$\varepsilon = 10^{-3}$ they span 8.13 to 12.15~dB, a spread of four decibels. A quantity whose
+seed-to-seed variation is four decibels cannot be reported as a single number, which is why
+Table~\ref{tab:mismatch} carries ranges throughout.
+
+\subsection{A remedy, and the limits of it}
+
+The second training regime randomises the signal-to-noise ratio and the residual offset over the
+ranges Section~\ref{sec:orbit} measured. At $\varepsilon = 10^{-3}$ it holds
+\numPsnrAugCfoEb~dB against \numPsnrCfoEb~dB for the fixed regime, a gain of
+\numAugGainCfo~dB, and it does so at a cost of \numAugCost~dB at the design point.
+
+Two qualifications keep this from being a general recommendation. The remedy is specific to the
+axis it targets: on the signal-to-noise sweep the randomised codec is \emph{worse} at the low end
+by \numAugSnrDelta~dB, so randomising an axis that was not a problem simply spends capacity. And
+it moves the cliff rather than removing it, since at $\varepsilon = 10^{-2}$ the randomised codec
+has itself fallen to \numPsnrAugCfoEc~dB. What the comparison establishes is narrower and more
+useful than a fix: the failure is a property of the training distribution rather than of the
+architecture, and it is therefore visible to anyone who evaluates for it.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{../figures/out/fig7-mismatch.pdf}
+\caption{A codec trained at a single operating point, evaluated across the conditions
+Section~\ref{sec:orbit} measured. (a) test signal-to-noise ratio; (b) residual normalised frequency
+offset $\varepsilon = f_{\rm res}/R_s$ of~\eqref{eq:cfo}, on a logarithmic axis with the
+zero-offset case placed at the left edge. ``Single SNR'' is the fixed-operating-point regime and
+``randomised'' the regime that draws both the signal-to-noise ratio and the offset during
+training. Bands
+span \numSeeds{} seeds.}
+\label{fig:mismatch}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Reconstruction quality in dB under the two training regimes, median over \numSeeds{}
+seeds with the range across seeds. The evaluation conditions are those measured in
+Section~\ref{sec:orbit}, not chosen for this table.}
+\label{tab:mismatch}
+\input{../figures/out/tab6-mismatch.tex}
+\end{table}
 
 % =====================================================================
 \section{Recommendations}
@@ -473,8 +835,11 @@ case.
 
 \textbf{Treat residual frequency offset as a swept parameter.} Doppler is compensated in practice
 and no serious system leaves \numDopKaMed~kHz uncorrected. What matters is the residual, and
-because the tolerable residual is a property of the codec rather than of the link, it belongs in
-the evaluation of the codec.
+Section~\ref{sec:cost} shows why: between $\varepsilon = 10^{-4}$ and $10^{-3}$ the codec loses
+\numDropCfoEb~dB, so a single evaluation point on this axis carries almost no information about
+the neighbouring decade. The tolerable residual is a property of the codec rather than of the
+link, which is exactly what makes it the codec's evaluation to report. Sweeping it costs nothing
+beyond the sweep, and~\eqref{eq:phase} says where to look.
 
 % =====================================================================
 \section{Threats to validity}
@@ -514,11 +879,18 @@ peak of \numDopKaMed~kHz drifting at up to \numDopRateMax~kHz/s and a link budge
 \numEvCHAWGN{} evaluate over additive white Gaussian noise, \numEvCHGPP{} use a standardised
 non-terrestrial model, and none instantiates either the drift or the geometry that produces it.
 
-The reading is not that this work is unsound. It is that the case for semantic communication in
-non-terrestrial networks currently rests on evaluations conducted under terrestrial conditions,
-and that closing the distance is cheap: the orbital elements are public, the propagation is a
-library call, and the harness that connects them to an existing codec is released with this
-paper.
+Applying the measured conditions to a codec trained under the modal assumption then locates the
+consequence. It is not on the axis an audit would reach for first: the pass-scale
+signal-to-noise sweep costs \numPsnrDrop~dB and degrades gracefully. It is on the axis nobody
+instantiates, where a residual frequency offset of $10^{-3}$ costs \numDropCfoEb~dB in a
+transition that~\eqref{eq:phase} places before the experiment is run, and which corresponds to
+ninety-seven per cent compensation rather than to neglect.
+
+The reading is not that this work is unsound, nor that its channel models are careless. It is
+that the field's evaluations are strongest on the effect that turns out not to matter and silent
+on the one that does, and that closing the distance is cheap: the orbital elements are public,
+the propagation is a library call, and the harness that connects them to an existing codec is
+released with this paper.
 
 \section*{Data availability}
 The checklist, the coding sheet with the sentence justifying every decision, the orbital
