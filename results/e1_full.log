@@ -1,0 +1,15 @@
+  E1 — 1200 ve tinh Starlink, 24 gio, quet 10s / tinh lai 0.5s
+     quet tho xong: 8640 mau x 1200 ve tinh
+     Da Nang   el>=10 do:  3662 luot bay
+     Da Nang   el>=25 do:  1978 luot bay
+     Da Nang   el>=30 do:  1672 luot bay
+     Equator   el>=10 do:  3433 luot bay
+     Equator   el>=25 do:  1878 luot bay
+     Equator   el>=30 do:  1607 luot bay
+     Mid-lat   el>=10 do:  5816 luot bay
+     Mid-lat   el>=25 do:  3663 luot bay
+     Mid-lat   el>=30 do:  3020 luot bay
+     High-lat  el>=10 do:  2445 luot bay
+     High-lat  el>=25 do:   927 luot bay
+     High-lat  el>=30 do:   821 luot bay
+  da ghi /Users/agentra/Documents/hao/working/paper-lab/hao-paper-2026/ntn-semcom-realism-audit/results/e1_orbital_reality.json (15.6 MB)
