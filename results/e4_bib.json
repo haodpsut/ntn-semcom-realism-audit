@@ -1,0 +1,480 @@
+{
+ "n_verified": 27,
+ "n_failed": 0,
+ "items": [
+  {
+   "title": "Semantic Enabled 6G LEO Satellite Communication for Earth Observation: A Resource-Constrained Network Optimization",
+   "authors": [
+    "Sheikh Salman Hassan",
+    "Loc X. Nguyen",
+    "Yan Kyaw Tun",
+    "Zhu Han",
+    "Choong Seon Hong"
+   ],
+   "year": "2024",
+   "doi": "10.1109/GLOBECOM52923.2024.10901032",
+   "journal_ref": "GLOBECOM 2024 - 2024 IEEE Global Communications Conference",
+   "ref": 95,
+   "key": "hassan2024r95",
+   "arxiv_id": "2408.03959v1",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Semantic Communication Enabled 6G-NTN Framework: A Novel Denoising and Gateway Hop Integration Mechanism",
+   "authors": [
+    "Loc X. Nguyen",
+    "Sheikh Salman Hassan",
+    "Yan Kyaw Tun",
+    "Kitae Kim",
+    "Zhu Han",
+    "Choong Seon Hong"
+   ],
+   "year": "2024",
+   "doi": "10.1109/TWC.2025.3578010",
+   "journal_ref": "in IEEE Transactions on Wireless Communications, Jun. 2025",
+   "ref": 115,
+   "key": "nguyen2024r115",
+   "arxiv_id": "2409.14726v1",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Cognitive Semantic Augmentation LEO Satellite Networks for Earth Observation",
+   "authors": [
+    "Hong-fu Chou",
+    "Vu Nguyen Ha",
+    "Prabhu Thiruvasagam",
+    "Thanh-Dung Le",
+    "Geoffrey Eappen",
+    "Ti Ti Nguyen",
+    "Duc Dung Tran",
+    "Luis M. Garces-Socarras",
+    "Juan Carlos Merlano-Duncan",
+    "Symeon Chatzinotas"
+   ],
+   "year": "2024",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 154,
+   "key": "chou2024r154",
+   "arxiv_id": "2410.21916v1",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Compressed learning based onboard semantic compression for remote sensing platforms",
+   "authors": [
+    "Protim Bhattacharjee",
+    "PEter Jung"
+   ],
+   "year": "2024",
+   "doi": "10.1117/12.3031472",
+   "journal_ref": null,
+   "ref": 113,
+   "key": "bhattacharjee2024r113",
+   "arxiv_id": "2409.01988v1",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Importance-Aware Robust Semantic Transmission for LEO Satellite-Ground Communication",
+   "authors": [
+    "Hui Cao",
+    "Rui Meng",
+    "Xiaodong Xu",
+    "Shujun Han",
+    "Ping Zhang"
+   ],
+   "year": "2025",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 94,
+   "key": "cao2025r94",
+   "arxiv_id": "2508.11457v2",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Semantic Satellite Communications for Synchronized Audiovisual Reconstruction",
+   "authors": [
+    "Fangyu Liu",
+    "Peiwen Jiang",
+    "Wenjin Wang",
+    "Xiao Li",
+    "Shi Jin"
+   ],
+   "year": "2026",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 100,
+   "key": "liu2026r100",
+   "arxiv_id": "2603.10791v2",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Semantic Satellite Communications Based on Generative Foundation Model",
+   "authors": [
+    "Peiwen Jiang",
+    "Chao-Kai Wen",
+    "Xiao Li",
+    "Shi Jin",
+    "Geoffrey Ye Li"
+   ],
+   "year": "2024",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 93,
+   "key": "jiang2024r93",
+   "arxiv_id": "2404.11941v1",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Generative AI Agents with Large Language Model for Satellite Networks via a Mixture of Experts Transmission",
+   "authors": [
+    "Ruichen Zhang",
+    "Hongyang Du",
+    "Yinqiu Liu",
+    "Dusit Niyato",
+    "Jiawen Kang",
+    "Zehui Xiong",
+    "Abbas Jamalipour",
+    "Dong In Kim"
+   ],
+   "year": "2024",
+   "doi": "10.1109/JSAC.2024.3459037",
+   "journal_ref": null,
+   "ref": 161,
+   "key": "zhang2024r161",
+   "arxiv_id": "2404.09134v2",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Joint Semantic Coding and Routing for Multi-Hop Semantic Transmission in LEO Satellite Networks",
+   "authors": [
+    "Hong Zeng",
+    "Jiangtao Luo",
+    "Yongyi Ran"
+   ],
+   "year": "2026",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 81,
+   "key": "zeng2026r81",
+   "arxiv_id": "2604.13361v1",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Semantic Forwarding and Codebook-Enhanced Model Division Multiple Access for Satellite-Terrestrial Networks",
+   "authors": [
+    "Jinghong Huang",
+    "Mengying Sun",
+    "Xiaodong Xu",
+    "Jianchi Zhu",
+    "Zechuan Fang",
+    "Jingxuan Zhang",
+    "Ruichen Zhang",
+    "Chen Dong",
+    "Ping Zhang",
+    "Dusit Niyato"
+   ],
+   "year": "2026",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 117,
+   "key": "huang2026r117",
+   "arxiv_id": "2603.02536v2",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Semantic Transmission Framework in Direct Satellite Communications",
+   "authors": [
+    "Chong Huang",
+    "Xuyang Chen",
+    "Jingjing Cui",
+    "Jingfu Li",
+    "Pei Xiao",
+    "Gaojie Chen",
+    "Rahim Tafazolli"
+   ],
+   "year": "2026",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 165,
+   "key": "huang2026r165",
+   "arxiv_id": "2601.00381v2",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Semantic-Forward Relaying: A Novel Framework Towards 6G Cooperative Communications",
+   "authors": [
+    "Wensheng Lin",
+    "Yuna Yan",
+    "Lixin Li",
+    "Zhu Han",
+    "Tad Matsumoto"
+   ],
+   "year": "2023",
+   "doi": "10.1109/LCOMM.2024.3352916",
+   "journal_ref": null,
+   "ref": 116,
+   "key": "lin2023r116",
+   "arxiv_id": "2310.07987v2",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "A Joint JSCC-Resource Allocation Framework for QoS-Aware Semantic Communication in LEO Satellite-based EO Missions",
+   "authors": [
+    "Hung Nguyen-Kha",
+    "Ti Ti Nguyen",
+    "Vu Nguyen Ha",
+    "Eva Lagunas",
+    "Symeon Chatzinotas",
+    "Bjorn Ottersten"
+   ],
+   "year": "2026",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 170,
+   "key": "nguyenkha2026r170",
+   "arxiv_id": "2603.12027v1",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "SemSpaceFL: A Collaborative Hierarchical Federated Learning Framework for Semantic Communication in 6G LEO Satellites",
+   "authors": [
+    "Loc X. Nguyen",
+    "Sheikh Salman Hassan",
+    "Yu Min Park",
+    "Yan Kyaw Tun",
+    "Zhu Han",
+    "Choong Seon Hong"
+   ],
+   "year": "2025",
+   "doi": "10.1109/TCOMM.2025.3635771",
+   "journal_ref": "Published in IEEE Transactions on Communications, Nov. 2025",
+   "ref": 104,
+   "key": "nguyen2025r104",
+   "arxiv_id": "2505.00966v2",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Semantic-Aware Task Clustering for Federated Cooperative Multi-Task Semantic Communication",
+   "authors": [
+    "Ahmad Halimi Razlighi",
+    "Pallavi Dhingra",
+    "Edgar Beck",
+    "Bho Matthiesen",
+    "Armin Dekorsy"
+   ],
+   "year": "2026",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 118,
+   "key": "razlighi2026r118",
+   "arxiv_id": "2601.17419v1",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Robust Semantic Transmission for Low-Altitude UAVs: Predictive Channel-Aware Scheduling and Generative Reconstruction",
+   "authors": [
+    "Jijia Tian",
+    "Junting Chen",
+    "Pooi-Yuen Kam"
+   ],
+   "year": "2026",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 178,
+   "key": "tian2026r178",
+   "arxiv_id": "2602.10482v1",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Context-Aware Information Transfer via Digital Semantic Communication in UAV-Based Networks",
+   "authors": [
+    "Poorvi Joshi",
+    "Mohan Gurusamy"
+   ],
+   "year": "2026",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 179,
+   "key": "joshi2026r179",
+   "arxiv_id": "2601.01430v2",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Knowledge Graph Driven UAV Cognitive Semantic Communication Systems for Efficient Object Detection",
+   "authors": [
+    "Xi Song",
+    "Lu Yuan",
+    "Zhibo Qu",
+    "Fuhui Zhou",
+    "Qihui Wu",
+    "Tony Q. S. Quek",
+    "Rose Qingyang Hu"
+   ],
+   "year": "2024",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 102,
+   "key": "song2024r102",
+   "arxiv_id": "2401.13995v3",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Personalized Saliency in Task-Oriented Semantic Communications: Image Transmission and Performance Analysis",
+   "authors": [
+    "Jiawen Kang",
+    "Hongyang Du",
+    "Zonghang Li",
+    "Zehui Xiong",
+    "Shiyao Ma",
+    "Dusit Niyato",
+    "Yuan Li"
+   ],
+   "year": "2022",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 180,
+   "key": "kang2022r180",
+   "arxiv_id": "2209.12274v1",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Semantic-Aware UAV Command and Control for Efficient IoT Data Collection",
+   "authors": [
+    "Assane Sankara",
+    "Daniel Bonilla Licea",
+    "Hajar El Hammouti"
+   ],
+   "year": "2026",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 186,
+   "key": "sankara2026r186",
+   "arxiv_id": "2604.08153v2",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Low-altitude Multi-UAV-assisted Data Collection and Semantic Forwarding for Post-Disaster Relief",
+   "authors": [
+    "Xiaoya Zheng",
+    "Geng Sun",
+    "Jiahui Li",
+    "Jiacheng Wang",
+    "Weijie Yuan",
+    "Qingqing Wu",
+    "Dusit Niyato",
+    "Abbas Jamalipour"
+   ],
+   "year": "2026",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 190,
+   "key": "zheng2026r190",
+   "arxiv_id": "2601.16146v1",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Fair Resource Allocation in UAV-based Semantic Communication System with Fluid Antenna",
+   "authors": [
+    "Liang Siyun",
+    "Chen Zhu",
+    "Zhaohui Yang",
+    "Changsheng You",
+    "Dusit Niyato",
+    "Kai-Kit Wong",
+    "Zhaoyang Zhang"
+   ],
+   "year": "2025",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 191,
+   "key": "siyun2025r191",
+   "arxiv_id": "2504.05955v1",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Goal-Oriented Communications for Interplanetary and Non-Terrestrial Networks",
+   "authors": [
+    "Elif Uysal",
+    "Aimin Li"
+   ],
+   "year": "2024",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 108,
+   "key": "uysal2024r108",
+   "arxiv_id": "2409.14534v2",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Twinning for Space-Air-Ground-Sea Integrated Networks: Beyond Conventional Digital Twin Towards Goal-Oriented Semantic Twin",
+   "authors": [
+    "Yifei Qiu",
+    "Tianle Liao",
+    "Xin Jin",
+    "Qinyu Zhang",
+    "Shaohua Wu"
+   ],
+   "year": "2025",
+   "doi": "10.1109/JIOT.2026.3726892",
+   "journal_ref": null,
+   "ref": 200,
+   "key": "qiu2025r200",
+   "arxiv_id": "2512.16058v3",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Aerial Semantic Relay-Enabled SAGIN: Joint UAV Deployment and Resource Allocation",
+   "authors": [
+    "Yanbo Yin",
+    "Dingzhu Wen",
+    "Changsheng You",
+    "XiaoWen Cao",
+    "Tat-Ming Lok",
+    "Dusit Niyato"
+   ],
+   "year": "2025",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 203,
+   "key": "yin2025r203",
+   "arxiv_id": "2511.18456v1",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Deep Reinforcement Learning-Based Resource Allocation for Hybrid Bit and Generative Semantic Communications in Space-Air-Ground Integrated Networks",
+   "authors": [
+    "Chong Huang",
+    "Xuyang Chen",
+    "Gaojie Chen",
+    "Pei Xiao",
+    "Geoffrey Ye Li",
+    "Wei Huang"
+   ],
+   "year": "2024",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 112,
+   "key": "huang2024r112",
+   "arxiv_id": "2412.05647v3",
+   "status": "xac minh tu arXiv"
+  },
+  {
+   "title": "Energy-Efficient Probabilistic Semantic Communication over Space-Air-Ground Integrated Networks",
+   "authors": [
+    "Zhouxiang Zhao",
+    "Zhaohui Yang",
+    "Mingzhe Chen",
+    "Zhaoyang Zhang",
+    "Wei Xu",
+    "Kaibin Huang"
+   ],
+   "year": "2024",
+   "doi": null,
+   "journal_ref": null,
+   "ref": 114,
+   "key": "zhao2024r114",
+   "arxiv_id": "2407.03776v1",
+   "status": "xac minh tu arXiv"
+  }
+ ]
+}

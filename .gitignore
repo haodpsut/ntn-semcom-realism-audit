@@ -4,3 +4,11 @@ __pycache__/
 *.log
 *.out
 !results/*.log
+data/fulltext/
+data/torchvision/
+data/survey_2606.05216.html
+paper/main.aux
+paper/main.bbl
+paper/main.blg
+paper/main.out
+paper/main.spl
