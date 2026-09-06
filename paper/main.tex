@@ -42,9 +42,10 @@ of kilohertz, short visibility windows and an elevation-dependent link budget. S
 area map each of these limitations onto the works said to address it. We ask the narrower
 question those mappings leave open, namely whether the works cited as addressing a limitation are
 evaluated under it. Two measurements answer it. First, propagating \numSats{} public Starlink
-two-line element sets with SGP4 over \numPasses{} passes fixes the magnitude of each effect from
-orbital geometry rather than from assumption: peak Doppler reaches \numDopKaMed~kHz at Ka-band
-with a drift of up to \numDopRateMax~kHz/s, and the geometric term of the link budget sweeps
+two-line element sets with SGP4 over \numPasses{} distinct passes fixes the magnitude of each
+effect from orbital geometry rather than from assumption: the peak Doppler shift of a pass has a
+median of \numDopKaMed~kHz at Ka-band and reaches \numDopKaMax~kHz, with a drift of up to
+\numDopRateMax~kHz/s, and the geometric term of the link budget sweeps
 \numFsplMed~dB across a median visibility window of \numDurMed~s. Second, a coding of the
 \numPop{} works a recent survey lists as representative, of which \numFull{} could be obtained
 in full text, records for each whether an effect appears in the framing of the paper or in its
@@ -89,7 +90,7 @@ the claim this paper tests. A work can be cited as addressing Doppler because it
 Doppler, and can nevertheless be evaluated over a channel in which no Doppler is present. Whether
 that gap exists, and how wide it is, has not been measured.
 
-\paragraph{What this paper does.}
+\paragraph{What this paper does}
 Figure~\ref{fig:protocol} sets out the audit. Two measurements are taken separately and neither
 depends on the other. The first establishes what the orbit does, by propagating public two-line
 element sets and computing the quantities of Section~\ref{sec:model} that an NTN-specific
@@ -100,7 +101,7 @@ than to criteria of our own devising. A third measurement then asks what the gap
 training a semantic codec under the modal assumption of the population and evaluating it under
 the conditions the first measurement found.
 
-\paragraph{What we do not claim.}
+\paragraph{What we do not claim}
 Three boundaries are set at the outset because an audit is easy to overstate. We do not claim the
 field is careless: the survey's own tables carry a channel-consideration column, so the community
 records this information, and our contribution is that nobody has compared the record against the
@@ -110,7 +111,7 @@ whether learned codecs beat classical separation-based baselines, a question the
 source-channel coding literature already treats carefully~\cite{bourtsoulatze2019deepjscc,kurka2020deepjsccf},
 including published cases where the classical baseline wins.
 
-\paragraph{Two findings that run the other way.}
+\paragraph{Two findings that run the other way}
 An audit is worth little if it only confirms its own premise, and two results here do not. The
 first is that the link budget moves slowly: Section~\ref{sec:orbit} measures the sweep at
 \numSlew~dB/s, which over ten seconds is \numSlewTen~dB, so treating the channel as static
@@ -120,14 +121,14 @@ across the full range, degrading gradually and without a threshold. The commones
 in the population is therefore not the problem, and we report both because they narrow the audit
 to the one effect that does not survive measurement.
 
-\paragraph{Where the cost actually is.}
+\paragraph{Where the cost actually is}
 That effect is the residual frequency offset. The same codec loses \numDropCfoEa~dB at
 $\varepsilon = 10^{-4}$ and \numDropCfoEb~dB at $\varepsilon = 10^{-3}$, a cliff rather than a
 slope, and the position of the cliff is predicted by the phase accumulated across a coded block
 rather than found by search. The offset at which it occurs corresponds to compensation that
 removes ninety-seven per cent of the measured Doppler, which is to say a competent system rather
-than a negligent one. It is also the axis that \numEvDOPPLERRATE{} of the works in the
-population instantiate.
+than a negligent one. It is also the axis instantiated by
+\numEvDOPPLERRATE{} of the \numCoded{} works in the population.
 
 \begin{figure}[t]
 \centering
@@ -144,8 +145,10 @@ trained under the assumption counted on the right.}
 
 \subsection{Why non-terrestrial links are said to be different}
 
-A satellite in low Earth orbit moves at roughly $7.5$~km/s relative to the ground, which is the
-origin of every constraint in the list above. Motion at that speed produces a Doppler shift
+A satellite in low Earth orbit travels at roughly $7.5$~km/s along its track, which is the
+origin of every constraint in the list above. What a ground station sees is the component of
+that motion along the line of sight, and it is the rate of change of the slant
+range~\eqref{eq:slant} rather than the orbital speed itself that drives the effects below. Motion at that speed produces a Doppler shift
 proportional to the carrier frequency, so a link that is untroubled at S-band becomes demanding
 at Ka-band. It also bounds the time a given satellite is usable, since a pass ends when the
 elevation angle falls below the minimum the link budget supports. And because free-space path
@@ -177,7 +180,7 @@ was it computed.
 The population audited in this paper spans three settings, and it is worth describing them
 because the audit's question applies differently to each.
 
-\paragraph{Satellite links.}
+\paragraph{Satellite links}
 Earth observation is the dominant application, since the downlink is the bottleneck and the
 receiver's task is usually known in advance. Work here ranges from resource-constrained network
 optimisation for observation downlinks~\cite{hassan2024r95} and on-board compression for
@@ -189,7 +192,7 @@ inter-satellite routing as a further degree of freedom~\cite{zeng2026r81,huang20
 direct satellite-to-device links remove the gateway
 altogether~\cite{huang2026r165,nguyen2024r115}.
 
-\paragraph{Aerial platforms.}
+\paragraph{Aerial platforms}
 Unmanned aerial vehicles share the bandwidth pressure but not the orbital geometry: their
 relative velocity is orders of magnitude lower, so Doppler is not the binding constraint, while
 energy and trajectory are. Work here couples semantic transmission with scheduling and
@@ -199,7 +202,7 @@ fairness constraints~\cite{siyun2025r191,sankara2026r186}. This paper reports th
 aerial work alongside the satellite work, but the checklist items that concern orbital motion
 are correspondingly less demanding there, and Section~\ref{sec:threats} returns to the point.
 
-\paragraph{Integrated space-air-ground networks.}
+\paragraph{Integrated space-air-ground networks}
 A third group treats the tiers jointly, with federated or cooperative learning spanning
 them~\cite{nguyen2025r104,razlighi2026r118}, digital twins of the integrated
 network~\cite{qiu2025r200}, aerial relays between tiers~\cite{yin2025r203}, and resource
@@ -266,7 +269,7 @@ extremes of every quantity below; Section~\ref{sec:orbit} reports that trade at 
 
 \subsection{What varies within a pass}
 
-\paragraph{Path loss.}
+\paragraph{Path loss}
 The free-space term at carrier frequency $f_c$ is
 \begin{equation}
   L(d, f_c) \;=\; 20 \log_{10} d \;+\; 20 \log_{10} f_c \;+\; 92.45 ,
@@ -283,7 +286,7 @@ where $\varepsilon_{\rm el}^{\star}$ is the maximum elevation reached. The frequ
 of~\eqref{eq:fspl} cancels in~\eqref{eq:swing}, so the swing is a property of the geometry alone
 and is identical at S-band and at Ka-band.
 
-\paragraph{Rate of change.}
+\paragraph{Rate of change}
 Differentiating~\eqref{eq:fspl} gives the slew rate of the geometric term,
 \begin{equation}
   \frac{\mathrm{d}L}{\mathrm{d}t} \;=\; \frac{20}{\ln 10}\, \frac{\dot d}{d} ,
@@ -298,7 +301,7 @@ so a transmission of duration $T_{\rm blk}$ sees a change bounded by
 Equations~\eqref{eq:swing} and~\eqref{eq:blk} are the two halves of the result in
 Section~\ref{sec:orbit} that runs against the audit: the first is large and the second is not.
 
-\paragraph{Doppler.}
+\paragraph{Doppler}
 The shift and its rate are
 \begin{equation}
   f_{\rm dop}(t) \;=\; -\frac{\dot d(t)}{c}\, f_c ,
@@ -310,7 +313,7 @@ with $c$ the speed of light. Both scale linearly with $f_c$, which is why a link
 untroubled at S-band is demanding at Ka-band, and $\dot d$ changes sign at closest approach, so
 $f_{\rm dop}$ reverses sign within a single pass. The one-way delay is $d/c$.
 
-\paragraph{What the model omits, and in which direction.}
+\paragraph{What the model omits, and in which direction}
 Equation~\eqref{eq:fspl} is the free-space term only. Antenna pattern roll-off as the beam sweeps
 across the station, atmospheric and rain attenuation, which grow as $\varepsilon_{\rm el}$ falls,
 and receiver noise all add variation over a pass. Every one of them increases the right-hand side
@@ -336,7 +339,7 @@ and $R = k/n$ is the bandwidth ratio. Transmit power is normalised per source bl
 so that $\mathbb{E}\,|\tilde s_m|^{2} = 1$ and the channel signal-to-noise ratio is
 $\gamma = 1/\sigma^{2}$.
 
-\paragraph{The channel the population assumes, and the one the orbit provides.}
+\paragraph{The channel the population assumes, and the one the orbit provides}
 The modal choice in the population of Section~\ref{sec:census} is
 \begin{equation}
   y_m \;=\; \tilde s_m + n_m , \qquad n_m \sim \mathcal{CN}(0, \sigma^{2}) ,
@@ -363,7 +366,7 @@ in~\eqref{eq:phase} gives the offset at which the tail of a block is inverted,
 $\varepsilon = 1/(2(k-1))$, which for the operating point of Section~\ref{sec:cost} is close to
 $10^{-3}$ and is where the collapse reported there occurs.
 
-\paragraph{Fidelity.}
+\paragraph{Fidelity}
 Reconstruction quality is reported as
 \begin{equation}
   \mathrm{PSNR} \;=\; 10 \log_{10} \frac{M^{2}}
@@ -390,6 +393,14 @@ The tables list \numPop{} distinct works~\cite{bhattacharjee2024r113,cao2025r94,
 \numFullPct\% of the population; the remaining \numNotFull{} are counted as not auditable rather
 than guessed at, since a work whose evaluation section cannot be read is a fact about the
 accessibility of the literature and not a gap to be filled by inference.
+
+One further work, reference~[\numDropRef] of the source survey, is retrieved but not coded. It is
+a position paper on goal-oriented communication for interplanetary and non-terrestrial links and
+carries no conventional evaluation section, so the partition of Section~\ref{sec:formal} cannot
+be applied to it. Excluding it leaves the \numCoded{} works on which every count in
+Section~\ref{sec:census} is computed. Of those, \numSat{} come from the satellite tables,
+\numAerial{} from the aerial tables and \numIntegrated{} from the integrated tables, a split
+that Section~\ref{sec:threats} uses to check the main result.
 
 \subsection{Checklist}
 
@@ -450,7 +461,7 @@ and the per-work coverage plotted in Figure~\ref{fig:matrix} is
   \label{eq:cover}
 \end{equation}
 
-\paragraph{Comparing two descriptions of the same work.}
+\paragraph{Comparing two descriptions of the same work}
 The survey's channel-consideration entry is a second, independent description of what a work
 considers. Let $\mathcal{A}(w) \subseteq \mathcal{I}$ be the items that entry names and
 \begin{equation}
@@ -468,7 +479,7 @@ the effects a work is recorded as considering but does not instantiate where it 
 Table~\ref{tab:agreement} reports $|\mathcal{A}(w)|$, $|\mathcal{B}(w)|$ and $\mathcal{D}(w)$
 for every work where both descriptions could be read.
 
-\paragraph{Agreement between coders.}
+\paragraph{Agreement between coders}
 Where two coders assign~\eqref{eq:code} independently, agreement is reported as
 \begin{equation}
   \kappa_{\rm C} \;=\; \frac{p_o - p_e}{1 - p_e} ,
@@ -496,11 +507,18 @@ three pass, and the controls are released as an executable script rather than de
 
 A seeded sample of \numSats{} Starlink two-line element sets is propagated with
 SGP4~\cite{vallado2006sgp4} over
-\numPasses{} passes at four ground stations spanning $0$ to $65$ degrees of latitude. For each
-pass we record slant range, elevation, one-way delay, the Doppler shift implied by the range
-rate at S-band and Ka-band, its time derivative, and the free-space path loss.
+\numPasses{} distinct passes at four ground stations spanning $0$ to $65$ degrees of latitude.
+For each pass we record the slant range of~\eqref{eq:slant}, the elevation, the one-way delay,
+the Doppler shift and its rate from~\eqref{eq:doppler} at S-band and at Ka-band, the free-space
+term of~\eqref{eq:fspl}, its swing~\eqref{eq:swing} and its slew rate~\eqref{eq:slew}.
 
-\paragraph{Only geometry, deliberately.}
+A pass is counted once here even though it is analysed at three elevation thresholds. Counting
+each threshold separately would give \numPassObs{} pass-threshold observations, but a pass that
+clears $30^\circ$ also clears $25^\circ$ and $10^\circ$, so that figure counts the same contact
+up to three times. The distinct count is the one at the loosest threshold,
+$\numElevLoose^\circ$, since the stricter sets are subsets of it.
+
+\paragraph{Only geometry, deliberately}
 As set out after~\eqref{eq:swing}, we compute the free-space term and nothing else, so every
 figure below is a lower bound on the variation a deployed link would see.
 
@@ -520,9 +538,10 @@ over a median visibility window of \numDurMed~s, and one-way delay reaches \numO
 \includegraphics[width=\textwidth]{../figures/out/fig2-orbital.pdf}
 \caption{Distributions over \numPassesStation{} passes at one station with a minimum elevation of
 $25^\circ$: peak Doppler shift at Ka-band, the swing of the geometric link-budget term across a
-pass, and the visibility window. Dashed lines mark medians. The bimodality of the centre panel reflects the difference
-between overhead passes, which sweep the full range of slant range, and grazing passes, which
-do not.}
+pass, and the visibility window. Dashed lines mark medians. The spread of the centre panel is explained by
+geometry rather than assumed to be: swing correlates with maximum elevation at
+$r = \numSwingCorr$, and the third of passes that stay lowest sweep a median of
+\numSwingGraze~dB against \numSwingOver~dB for the third that pass highest.}
 \label{fig:orbital}
 \end{figure}
 
@@ -605,34 +624,34 @@ Figure~\ref{fig:census} and Table~\ref{tab:census} report $n_{\rm ev}(i)$ of~\eq
 over the $|\mathcal{W}_c| = \numCoded{}$ works for which full text was available and an
 evaluation section could be located, alongside the corresponding count over framing regions.
 
-\paragraph{Channel models.}
+\paragraph{Channel models}
 Additive white Gaussian noise is the modal choice, present in the evaluation of
 \numEvCHAWGN{} works. Statistical fading appears in \numEvCHFADING{}. A standardised
 non-terrestrial channel model appears in \numEvCHGPP{}. No work in the population drives its
 channel from orbital data: the count for two-line elements, SGP4, ephemeris or an equivalent
 propagation tool is \numEvCHTRACE{}.
 
-\paragraph{Effects.}
+\paragraph{Effects}
 Doppler appears in the evaluation of \numEvDOPPLER{} works and in the framing of
 \numInDOPPLER{}. Its time-varying component appears in \numEvDOPPLERRATE{}. Elevation-dependent
 loss appears in \numEvPATHLOSSELEV{}, propagation delay in \numEvDELAY{}, a finite visibility
 window in \numEvVISIBILITY{}, and an on-board compute limit in \numEvONBOARD{}.
 
-\paragraph{Reading the two zeros.}
+\paragraph{Reading the two zeros}
 The zeros for time-varying Doppler and for orbital traces are measurements, not silence: the
 controls of Section~\ref{sec:protocol} establish that the detectors catch the relevant phrasings
 and do fire elsewhere in the same corpus. Read against Section~\ref{sec:orbit}, they say that the
 drift the orbit produces, up to \numDopRateMax~kHz/s, is instantiated by no evaluation in the
 population, and that no evaluation is driven by the geometry that produces it.
 
-\paragraph{The structure behind the counts.}
+\paragraph{The structure behind the counts}
 Figure~\ref{fig:matrix} resolves the census to individual works. The coverage $\kappa(w)$ of~\eqref{eq:cover} never exceeds \numMaxCover{} of the
 \numChecklist{} items for any work in the population, and \numZeroCover{} works have
 $\kappa(w) = 0$. The two empty rows are the zeros discussed above, and seeing them as
 rows rather than as bars makes clear that they are not the result of one or two works dominating
 a count.
 
-\paragraph{A second source describes the same works.}
+\paragraph{A second source describes the same works}
 The survey's own channel-consideration column is an independent record of what each work
 considers, so it can be compared against what the evaluation sections contain.
 Table~\ref{tab:agreement} reports $|\mathcal{A}(w)|$, the set $\mathcal{B}(w)$
@@ -658,7 +677,9 @@ evaluation section does not contain.
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{../figures/out/fig6-matrix.pdf}
-\caption{Every codeable work against every checklist item, ordered by coverage. Grey marks an
+\caption{Every codeable work against every checklist item. Columns are labelled by the
+reference number the source survey gives the work and ordered by how many items its evaluation
+instantiates. Grey marks an
 effect that appears only while the problem is being motivated; orange marks one the evaluation
 instantiates.}
 \label{fig:matrix}
@@ -713,14 +734,14 @@ Section~\ref{sec:orbit} measured. The second regime is included so that the pape
 remedy rather than only a deficiency, and so that the cost of the gap can be separated from the
 cost of fixing it.
 
-\paragraph{The evaluation range is not chosen by us.}
+\paragraph{The evaluation range is not chosen by us}
 The sweep spans the link-budget swing measured in Section~\ref{sec:orbit} rather than a range
 picked for effect, and because that swing excludes antenna pattern and atmospherics it is the
 conservative end of what a deployed codec would see.
 
-\paragraph{Residual offset, not raw Doppler.}
-No deployed system leaves \numDopKaMed~kHz uncompensated, so evaluating at raw Doppler would be a
-straw man. We parameterise instead by the normalised residual offset $\varepsilon$ of~\eqref{eq:cfo},
+\paragraph{Residual offset, not raw Doppler}
+No deployed system leaves a shift of order \numDopKaMed~kHz uncompensated, so evaluating at raw
+Doppler would be a straw man. We parameterise instead by the normalised residual offset $\varepsilon$ of~\eqref{eq:cfo},
 which avoids committing to a symbol rate that no work in the population states, and whose effect
 accumulates across a block as~\eqref{eq:phase} describes. A reader substitutes their own
 $R_s$ to locate their operating point: at the median Ka-band shift of \numDopKaMed~kHz and a
@@ -765,7 +786,7 @@ $10^{-4}$ and $10^{-3}$, so the mechanism is the one the model names: the tail o
 rotated past quadrature and the decoder, which never saw a rotation during training, has no way
 to undo it.
 
-\paragraph{What that offset corresponds to.}
+\paragraph{What that offset corresponds to}
 By~\eqref{eq:cfo}, $\varepsilon = 10^{-3}$ at a symbol rate of $10$~Msym/s is a residual of
 $10$~kHz. Against the median Ka-band shift of \numDopKaMed~kHz measured in
 Section~\ref{sec:orbit}, that is $\rho \approx 0.03$, meaning the collapse occurs when
@@ -774,7 +795,7 @@ fails is therefore not one of neglected Doppler but one of ordinary, competently
 Doppler, which is precisely the regime a deployed system operates in and precisely the regime
 that \numEvDOPPLERRATE{} of the works in the population instantiate.
 
-\paragraph{The spread is informative.}
+\paragraph{The spread is informative}
 At the training point the three seeds agree closely, spanning 27.72 to 28.34~dB. At
 $\varepsilon = 10^{-3}$ they span 8.13 to 12.15~dB, a spread of four decibels. A quantity whose
 seed-to-seed variation is four decibels cannot be reported as a single number, which is why
@@ -854,6 +875,16 @@ than ours, which is the specific claim under test.
 \numPop{} works. The \numNotFull{} that could not be obtained may well instantiate effects the
 audit does not credit them with. They are excluded from every count rather than assumed absent,
 and the denominator \numCoded{} is stated wherever a proportion appears.
+
+\textbf{The population mixes orbital and aerial settings.} Relative velocity on an aerial link
+is orders of magnitude below orbital, so Doppler is not the binding constraint there and the
+aerial works should not be expected to instantiate it. If the two zeros existed only because
+\numAerial{} aerial and \numIntegrated{} integrated works were pooled with the satellite ones,
+the finding would be an artefact of the pooling. Restricting to the \numSat{} satellite works
+alone, time-varying Doppler is instantiated by \numSatDopRate{} of them and an orbital trace by
+\numSatTrace{}, so both zeros survive the restriction unchanged. On the effects that are not
+zero the subgroup behaves as expected, with \numSatAwgn{} of \numSat{} evaluating over additive
+white Gaussian noise and \numSatDop{} naming Doppler in their evaluation.
 
 \textbf{Absence of a phrase is not absence of a model.} The census detects the vocabulary in
 which an effect is normally described. A work could model time-varying Doppler without using any

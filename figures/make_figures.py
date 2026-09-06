@@ -116,8 +116,15 @@ def fig_orbital(e1):
     P = e1["stations"][st]["passes"]["25"]
     g = lambda k: np.array([p[k] for p in P])                      # noqa: E731
 
-    M("numPasses", "{:,}".format(sum(len(v) for s in e1["stations"].values()
-                                     for v in s["passes"].values())))
+    # ⛔ SUA 05/09/2026. `numPasses` cong MOI nguong x MOI tram, nen mot luot bay vuot 30 do
+    #    duoc dem lai o 25 va o 10: DEM TOI BA LAN. Ban thao goi 30.922 la "so luot bay", va do
+    #    la noi qua gap doi. So luot PHAN BIET la so o nguong long nhat, vi tap o nguong chat
+    #    hon la tap con cua no.
+    M("numPassObs", "{:,}".format(sum(len(v) for s in e1["stations"].values()
+                                      for v in s["passes"].values())))
+    loose = "%.0f" % min(e1["elev_min_deg"])
+    M("numPasses", "{:,}".format(sum(len(s["passes"][loose]) for s in e1["stations"].values())))
+    M("numElevLoose", loose)
     M("numSats", "{:,}".format(e1["n_sat"]))
     M("numPassesStation", "{:,}".format(len(P)))
 
@@ -173,8 +180,37 @@ def fig_orbital(e1):
     sp = [r[5] for r in rows]
     M("numDopSpread", vn(max(sp) - min(sp), 1))
 
+    # ⛔ Chu thich hinh 2 KHANG DINH rang hai dinh cua phan bo swing la do luot QUA DINH so voi
+    #    luot RA RIA. Do la mot tuyen bo co the SAI, va truoc day khong co so nao chong lung.
+    #    Do thang: tuong quan, va trung vi cua hai phan ba ngoai cung.
+    swg = g("fspl_swing_db")
+    elm = g("el_max_deg")
+    M("numSwingCorr", vn(float(np.corrcoef(swg, elm)[0, 1]), 3))
+    M("numSwingGraze", vn(float(np.median(swg[elm < np.percentile(elm, 33)])), 2))
+    M("numSwingOver", vn(float(np.median(swg[elm > np.percentile(elm, 67)])), 2))
+
 
 # =====================================================================
+def tab_subgroup(e2b, e2a):
+    """⛔ KIEM DO BEN ma nguoi phan bien SE hoi: quan the tron ca bai UAV/HAPS, noi ma van toc
+    tuong doi thap hon vai bac nen Doppler khong phai rang buoc chinh. Neu hai so 0 chi ton tai
+    nho tron nhom UAV vao thi phat hien la gia. Do lai tren RIENG nhom ve tinh."""
+    grp = {"TABLE III": "sat", "TABLE IV": "sat", "TABLE V": "air", "TABLE VI": "int"}
+    tab = {i["ref"]: grp.get(i["table"]) for i in e2a["items"]}
+    cod = [r for r in e2b["items"] if r.get("fulltext") and r.get("eval_section_found")]
+    sat = [r for r in cod if tab.get(r["ref"]) == "sat"]
+    M("numSat", str(len(sat)))
+    M("numAerial", str(sum(1 for r in cod if tab.get(r["ref"]) == "air")))
+    M("numIntegrated", str(sum(1 for r in cod if tab.get(r["ref"]) == "int")))
+    for code, tag in (("DOPPLER_RATE", "DopRate"), ("CH_TRACE", "Trace"),
+                      ("CH_AWGN", "Awgn"), ("DOPPLER", "Dop")):
+        M("numSat" + tag, str(sum(1 for r in sat if r["evidence"][code]["n_eval"] > 0)))
+    # cong trinh co toan van nhung KHONG dinh vi duoc phan danh gia
+    drop = [r for r in e2b["items"] if r.get("fulltext") and not r.get("eval_section_found")]
+    if drop:
+        M("numDropRef", str(drop[0]["ref"]))
+
+
 def tab_controls(e2b):
     """So cau bo do bat duoc tren toan van THAT: dung cho cau ve doi chung o muc giao thuc."""
     its = [r for r in e2b["items"] if r.get("fulltext")]
@@ -369,7 +405,9 @@ def fig_matrix(e2b):
     ax.set_yticklabels([LABEL[c] for c in codes], fontsize=7)
     ax.set_xticks(range(len(its)))
     ax.set_xticklabels([str(its[i]["ref"]) for i in idx], fontsize=5.6, rotation=90)
-    ax.set_xlabel("work, as numbered in the source survey, ordered by coverage")
+    # ⛔ Nhan dai hon be rong hinh thi bi CAT, va bbox tight khong cuu duoc vi no nam
+    #    giua duoi truc. Rut ngan, giai thich day du o chu thich hinh.
+    ax.set_xlabel("work, ordered by coverage", labelpad=2)
     for sp in ax.spines.values():
         sp.set_visible(False)
     ax.set_xticks(np.arange(-.5, len(its), 1), minor=True)
@@ -380,7 +418,7 @@ def fig_matrix(e2b):
     ax.legend(handles=[mp.Patch(color="#EEEEEE", label="absent"),
                        mp.Patch(color=C["gray"], label="framing only"),
                        mp.Patch(color=C["verm"], label="in evaluation")],
-              loc="upper center", bbox_to_anchor=(0.5, -0.28), ncol=3, fontsize=7.5)
+              loc="upper center", bbox_to_anchor=(0.5, -0.20), ncol=3, fontsize=7.5)
     save(fig, "fig6-matrix")
     M("numMaxCover", str(int(rowsum.max() // 2)))
     M("numZeroCover", str(int(sum(1 for r in rowsum if r == 0))))
@@ -565,6 +603,7 @@ def main():
         fig_pass(tl)
     if e2b and e2a:
         tab_controls(e2b)
+        tab_subgroup(e2b, e2a)
         fig_census(e2b, e2a)
         fig_matrix(e2b)
         tab_checklist(e2b)
