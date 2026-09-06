@@ -21,6 +21,16 @@
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
 
+% ⛔ Float troi rat xa cho duoc nhac: Bang danh muc nhac o trang 7 ma in o trang 16, va
+%    chung don dong o cuoi bai. Noi long tham so de LaTeX dat duoc nhieu float hon moi trang.
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.6}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.75}
+
 \input{../figures/out/numbers.tex}
 
 \journal{Computer Networks}
@@ -415,6 +425,17 @@ about \emph{conditions of evaluation}, not about quality: a work that evaluates 
 white Gaussian noise is not thereby wrong, it is evaluated under a stated condition, and the
 audit records which condition.
 
+\begin{table}[t]
+\centering
+\caption{The checklist, with the source each item is anchored to. ``Survey'' items restate
+structural constraints named by the field's own survey, ``3GPP'' points at the non-terrestrial
+channel studies, ``Orbit'' follows from orbital mechanics, and ``Protocol'' items are evaluation
+conventions rather than physical effects.}
+\label{tab:checklist}
+\input{../figures/out/tab1-checklist.tex}
+\end{table}
+
+
 \subsection{Coding, and where a claim counts}
 
 The instrument, stated formally in Section~\ref{sec:formal}, is a distinction between two
@@ -450,12 +471,12 @@ records where each item appears. The distinction in~\eqref{eq:code} between $2$ 
 instrument of this paper: a statement about Doppler while motivating a problem is not evidence
 that the evaluation instantiates Doppler. Writing $\mathcal{W}_c \subseteq \mathcal{W}$ for the
 works that could be read and partitioned, the per-item count reported in
-Figure~\ref{fig:census} is
+Section~\ref{sec:census} is
 \begin{equation}
   n_{\rm ev}(i) \;=\; \bigl| \{\, w \in \mathcal{W}_c : c(w,i) = 2 \,\} \bigr| ,
   \label{eq:count}
 \end{equation}
-and the per-work coverage plotted in Figure~\ref{fig:matrix} is
+and the per-work coverage reported there is
 \begin{equation}
   \kappa(w) \;=\; \bigl| \{\, i \in \mathcal{I} : c(w,i) = 2 \,\} \bigr| .
   \label{eq:cover}
@@ -476,7 +497,7 @@ information. The informative quantity is the discrepancy set
   \label{eq:disc}
 \end{equation}
 the effects a work is recorded as considering but does not instantiate where it matters.
-Table~\ref{tab:agreement} reports $|\mathcal{A}(w)|$, $|\mathcal{B}(w)|$ and $\mathcal{D}(w)$
+Section~\ref{sec:census} reports $|\mathcal{A}(w)|$, $|\mathcal{B}(w)|$ and $\mathcal{D}(w)$
 for every work where both descriptions could be read.
 
 \paragraph{Agreement between coders}
@@ -654,13 +675,13 @@ a count.
 \paragraph{A second source describes the same works}
 The survey's own channel-consideration column is an independent record of what each work
 considers, so it can be compared against what the evaluation sections contain.
-Table~\ref{tab:agreement} reports $|\mathcal{A}(w)|$, the set $\mathcal{B}(w)$
+Section~\ref{sec:census} reports $|\mathcal{A}(w)|$, the set $\mathcal{B}(w)$
 of~\eqref{eq:setB} and the discrepancy $\mathcal{D}(w)$ of~\eqref{eq:disc} for the \numAgrN{}
 works where both descriptions are available. Two
 things follow, and the first is not a criticism. The column is a phrase of a few words and cannot
 enumerate an evaluation, so the entries naming fewer items than the evaluations contain is
-expected. What is informative is what the entries name at all: across \numAgrN{} works they
-name \numAgrNamedTot{} checklist items in total, because most entries describe an architecture
+expected. Table~\ref{tab:agreement} lists them. What is informative is what the entries name at all:
+across \numAgrN{} works they name \numAgrNamedTot{} checklist items in total, because most entries describe an architecture
 or a topology rather than a propagation environment. The column is the closest thing the
 literature has to a record of channel realism, and it is not one. In \numAgrExtra{} case $\mathcal{D}(w)$ is non-empty, with the column naming an effect the
 evaluation section does not contain.
@@ -676,6 +697,17 @@ evaluation section does not contain.
 
 \begin{figure}[t]
 \centering
+\includegraphics[width=\textwidth]{../figures/out/fig5-census.pdf}
+\caption{Where each effect appears, for the \numCoded{} codeable works. Grey counts works that
+mention the effect only while motivating the problem; orange counts works whose evaluation
+instantiates it. Zeros are labelled explicitly so that a measured zero is not read as a missing
+bar.}
+\label{fig:census}
+\end{figure}
+
+
+\begin{figure}[t]
+\centering
 \includegraphics[width=\textwidth]{../figures/out/fig6-matrix.pdf}
 \caption{Every codeable work against every checklist item. Columns are labelled by the
 reference number the source survey gives the work and ordered by how many items its evaluation
@@ -685,25 +717,6 @@ instantiates.}
 \label{fig:matrix}
 \end{figure}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\textwidth]{../figures/out/fig5-census.pdf}
-\caption{Where each effect appears, for the \numCoded{} codeable works. Grey counts works that
-mention the effect only while motivating the problem; orange counts works whose evaluation
-instantiates it. Zeros are labelled explicitly so that a measured zero is not read as a missing
-bar.}
-\label{fig:census}
-\end{figure}
-
-\begin{table}[t]
-\centering
-\caption{The checklist, with the source each item is anchored to. ``Survey'' items restate
-structural constraints named by the field's own survey, ``3GPP'' points at the non-terrestrial
-channel studies, ``Orbit'' follows from orbital mechanics, and ``Protocol'' items are evaluation
-conventions rather than physical effects.}
-\label{tab:checklist}
-\input{../figures/out/tab1-checklist.tex}
-\end{table}
 
 \begin{table}[t]
 \centering
