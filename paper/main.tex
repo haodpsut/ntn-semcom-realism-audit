@@ -868,7 +868,8 @@ point a flaw would be wrong.
 \centering
 \includegraphics[width=\textwidth]{../figures/out/fig7-mismatch.pdf}
 \caption{A codec trained at a single operating point, evaluated across the conditions
-Section~\ref{sec:orbit} measured, over the \numSeeds{} valid runs of the fixed regime.
+Section~\ref{sec:orbit} measured, over the \numOkFixed{} valid runs of the fixed regime
+and the \numOkAug{} of the randomised regime.
 (a) test signal-to-noise ratio; (b) residual normalised frequency offset
 of~\eqref{eq:cfo} under the open-loop assumption, on a logarithmic axis with the zero-offset case
 at the left edge. ``Single SNR'' is the fixed-operating-point regime and ``randomised'' the
@@ -887,7 +888,7 @@ those measured in Section~\ref{sec:orbit}, not chosen for this table.}
 \end{table}
 
 
-\subsection{The residual frequency offset is, and it is a cliff}
+\subsection{The residual frequency offset is where the problem is, and it is a cliff}
 
 Figure~\ref{fig:mismatch}(b) tells a different story. Under the open-loop model
 of~\eqref{eq:cfo}, in which the offset accumulates across the whole block, the same codec loses
@@ -922,18 +923,20 @@ Figure~\ref{fig:blocklen} reports the outcome and it is the clearest result in t
 perfect tracking the codec is flat across the whole sweep, reaching \numPsnrLlOne~dB at
 $\varepsilon = 10^{-3}$ where the open-loop case has fallen to \numPsnrLlFth~dB. Re-estimating
 every $\numLmin$ symbols is almost as good, \numPsnrLlTt~dB, and the intermediate interval sits
-between at \numPsnrLlOtt~dB. Panel~(b) places the measured cliff against the predicted one: the
-three points fall on a line parallel to the diagonal at a constant
-$\numCliffRatio\times$, with a range of \numCliffRatioLo{} to \numCliffRatioHi{} across a factor
-of \numLspan{} in $L$.
+between at \numPsnrLlOtt~dB. Panel~(b) places the measured cliff against the predicted one: the three points fall on a line
+parallel to the diagonal at a constant $\numCliffRatio\times$, with a range of
+\numCliffRatioLo{} to \numCliffRatioHi{} across a factor of \numLspan{} in $L$.
 
-That constant is worth stating precisely, because it is what the model does and does not deliver.
-Equation~\eqref{eq:phase} predicts the \emph{scaling} correctly: the cliff moves inversely with
-the accumulation length over the whole range tested. It does not predict the absolute position,
-which arrives about \numCliffRatio{} of the way to the criterion, because three decibels of loss
-accumulate before the tail of a block is rotated all the way to $\pi$. Reporting the model as
-predicting where the cliff is would overstate it; reporting it as predicting how the cliff moves
-is what the data supports.
+What that constant is, and is not, matters. Equation~\eqref{eq:phase} predicts the \emph{scaling}
+correctly: the cliff moves inversely with the accumulation length over the whole range tested. It
+does not predict the absolute position, and the offset has a plain reading rather than being an
+invariant we discovered. Since~\eqref{eq:phase} is linear in $\varepsilon$, a measured cliff at
+$\numCliffRatio$ of the $\Delta\varphi = \pi$ criterion is simply the statement that three
+decibels are already lost by the time the tail of a block has rotated
+$\numCliffRatio\pi$, which is about $45^\circ$. The number therefore encodes the loss threshold
+we chose, not a property of the codec: a stricter threshold would move it down and a looser one
+up, while leaving the slope untouched. The scaling is the result; the constant is a unit
+conversion between a phase criterion and a decibel criterion.
 
 \paragraph{What this does to the compensation figure}
 It qualifies it, and the qualification is the substantive one. A residual of
@@ -950,8 +953,8 @@ states.
 \centering
 \includegraphics[width=\textwidth]{../figures/out/fig8-blocklen.pdf}
 \caption{The collapse is governed by accumulated phase, not by Doppler as such. (a) quality
-against residual offset for four carrier re-estimation intervals, medians over \numSeedsB{}
-seeds with bands spanning them, dotted verticals marking the position~\eqref{eq:phase} predicts
+against residual offset for four carrier re-estimation intervals, medians over the
+\numOkFixed{} valid runs of the fixed regime with bands spanning them, dotted verticals marking the position~\eqref{eq:phase} predicts
 for each $L$. (b) measured cliff, taken as the first three-decibel loss, against the predicted
 position; the points lie parallel to the diagonal at $\numCliffRatio\times$.}
 \label{fig:blocklen}
@@ -1020,6 +1023,15 @@ alone, time-varying Doppler is instantiated by \numSatDopRate{} of them and an o
 \numSatTrace{}, so both zeros survive the restriction unchanged. On the effects that are not
 zero the subgroup behaves as expected, with \numSatAwgn{} of \numSat{} evaluating over additive
 white Gaussian noise and \numSatDop{} naming Doppler in their evaluation.
+
+\textbf{The reset model is optimistic, and in a known direction.} Resetting the phase every $L$
+symbols in Section~\ref{sec:blocklen} is a perfect reset: the estimate is exact and costs
+nothing. A real carrier loop estimates from noisy symbols, lags a changing offset and consumes
+pilot overhead, so it will do worse than the reset at the same interval. The direction of that
+bias is therefore known: the reset curves are an upper bound on what tracking buys, and the
+open-loop curve is the lower bound. The true behaviour of a given receiver lies between two
+curves the paper reports rather than outside them, which is the reason for reporting both ends
+rather than one estimate in the middle.
 
 \textbf{The channel model is open loop by default.} Equation~\eqref{eq:cfo} lets a residual
 offset accumulate for a whole block unless $L$ says otherwise, which is one end of a range of

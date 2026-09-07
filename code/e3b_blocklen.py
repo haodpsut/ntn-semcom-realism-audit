@@ -49,7 +49,9 @@ OUT = os.path.join(ROOT, "results", "e3b_blocklen.json")
 
 SEEDS = [0, 1, 2, 3, 4]                    # 5 seed: diem 4 cua phan bien
 K = E3.C_CH * 8 * 8 // 2                   # 512 ky hieu phuc, giu nguyen bo ma
-L_GRID = [1, 32, 128, 512]                 # 1 = bam hoan hao; 512 = vong ho nhu (11)
+# ⛔ NOI DAI 07/09/2026 theo de nghi cua phan bien vong 2: ba diem tren 16x la mong de khang
+#    dinh mot quy luat co gian. Nay nam diem kiem duoc tren 256x (L = 2 den 512).
+L_GRID = [1, 2, 8, 32, 128, 512]           # 1 = bam hoan hao; 512 = vong ho nhu (11)
 EPS_GRID = [0.0, 1e-5, 1e-4, 3e-4, 1e-3, 3e-3, 1e-2, 3e-2, 1e-1]
 SNR_GRID = [float(x) for x in np.arange(4.0, 16.5, 1.0)]
 
@@ -112,6 +114,11 @@ def main():
         for seed in SEEDS:
             t0 = time.time()
             m = E3.train(mode, seed, tr)
+            # ⚠ Luu trong so: L la tham so DANH GIA, nen moi lan nay dai L sau nay khong can
+            #    huan luyen lai. Lan truoc phai chay lai 45 phut chi de them hai gia tri L.
+            wdir = os.path.join(ROOT, "results", "weights")
+            os.makedirs(wdir, exist_ok=True)
+            torch.save(m.state_dict(), os.path.join(wdir, "%s_seed%d.pt" % (mode, seed)))
             grid = {}
             for L in L_GRID:
                 grid[str(L)] = {("%.0e" % e): evaluate(m, te, E3.SNR_TRAIN, e, L, seed)

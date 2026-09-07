@@ -620,8 +620,9 @@ def fig_e3(e3b):
 
     with io.open(os.path.join(OUTD, "tab6-mismatch.tex"), "w", encoding="utf-8") as f:
         f.write("\\begin{tabular}{lrrrr}\n\\toprule\n")
-        f.write("& \\multicolumn{2}{c}{trained at one SNR} & "
-                "\\multicolumn{2}{c}{randomised training} \\\\\n")
+        f.write("& \\multicolumn{2}{c}{trained at one SNR ($n=%d$)} & "
+                "\\multicolumn{2}{c}{randomised training ($n=%d$)} \\\\\n"
+                % (len(fx), len(ag)))
         f.write("\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\n")
         f.write("Evaluation condition & median & range & median & range \\\\\n\\midrule\n")
 
@@ -662,6 +663,11 @@ def fig_blocklen(e3b):
     M("numRunsTot", str(tot))
     M("numRunsBad", str(bad))
     M("numRunsOk", str(tot - bad))
+    # ⛔ Hinh 7 bao \numSeeds (lan chay HOP LE cua nhanh fixed = 4) con hinh 8 bao \numSeedsB
+    #    (so seed DA THU = 5), va hai chu thich cua cung mot lan chay noi hai so khac nhau.
+    #    Nguoi phan bien bat dung. Tu nay moi noi deu dung so HOP LE, tach theo nhanh.
+    M("numOkFixed", str(len(ok["fixed"])))
+    M("numOkAug", str(len(ok["aug"])))
     M("numValidMin", vn(e3b["valid_psnr_min"], 1))
     M("numSeedsB", str(len(e3b["seeds"])))
     if not ok["fixed"]:
