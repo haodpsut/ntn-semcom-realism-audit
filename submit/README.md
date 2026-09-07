@@ -22,12 +22,14 @@ thức, 39 tham khảo.
 
 ## ⛔ Ba chỗ nhớ kiểm bằng mắt trước khi bấm nộp
 
-1. **Đoạn khai bài liên quan ở cuối cover letter.** Ngày 23/08/2026 một cover letter đã bị viết
-   lại và **rơi mất đúng đoạn đó**. Mở `cover-letter.pdf`, xác nhận đoạn *"For transparency I
-   disclose two related manuscripts"* còn đủ **hai** khai báo: QMI, và hai bài workshop AICON.
-   ⚠ Ngày 07/09 đã **cố ý bỏ** khai hai bài IEEE về IDS và lập lịch UAV: chúng không dính
-   semantic communication lẫn hiện thực kênh nên không thuộc diện phải khai. Đó là quyết định,
-   không phải sót.
+1. **Đoạn khai bài liên quan đã được BỎ HẲN, có chủ ý.** Thư giờ chỉ giữ lời khai bắt buộc:
+   bài gốc, chưa đăng, **không đang được xem xét ở nơi nào khác**, một tác giả. Hảo chốt 07/09
+   rằng QMI và hai bài AICON **chưa nộp**, mà nghĩa vụ khai chỉ áp cho bản thảo **đang được xem
+   xét** ở nơi khác; hai bài IEEE thì không liên quan chủ đề.
+   ⚠ Đây **không phải** lớp lỗi 23/08/2026 (thư bị viết lại rồi rơi mất đoạn khai). Đừng tự ý
+   thêm lại. **Nhưng nếu QMI hoặc AICON được nộp trước khi bài này nộp thì phải khai lại**, và
+   lúc đó câu "không đang được xem xét ở nơi nào khác" vẫn đúng vì nó nói về CHÍNH bản thảo này.
+
 2. **Email.** Đang dùng `haodp.sut@gmail.com`. Bản nộp QMI dùng `haodp@dau.edu.vn`. Tạp chí
    thường ưa email cơ quan.
 3. **Điểm yếu tự khai, đừng bỏ.** Mục 9 nói rõ chưa có hệ số đồng thuận vì chỉ một người mã hoá.
