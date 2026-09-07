@@ -77,11 +77,15 @@ time-varying component of Doppler. Third, training a semantic codec under the mo
 assumption and evaluating it under the measured conditions locates the cost precisely. It is not
 where an audit would expect: sweeping the signal-to-noise ratio across the full pass costs
 \numPsnrDrop~dB and degrades gracefully, so the fixed operating point most works adopt is
-defensible. The cost appears instead as a cliff on the axis nobody instantiates, with
-\numDropCfoEb~dB lost at a residual frequency offset of $10^{-3}$, an offset reached when
-compensation removes ninety-seven per cent of the measured shift. The location of that cliff
-follows from the accumulated phase across a coded block rather than from the experiment.
-Randomising the offset during training recovers \numAugGainCfo~dB of it. The checklist, the
+defensible. The cost appears instead as a cliff on the axis nobody
+instantiates, with \numDropCfoEb~dB lost at a residual frequency offset of $10^{-3}$ when that
+offset is allowed to accumulate across a coded block. What sets the cliff is the interval over
+which phase accumulates rather than Doppler as such: re-estimating carrier phase every
+\numLmin{} symbols removes the collapse entirely, and the cliff position scales inversely with
+the accumulation length across a factor of \numLspan{}, at a constant \numCliffRatio{} of the
+value the accumulated-phase argument predicts. The tolerable residual is therefore a property of
+the codec together with its carrier recovery, which is what no work in the population states.
+Randomising the offset during training recovers \numAugGainCfo~dB of the open-loop loss. The checklist, the
 coding sheet with the sentence justifying every decision, the orbital generator and the
 evaluation harness are released.
 \end{abstract}
@@ -143,13 +147,15 @@ in the population is therefore not the problem, and we report both because they 
 to the one effect that does not survive measurement.
 
 \paragraph{Where the cost actually is}
-That effect is the residual frequency offset. The same codec loses \numDropCfoEa~dB at
-$\varepsilon = 10^{-4}$ and \numDropCfoEb~dB at $\varepsilon = 10^{-3}$, a cliff rather than a
-slope, and the position of the cliff is predicted by the phase accumulated across a coded block
-rather than found by search. The offset at which it occurs corresponds to compensation that
-removes ninety-seven per cent of the measured Doppler, which is to say a competent system rather
-than a negligent one. It is also the axis instantiated by
-\numEvDOPPLERRATE{} of the \numCoded{} works in the population.
+That effect is the residual frequency offset, and more precisely the interval over which it is
+allowed to accumulate. Left to accumulate across a block, an offset of $\varepsilon = 10^{-3}$
+costs \numDropCfoEb~dB where $\varepsilon = 10^{-4}$ costs \numDropCfoEa~dB, a cliff rather
+than a slope. Interrupting the accumulation moves it: re-estimating carrier phase every
+\numLmin{} symbols leaves the same codec at \numPsnrLlTt~dB where the open-loop case has fallen
+to \numPsnrLlFth~dB, and the cliff position tracks the accumulation length across a factor of
+\numLspan{}. What a deployed system tolerates is therefore set by the pair of codec and carrier
+recovery, and neither the residual nor the recovery interval is stated by the works in the
+population, of which \numEvDOPPLERRATE{} of \numCoded{} instantiate this axis at all.
 
 \begin{figure}[t]
 \centering
@@ -825,91 +831,140 @@ symbol rate of $10$~Msym/s, leaving one per cent of the shift uncorrected puts
 $\varepsilon$ near $3.6\times10^{-4}$.
 
 
-\subsection{Configuration}
+\subsection{Configuration, and which runs count}
 
 The codec of~\eqref{eq:codec} uses a bandwidth ratio of $R = \numBwRatio$, giving $\numK{}$
-complex symbols per source block. Each configuration is trained for \numEpochs{} epochs with
-\numSeeds{} seeds, and every figure below reports the median across seeds with the range in
-parentheses or as a band, because the spread turns out to differ sharply between the two axes.
+complex symbols per source block, and each configuration is trained for \numEpochs{} epochs with
+\numSeedsB{} seeds.
+
+\paragraph{A run can fail, and a failed run is not a measurement}
+Training this architecture is not always stable: a run can converge and then diverge to a
+constant output, which the harness will happily report as a low reconstruction quality. Since a
+low number is exactly what the hypothesis under test predicts, such a run would be a failure that
+looks like a confirmation. We therefore declared a validity criterion before running, namely that
+a run counts only if its quality on the \emph{clean} channel exceeds \numValidMin~dB, and we
+report the outcome rather than quietly dropping the failures. Of \numRunsTot{} runs,
+\numRunsOk{} were valid and \numRunsBad{} diverged; every figure below uses the valid runs and
+states the count. Gradient clipping reduced but did not eliminate the failures, so the criterion
+does work that the recipe alone does not.
 
 \subsection{The signal-to-noise axis is not where the problem is}
 
 Figure~\ref{fig:mismatch}(a) and Table~\ref{tab:mismatch} sweep the test signal-to-noise ratio
-across $\numSnrLo$ to $\numSnrHi$~dB, a range chosen to contain the link-budget swing measured
-in Section~\ref{sec:orbit} rather than picked for effect. A codec trained at a single operating
-point reaches \numPsnrTrain~dB there and \numPsnrLo~dB at the low end of the sweep, a loss of
-\numPsnrDrop~dB. The degradation is monotone and gradual, with no threshold.
+across $\numSnrLo$ to $\numSnrHi$~dB, a range chosen to contain the link-budget swing measured in
+Section~\ref{sec:orbit} rather than picked for effect. A codec trained at a single operating point
+reaches \numPsnrTrain~dB there and \numPsnrLo~dB at the low end, a loss of \numPsnrDrop~dB, and
+the degradation is monotone and gradual with no threshold.
 
 This is the second result in this paper that runs against the audit rather than for it, and it is
-consistent with the first. Section~\ref{sec:orbit} found that the geometric term moves slowly
-enough that a transmission block sees a static channel; this section finds that even the
-pass-scale sweep, which is not small, costs a codec only a few decibels. Training at a single
-signal-to-noise ratio is a defensible choice, and the \numEvSNRSWEEP{} works that sweep it are
-not thereby buying much. An audit that stopped at the channel model and declared the fixed
-operating point a flaw would be wrong.
+consistent with the first. Section~\ref{sec:orbit} found the geometric term moves slowly enough
+that a transmission block sees a static channel; this section finds that even the pass-scale
+sweep costs a codec only a few decibels. Training at a single signal-to-noise ratio is a
+defensible choice, and an audit that stopped at the channel model and called the fixed operating
+point a flaw would be wrong.
 
-\subsection{The residual frequency offset is where the problem is, and it is a cliff}
+\subsection{The residual frequency offset is, and it is a cliff}
 
-Figure~\ref{fig:mismatch}(b) tells a different story. At $\varepsilon = 10^{-4}$ the same codec
-loses \numDropCfoEa~dB, which is negligible. At $\varepsilon = 10^{-3}$ it loses
-\numDropCfoEb~dB, falling from \numPsnrCfoClean~dB to \numPsnrCfoEb~dB. The transition is not a
-slope but a cliff, and it lies between two adjacent decades.
+Figure~\ref{fig:mismatch}(b) tells a different story. Under the open-loop model
+of~\eqref{eq:cfo}, in which the offset accumulates across the whole block, the same codec loses
+\numDropCfoEa~dB at $\varepsilon = 10^{-4}$ and \numDropCfoEb~dB at $\varepsilon = 10^{-3}$,
+falling from \numPsnrCfoClean~dB to \numPsnrCfoEb~dB. The transition is a cliff rather than a
+slope and it lies between two adjacent decades, so a single evaluation point on this axis says
+almost nothing about the neighbouring one.
 
-The location of that cliff is predicted by~\eqref{eq:phase} rather than discovered empirically.
-Setting the accumulated phase across a block to $\pi$ gives $\varepsilon = 1/(2(k-1))$, which for
-$k = \numK{}$ symbols is $\numCliffPred \times 10^{-4}$. The measured collapse occurs between
-$10^{-4}$ and $10^{-3}$, so the mechanism is the one the model names: the tail of a block is
-rotated past quadrature and the decoder, which never saw a rotation during training, has no way
-to undo it.
+\paragraph{The spread is informative, and it is not small}
+At the training point the valid runs span 26.46 to 28.23~dB. At $\varepsilon = 10^{-3}$ they span
+8.48 to 12.51~dB. A quantity whose seed-to-seed range is four decibels cannot be reported as a
+point estimate, which is why Table~\ref{tab:mismatch} carries ranges throughout and why the
+comparisons below are made between medians whose ranges do not overlap.
 
-\paragraph{What that offset corresponds to}
-By~\eqref{eq:cfo}, $\varepsilon = 10^{-3}$ at a symbol rate of $10$~Msym/s is a residual of
-$10$~kHz. Against the median Ka-band shift of \numDopKaMed~kHz measured in
-Section~\ref{sec:orbit}, that is $\rho \approx 0.03$, meaning the collapse occurs when
-compensation removes ninety-seven per cent of the shift. The regime in which a semantic codec
-fails is therefore not one of neglected Doppler but one of ordinary, competently compensated
-Doppler, which is precisely the regime a deployed system operates in and precisely the regime
-that \numEvDOPPLERRATE{} of the works in the population instantiate.
+\subsection{What sets the cliff is the carrier re-estimation interval}
+\label{sec:blocklen}
 
-\paragraph{The spread is informative}
-At the training point the three seeds agree closely, spanning 27.72 to 28.34~dB. At
-$\varepsilon = 10^{-3}$ they span 8.13 to 12.15~dB, a spread of four decibels. A quantity whose
-seed-to-seed variation is four decibels cannot be reported as a single number, which is why
-Table~\ref{tab:mismatch} carries ranges throughout.
+The open-loop model is the strongest assumption in this paper, and it is worth attacking rather
+than defending. A receiver that re-estimates carrier phase periodically does not let the offset
+accumulate for a whole block, and if the collapse depends on accumulation then it should move,
+predictably, when the accumulation is interrupted.
+
+We therefore keep the codec and the bandwidth ratio fixed and reset the phase every $L$ symbols,
+so that~\eqref{eq:cfo} becomes $\varphi_m = 2\pi\varepsilon\,(m \bmod L)$, with $L = k$ the
+open-loop case and $L = 1$ perfect tracking. Changing $L$ rather than $k$ matters: $k$ is tied to
+the bandwidth ratio through~\eqref{eq:codec}, so sweeping it would confound accumulation length
+with compression, while $L$ leaves the codec untouched. Substituting $L$ for $k$
+in~\eqref{eq:phase} predicts a cliff at $\varepsilon = 1/(2(L-1))$, which moves by a factor of
+\numLspan{} across the range of $L$ tested.
+
+Figure~\ref{fig:blocklen} reports the outcome and it is the clearest result in the paper. With
+perfect tracking the codec is flat across the whole sweep, reaching \numPsnrLlOne~dB at
+$\varepsilon = 10^{-3}$ where the open-loop case has fallen to \numPsnrLlFth~dB. Re-estimating
+every $\numLmin$ symbols is almost as good, \numPsnrLlTt~dB, and the intermediate interval sits
+between at \numPsnrLlOtt~dB. Panel~(b) places the measured cliff against the predicted one: the
+three points fall on a line parallel to the diagonal at a constant
+$\numCliffRatio\times$, with a range of \numCliffRatioLo{} to \numCliffRatioHi{} across a factor
+of \numLspan{} in $L$.
+
+That constant is worth stating precisely, because it is what the model does and does not deliver.
+Equation~\eqref{eq:phase} predicts the \emph{scaling} correctly: the cliff moves inversely with
+the accumulation length over the whole range tested. It does not predict the absolute position,
+which arrives about \numCliffRatio{} of the way to the criterion, because three decibels of loss
+accumulate before the tail of a block is rotated all the way to $\pi$. Reporting the model as
+predicting where the cliff is would overstate it; reporting it as predicting how the cliff moves
+is what the data supports.
+
+\paragraph{What this does to the compensation figure}
+It qualifies it, and the qualification is the substantive one. A residual of
+$\varepsilon = 10^{-3}$ at a symbol rate of $10$~Msym/s is $10$~kHz, which against the median
+Ka-band shift of \numDopKaMed~kHz is ninety-seven per cent compensation. But that number is a
+statement about a receiver that lets the residual accumulate over $\numK{}$ symbols. The same
+receiver re-estimating every $\numLmin$ symbols tolerates roughly \numLspan{} times the residual,
+and a tracking loop tighter still is unaffected at any offset tested here. The tolerable residual
+is therefore a property of the pair (codec, carrier recovery interval) and not of the codec alone,
+which is precisely why it belongs in the evaluation and precisely what no work in the population
+states.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{../figures/out/fig8-blocklen.pdf}
+\caption{The collapse is governed by accumulated phase, not by Doppler as such. (a) quality
+against residual offset for four carrier re-estimation intervals, medians over \numSeedsB{}
+seeds with bands spanning them, dotted verticals marking the position~\eqref{eq:phase} predicts
+for each $L$. (b) measured cliff, taken as the first three-decibel loss, against the predicted
+position; the points lie parallel to the diagonal at $\numCliffRatio\times$.}
+\label{fig:blocklen}
+\end{figure}
 
 \subsection{A remedy, and the limits of it}
 
-The second training regime randomises the signal-to-noise ratio and the residual offset over the
-ranges Section~\ref{sec:orbit} measured. At $\varepsilon = 10^{-3}$ it holds
-\numPsnrAugCfoEb~dB against \numPsnrCfoEb~dB for the fixed regime, a gain of
-\numAugGainCfo~dB, and it does so at a cost of \numAugCost~dB at the design point.
+Randomising the signal-to-noise ratio and the residual offset during training, over the ranges
+Section~\ref{sec:orbit} measured, holds \numPsnrAugCfoEb~dB at open-loop
+$\varepsilon = 10^{-3}$ against \numPsnrCfoEb~dB for the fixed regime, a gain of
+\numAugGainCfo~dB, at a cost of \numAugCost~dB at the design point.
 
 Two qualifications keep this from being a general recommendation. The remedy is specific to the
 axis it targets: on the signal-to-noise sweep the randomised codec is \emph{worse} at the low end
-by \numAugSnrDelta~dB, so randomising an axis that was not a problem simply spends capacity. And
-it moves the cliff rather than removing it, since at $\varepsilon = 10^{-2}$ the randomised codec
-has itself fallen to \numPsnrAugCfoEc~dB. What the comparison establishes is narrower and more
-useful than a fix: the failure is a property of the training distribution rather than of the
+by \numAugSnrDelta~dB, so randomising an axis that was not a problem spends capacity for nothing.
+And it moves the cliff rather than removing it, since at $\varepsilon = 10^{-2}$ the randomised
+codec has itself fallen to \numPsnrAugCfoEc~dB. What the comparison establishes is narrower and
+more useful than a fix: the failure lives in the training distribution rather than in the
 architecture, and it is therefore visible to anyone who evaluates for it.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{../figures/out/fig7-mismatch.pdf}
 \caption{A codec trained at a single operating point, evaluated across the conditions
-Section~\ref{sec:orbit} measured. (a) test signal-to-noise ratio; (b) residual normalised frequency
-offset $\varepsilon = f_{\rm res}/R_s$ of~\eqref{eq:cfo}, on a logarithmic axis with the
-zero-offset case placed at the left edge. ``Single SNR'' is the fixed-operating-point regime and
-``randomised'' the regime that draws both the signal-to-noise ratio and the offset during
-training. Bands
-span \numSeeds{} seeds.}
+Section~\ref{sec:orbit} measured, over the \numSeeds{} valid runs of the fixed regime.
+(a) test signal-to-noise ratio; (b) residual normalised frequency offset
+of~\eqref{eq:cfo} under the open-loop assumption, on a logarithmic axis with the zero-offset case
+at the left edge. ``Single SNR'' is the fixed-operating-point regime and ``randomised'' the
+regime that draws both quantities during training.}
 \label{fig:mismatch}
 \end{figure}
 
 \begin{table}[t]
 \centering
-\caption{Reconstruction quality in dB under the two training regimes, median over \numSeeds{}
-seeds with the range across seeds. The evaluation conditions are those measured in
-Section~\ref{sec:orbit}, not chosen for this table.}
+\caption{Reconstruction quality in dB under the two training regimes, median over the valid runs
+with the range across them. Offsets are open loop, that is $L = k$. The evaluation conditions are
+those measured in Section~\ref{sec:orbit}, not chosen for this table.}
 \label{tab:mismatch}
 \input{../figures/out/tab6-mismatch.tex}
 \end{table}
@@ -933,10 +988,11 @@ case.
 \textbf{Treat residual frequency offset as a swept parameter.} Doppler is compensated in practice
 and no serious system leaves \numDopKaMed~kHz uncorrected. What matters is the residual, and
 Section~\ref{sec:cost} shows why: between $\varepsilon = 10^{-4}$ and $10^{-3}$ the codec loses
-\numDropCfoEb~dB, so a single evaluation point on this axis carries almost no information about
-the neighbouring decade. The tolerable residual is a property of the codec rather than of the
-link, which is exactly what makes it the codec's evaluation to report. Sweeping it costs nothing
-beyond the sweep, and~\eqref{eq:phase} says where to look.
+\numDropCfoEb~dB under open-loop accumulation, so a single evaluation point on this axis carries
+almost no information about the neighbouring decade. State the carrier recovery interval
+alongside it, because Section~\ref{sec:blocklen} shows the two cannot be separated: the same
+codec is unharmed at the same offset when phase is re-estimated every \numLmin{} symbols.
+Sweeping both costs nothing beyond the sweep, and~\eqref{eq:phase} says where to look.
 
 % =====================================================================
 \section{Threats to validity}
@@ -961,6 +1017,13 @@ alone, time-varying Doppler is instantiated by \numSatDopRate{} of them and an o
 \numSatTrace{}, so both zeros survive the restriction unchanged. On the effects that are not
 zero the subgroup behaves as expected, with \numSatAwgn{} of \numSat{} evaluating over additive
 white Gaussian noise and \numSatDop{} naming Doppler in their evaluation.
+
+\textbf{The channel model is open loop by default.} Equation~\eqref{eq:cfo} lets a residual
+offset accumulate for a whole block unless $L$ says otherwise, which is one end of a range of
+receiver designs rather than a neutral choice. Section~\ref{sec:blocklen} treats it as a swept
+parameter for that reason, and the headline compensation figure is stated with the interval it
+assumes. What the paper does not model is a closed-loop estimator with its own noise, whose
+tolerable residual would be set by loop bandwidth rather than by a reset interval.
 
 \textbf{Absence of a phrase is not absence of a model.} The census detects the vocabulary in
 which an effect is normally described. A work could model time-varying Doppler without using any
@@ -988,10 +1051,13 @@ non-terrestrial model, and none instantiates either the drift or the geometry th
 
 Applying the measured conditions to a codec trained under the modal assumption then locates the
 consequence. It is not on the axis an audit would reach for first: the pass-scale
-signal-to-noise sweep costs \numPsnrDrop~dB and degrades gracefully. It is on the axis nobody
-instantiates, where a residual frequency offset of $10^{-3}$ costs \numDropCfoEb~dB in a
-transition that~\eqref{eq:phase} places before the experiment is run, and which corresponds to
-ninety-seven per cent compensation rather than to neglect.
+signal-to-noise sweep costs \numPsnrDrop~dB and degrades gracefully. It is on the axis nobody instantiates, where a residual frequency offset of $10^{-3}$ costs
+\numDropCfoEb~dB once it is allowed to accumulate across a block. That qualification is the
+result rather than a caveat on it: the cliff moves inversely with the accumulation length across
+a factor of \numLspan{}, at a constant \numCliffRatio{} of what the accumulated-phase argument
+predicts, and vanishes under carrier tracking. The quantity a deployed system must respect is not
+Doppler but uncorrected accumulated phase, and it is fixed by the codec and the receiver
+together.
 
 The reading is not that this work is unsound, nor that its channel models are careless. It is
 that the field's evaluations are strongest on the effect that turns out not to matter and silent

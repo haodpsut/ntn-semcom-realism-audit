@@ -553,96 +553,190 @@ def tab_agreement(e2b, e2a):
 
 
 # =====================================================================
-def fig_e3(e3):
-    """Hinh 4: mo hinh huan luyen o mot SNR, danh gia tren dai SNR va duoi lech tan du."""
-    if not e3:
-        print("     (chua co e3, bo qua hinh 4)")
+def fig_e3(e3b):
+    """Hinh 7: mo hinh huan luyen o mot diem, danh gia tren dai SNR va duoi lech tan du.
+
+    ⛔ DOI NGUON 07/09/2026: truoc day doc `e3_train_eval.json` (3 seed, KHONG kiem hop le).
+    Lan chay do dung cung cong thuc huan luyen ma sau nay phat hien la PHAN KY o mot phan cac
+    seed, va bo khung cu bao ra mo hinh chet nhu mot phep do. Nay ca bai dung MOT lan chay duy
+    nhat: `e3b_blocklen.json`, 5 seed, co chan gradient, va co nguong hop le khai truoc.
+    """
+    if not e3b or "valid_psnr_min" not in e3b:
+        print("     (chua co e3b, bo qua hinh 7)")
         return
+    ok = {m: [r for r in runs if r.get("valid")] for m, runs in e3b["runs"].items()}
+    if not ok["fixed"]:
+        return
+    K = str(e3b["k_symbols"])
     fig, ax = plt.subplots(1, 2, figsize=(W_WIDE, 2.05))
     fig.subplots_adjust(wspace=0.34)
-    # ⛔ Nhan chu giai DAI thi hop chu giai tran sang ca bang ben canh. Rut ngan, giai thich
-    #    day du chuyen sang chu thich hinh.
     styles = {"fixed": (C["verm"], "o", "-", "single SNR"),
               "aug": (C["blue"], "s", "--", "randomised")}
-    for mode, runs in e3["runs"].items():
+    xs = np.array([float(v) for v in e3b["snr_grid"]])
+    eps = e3b["eps_grid"]
+    xp = np.array([1e-6 if e == 0 else e for e in eps])
+    for mode in ("fixed", "aug"):
         col, mk, ls, lb = styles[mode]
-        xs = np.array([float(k) for k in e3["snr_eval_db"]])
-        Y = np.array([[r["snr_curve"]["%.1f" % s] for s in xs] for r in runs])
-        ax[0].plot(xs, np.median(Y, 0), color=col, marker=mk, ls=ls, label=lb)
+        Y = np.array([[r["snr_curve"]["%.1f" % v] for v in xs] for r in ok[mode]])
+        ax[0].plot(xs, np.median(Y, 0), color=col, marker=mk, ls=ls, label=lb, markersize=3.4)
         ax[0].fill_between(xs, Y.min(0), Y.max(0), color=col, alpha=0.16, lw=0)
-        ex = np.array([float(k) for k in e3["eps_eval"]])
-        Z = np.array([[r["cfo_curve"]["%.0e" % e] for e in ex] for r in runs])
-        xp = np.where(ex == 0, 1e-6, ex)
-        ax[1].plot(xp, np.median(Z, 0), color=col, marker=mk, ls=ls)
+        Z = np.array([[r["grid"][K]["%.0e" % e] for e in eps] for r in ok[mode]])
+        ax[1].plot(xp, np.median(Z, 0), color=col, marker=mk, ls=ls, markersize=3.4)
         ax[1].fill_between(xp, Z.min(0), Z.max(0), color=col, alpha=0.16, lw=0)
-    ax[0].axvline(e3["snr_train_db"], color="k", lw=0.8, ls=":")
+    ax[0].axvline(e3b["snr_db"], color="k", lw=0.8, ls=":")
     ax[0].text(0.52, 0.04, "training SNR", transform=ax[0].transAxes, fontsize=7)
     ax[0].set_xlabel("test SNR (dB)")
     ax[0].set_ylabel("PSNR (dB)")
     ax[0].legend(loc="upper left", fontsize=7, handlelength=1.6, borderpad=0.2)
     ax[1].set_xscale("log")
-    ax[1].set_xlabel(r"residual CFO $\varepsilon$")
+    ax[1].set_xlabel(r"residual CFO $\varepsilon$, open loop")
     ax[1].set_ylabel("PSNR (dB)")
     save(fig, "fig7-mismatch")
 
-    fx = e3["runs"]["fixed"]
-    lo, hi = e3["snr_eval_db"][0], e3["snr_eval_db"][-1]
-    at = lambda runs, s: float(np.median([r["snr_curve"]["%.1f" % s] for r in runs]))  # noqa: E731
-    M("numPsnrTrain", vn(at(fx, e3["snr_train_db"]), 2))
+    at = lambda runs, v: float(np.median([r["snr_curve"]["%.1f" % v] for r in runs]))  # noqa: E731
+    ce = lambda runs, e: float(np.median([r["grid"][K]["%.0e" % e] for r in runs]))    # noqa: E731
+    lo, hi, tr_ = xs[0], xs[-1], e3b["snr_db"]
+    fx, ag = ok["fixed"], ok["aug"]
+    M("numSnrLo", vn(lo, 1)); M("numSnrHi", vn(hi, 1))
+    M("numPsnrTrain", vn(at(fx, tr_), 2))
     M("numPsnrLo", vn(at(fx, lo), 2))
-    M("numPsnrDrop", vn(at(fx, e3["snr_train_db"]) - at(fx, lo), 2))
-    M("numSnrLo", vn(lo, 1))
-    M("numSnrHi", vn(hi, 1))
-    ce = lambda runs, e: float(np.median([r["cfo_curve"]["%.0e" % e] for r in runs]))  # noqa: E731
+    M("numPsnrDrop", vn(at(fx, tr_) - at(fx, lo), 2))
+    M("numPsnrAugLo", vn(at(ag, lo), 2))
+    M("numAugSnrDelta", vn(at(ag, lo) - at(fx, lo), 2))
+    M("numPsnrAugTrain", vn(at(ag, tr_), 2))
+    M("numAugCost", vn(at(fx, tr_) - at(ag, tr_), 2))
     M("numPsnrCfoClean", vn(ce(fx, 0.0), 2))
     for e, tag in ((1e-4, "Ea"), (1e-3, "Eb"), (1e-2, "Ec")):
         M("numPsnrCfo" + tag, vn(ce(fx, e), 2))
         M("numDropCfo" + tag, vn(ce(fx, 0.0) - ce(fx, e), 2))
-    ag = e3["runs"]["aug"]
-    M("numPsnrAugLo", vn(at(ag, lo), 2))
-    # ⚠ Ten cu la numAugGain, nhung gia tri AM: ngau nhien hoa KHONG giup o truc SNR.
-    #    Doi ten cho khoi doc nham thanh mot loi ich.
-    M("numAugSnrDelta", vn(at(ag, lo) - at(fx, lo), 2))
-    M("numPsnrAugTrain", vn(at(ag, e3["snr_train_db"]), 2))
-    M("numAugCost", vn(at(fx, e3["snr_train_db"]) - at(ag, e3["snr_train_db"]), 2))
-    M("numAugGainCfo", vn(ce(ag, 1e-3) - ce(fx, 1e-3), 2))
     M("numPsnrAugCfoEb", vn(ce(ag, 1e-3), 2))
     M("numPsnrAugCfoEc", vn(ce(ag, 1e-2), 2))
-    # ⭐ Vi tri vach da du doan tu (13): dat 2*pi*eps*(k-1) = pi
-    k = int(e3["c_channels"] * 8 * 8 / 2)
-    M("numK", "{:,}".format(k))
-    M("numCliffPred", "%.1f" % (1.0 / (2 * (k - 1)) * 1e4))     # don vi 1e-4
-    # ---- bang 6: so doc duoc, kem do trai giua cac seed ----
+    M("numAugGainCfo", vn(ce(ag, 1e-3) - ce(fx, 1e-3), 2))
+    M("numEpochs", str(e3b["epochs"]))
+    M("numSeeds", str(len(fx)))
+    M("numK", "{:,}".format(e3b["k_symbols"]))
+    M("numBwRatio", vn(e3b["k_symbols"] / (32.0 * 32 * 3), 3))
+    M("numCliffPred", "%.1f" % (1.0 / (2 * (e3b["k_symbols"] - 1)) * 1e4))
+
     with io.open(os.path.join(OUTD, "tab6-mismatch.tex"), "w", encoding="utf-8") as f:
         f.write("\\begin{tabular}{lrrrr}\n\\toprule\n")
         f.write("& \\multicolumn{2}{c}{trained at one SNR} & "
                 "\\multicolumn{2}{c}{randomised training} \\\\\n")
         f.write("\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\n")
-        f.write("Evaluation condition & median & range & median & range "
-                "\\\\\n\\midrule\n")
+        f.write("Evaluation condition & median & range & median & range \\\\\n\\midrule\n")
 
-        def cell(runs, kind, key):
-            v = [r[kind][key] for r in runs]
+        def cell(runs, fn, key):
+            v = [fn(r, key) for r in runs]
             return vn(float(np.median(v)), 2), "%s--%s" % (vn(min(v), 2), vn(max(v), 2))
 
-        fx, ag = e3["runs"]["fixed"], e3["runs"]["aug"]
-        rows = [("SNR $=$ %s dB (training point)" % vn(e3["snr_train_db"], 0),
-                 "snr_curve", "%.1f" % e3["snr_train_db"]),
-                ("SNR $=$ %s dB (low end of pass)" % vn(lo, 0), "snr_curve", "%.1f" % lo),
-                ("SNR $=$ %s dB (high end of pass)" % vn(hi, 0), "snr_curve", "%.1f" % hi)]
+        fs = lambda r, k_: r["snr_curve"]["%.1f" % k_]      # noqa: E731
+        fc = lambda r, k_: r["grid"][K]["%.0e" % k_]        # noqa: E731
+        rows = [("SNR $=$ %s dB (training point)" % vn(tr_, 0), fs, tr_),
+                ("SNR $=$ %s dB (low end of pass)" % vn(lo, 0), fs, lo),
+                ("SNR $=$ %s dB (high end of pass)" % vn(hi, 0), fs, hi)]
         for e in (1e-4, 1e-3, 1e-2):
-            rows.append(("residual CFO $\\varepsilon = %s$" % ("10^{-%d}" % int(round(-np.log10(e)))),
-                         "cfo_curve", "%.0e" % e))
-        for lab, kind, key in rows:
-            a1, a2 = cell(fx, kind, key)
-            b1, b2 = cell(ag, kind, key)
+            rows.append(("open-loop CFO $\\varepsilon = 10^{-%d}$"
+                         % int(round(-np.log10(e))), fc, e))
+        for lab, fn, key in rows:
+            a1, a2 = cell(fx, fn, key)
+            b1, b2 = cell(ag, fn, key)
             f.write("%s & %s & %s & %s & %s \\\\\n" % (lab, a1, a2, b1, b2))
         f.write("\\bottomrule\n\\end{tabular}\n")
     print("     tab6-mismatch")
-    M("numEpochs", str(e3["epochs"]))
-    M("numSeeds", str(len(e3["seeds"])))
-    M("numBwRatio", vn(e3["bandwidth_ratio"], 3))
 
+
+def fig_blocklen(e3b):
+    """Hinh 8: vach da co DICH theo khoang uoc luong lai song mang dung nhu (13) du doan khong.
+
+    ⛔ SINH RA TU DIEM CHAN 2 va 3 cua phan bien ngoai. Va no bao ca ti le lan chay bi LOAI:
+    khong duoc im lang bo di nhung lan huan luyen phan ky.
+    """
+    # ⛔ Tep ket qua co the la ban DANG CHAY hoac ban CU thieu khoa. Bo qua tuong minh chu
+    #    khong de KeyError lam do ca bo sinh.
+    if not e3b or "valid_psnr_min" not in e3b:
+        print("     (chua co e3b day du, bo qua hinh 8)")
+        return
+    ok = {m: [r for r in runs if r.get("valid")] for m, runs in e3b["runs"].items()}
+    bad = sum(len(runs) - len(ok[m]) for m, runs in e3b["runs"].items())
+    tot = sum(len(runs) for runs in e3b["runs"].values())
+    M("numRunsTot", str(tot))
+    M("numRunsBad", str(bad))
+    M("numRunsOk", str(tot - bad))
+    M("numValidMin", vn(e3b["valid_psnr_min"], 1))
+    M("numSeedsB", str(len(e3b["seeds"])))
+    if not ok["fixed"]:
+        print("     ⛔ KHONG CO lan chay HOP LE nao o nhanh fixed")
+        return
+
+    eps = [e for e in e3b["eps_grid"]]
+    xp = np.array([1e-6 if e == 0 else e for e in eps])
+    fig, ax = plt.subplots(1, 2, figsize=(W_WIDE, 2.15))
+    fig.subplots_adjust(wspace=0.34)
+    cols = [C["verm"], C["orange"], C["green"], C["blue"]]
+    mks = ["o", "^", "s", "D"]
+    for (L, col, mk) in zip(e3b["L_grid"], cols, mks):
+        Y = np.array([[r["grid"][str(L)]["%.0e" % e] for e in eps] for r in ok["fixed"]])
+        lab = "perfect tracking" if L == 1 else ("open loop, $L=k$" if L == e3b["k_symbols"]
+                                                else "$L=%d$" % L)
+        ax[0].plot(xp, np.median(Y, 0), color=col, marker=mk, ls="-", label=lab, markersize=3.4)
+        ax[0].fill_between(xp, Y.min(0), Y.max(0), color=col, alpha=0.14, lw=0)
+        pr = e3b["predicted_cliff"][str(L)]
+        if pr:
+            ax[0].axvline(pr, color=col, lw=0.7, ls=":")
+    ax[0].set_xscale("log")
+    ax[0].set_xlabel(r"residual CFO $\varepsilon$")
+    ax[0].set_ylabel("PSNR (dB)")
+    ax[0].legend(fontsize=6.5, loc="lower left", handlelength=1.6, borderpad=0.2)
+
+    # (b) vi tri vach da DO DUOC so voi DU DOAN tu (13)
+    meas, pred, Ls = [], [], []
+    for L in e3b["L_grid"]:
+        pr = e3b["predicted_cliff"][str(L)]
+        if not pr:
+            continue
+        Y = np.median(np.array([[r["grid"][str(L)]["%.0e" % e] for e in eps]
+                                for r in ok["fixed"]]), 0)
+        top = Y[0]
+        idx = np.where(Y < top - 3.0)[0]          # vach da: cho tut 3 dB so voi kenh sach
+        meas.append(xp[idx[0]] if len(idx) else np.nan)
+        pred.append(pr)
+        Ls.append(L)
+    ax[1].loglog(pred, meas, "o", color=C["verm"], markersize=5, zorder=3)
+    lim = [min(pred + meas) / 3, max(pred + meas) * 3]
+    ax[1].loglog(lim, lim, color=C["gray"], lw=0.8, ls="--", label=r"$\Delta\varphi=\pi$")
+    # ⭐ Cac diem SONG SONG voi duong cheo chu khong nam tren no: cong thuc du doan dung CACH
+    #    CO GIAN, con hang so tuyet doi nho hon vi diem tut 3 dB den TRUOC luc pha dao han.
+    rat = float(np.median([m / p for m, p in zip(meas, pred) if m == m]))
+    # ⛔ do duoc = rat * du doan, tuc y = rat*x. Ban truoc toi nhan vao HOANH DO nen duong ra
+    #    y = x/rat = 4x va nam NGUOC phia so voi cac diem. Chi lo ra khi nhin anh.
+    ax[1].loglog(lim, [x * rat for x in lim], color=C["verm"], lw=0.8, ls="-",
+                 label=r"$%.2f\times$ diagonal" % rat)
+    ax[1].legend(fontsize=7, loc="upper left", handlelength=1.5, borderpad=0.2)
+    for p_, m_, L_ in zip(pred, meas, Ls):
+        ax[1].annotate("$L=%d$" % L_, xy=(p_, m_), xytext=(4, -8),
+                       textcoords="offset points", fontsize=7)
+    ax[1].set_xlabel(r"predicted $\varepsilon = 1/(2(L{-}1))$")
+    ax[1].set_ylabel(r"measured $\varepsilon$ at $-3$ dB")
+    save(fig, "fig8-blocklen")
+
+    nm = {1: "One", 32: "Tt", 128: "Ott", 512: "Fth"}
+    for L in e3b["L_grid"]:
+        Y = np.median([r["grid"][str(L)]["1e-03"] for r in ok["fixed"]])
+        A = np.median([r["grid"][str(L)]["1e-03"] for r in ok["aug"]]) if ok["aug"] else float("nan")
+        M("numPsnrLl" + nm.get(L, str(L)), vn(float(Y), 2))
+        if ok["aug"]:
+            M("numPsnrAugLl" + nm.get(L, str(L)), vn(float(A), 2))
+    # ⭐ Ti so DO DUOC / DU DOAN. Cong thuc du doan CACH CO GIAN; hang so tuyet doi lech mot he
+    #    so gan khong doi, vi diem tut 3 dB den TRUOC luc duoi khoi bi dao pha hoan toan.
+    rr = [m / p for m, p in zip(meas, pred) if m == m]
+    if rr:
+        M("numCliffRatio", vn(float(np.median(rr)), 2))
+        M("numCliffRatioLo", vn(float(min(rr)), 2))
+        M("numCliffRatioHi", vn(float(max(rr)), 2))
+        M("numPhiFrac", vn(float(np.median(rr)), 2))
+    M("numLspan", str(max(e3b["L_grid"]) // min(x for x in e3b["L_grid"] if x > 1)))
+    M("numLmin", str(min(x for x in e3b["L_grid"] if x > 1)))
+    print("     macro do dai khoi")
 
 
 
@@ -697,7 +791,9 @@ def main():
         fig_matrix(e2b)
         tab_checklist(e2b)
         tab_agreement(e2b, e2a)
-    fig_e3(e3)
+    e3b = load("e3b_blocklen.json")
+    fig_e3(e3b)
+    fig_blocklen(e3b)
 
     with io.open(os.path.join(OUTD, "numbers.tex"), "w", encoding="utf-8") as f:
         f.write("%% SINH TU DONG boi figures/make_figures.py. KHONG SUA TAY.\n"

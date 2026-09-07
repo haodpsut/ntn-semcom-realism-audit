@@ -51,6 +51,13 @@ SEEDS = [0, 1, 2, 3, 4]                    # 5 seed: diem 4 cua phan bien
 K = E3.C_CH * 8 * 8 // 2                   # 512 ky hieu phuc, giu nguyen bo ma
 L_GRID = [1, 32, 128, 512]                 # 1 = bam hoan hao; 512 = vong ho nhu (11)
 EPS_GRID = [0.0, 1e-5, 1e-4, 3e-4, 1e-3, 3e-3, 1e-2, 3e-2, 1e-1]
+SNR_GRID = [float(x) for x in np.arange(4.0, 16.5, 1.0)]
+
+# ⛔ NGUONG HOP LE, khai TRUOC khi chay. Mot lan chay ma PSNR tren kenh SACH khong vuot nguong
+#    nay la mo hinh CHET chu khong phai mot phep do, va PHAI bi loai ra khoi moi thong ke, kem
+#    bao cao ti le sap. Khong co nguong nay thi 3 lan chay sap da duoc gop vao trung vi va lam
+#    hong ca ket qua. Du lieu ra phai co BA trang thai: do duoc / khong do duoc / cong cu hong.
+VALID_PSNR_MIN = 20.0
 
 
 def channel_L(v, snr_db, eps, L, gen):
@@ -94,7 +101,8 @@ def main():
                                                 else "%.3e" % (1.0 / (2 * (L - 1)))))
     tr, te = E3.loaders()
     doc = {"seeds": SEEDS, "k_symbols": K, "L_grid": L_GRID, "eps_grid": EPS_GRID,
-           "snr_db": E3.SNR_TRAIN, "epochs": E3.EPOCHS,
+           "snr_db": E3.SNR_TRAIN, "epochs": E3.EPOCHS, "snr_grid": SNR_GRID,
+           "valid_psnr_min": VALID_PSNR_MIN,
            "predicted_cliff": {str(L): (None if L == 1 else 1.0 / (2 * (L - 1)))
                                for L in L_GRID},
            "note": "bo ma va ti le nen KHONG doi giua cac L; chi khoang uoc luong lai pha doi",
@@ -108,9 +116,15 @@ def main():
             for L in L_GRID:
                 grid[str(L)] = {("%.0e" % e): evaluate(m, te, E3.SNR_TRAIN, e, L, seed)
                                 for e in EPS_GRID}
-            doc["runs"][mode].append({"seed": seed, "grid": grid, "train_s": time.time() - t0})
-            print("    %s seed%d %.0fs · L=512 eps=1e-3: %.2f · L=32 eps=1e-3: %.2f"
-                  % (mode, seed, time.time() - t0,
+            snr = {("%.1f" % v): evaluate(m, te, v, 0.0, K, seed) for v in SNR_GRID}
+            clean = grid["512"]["0e+00"]
+            valid = clean >= VALID_PSNR_MIN
+            doc["runs"][mode].append({"seed": seed, "grid": grid, "snr_curve": snr,
+                                      "clean_psnr": clean, "valid": valid,
+                                      "train_s": time.time() - t0})
+            print("    %s seed%d %.0fs · sach %.2f %s · L=512 eps=1e-3: %.2f · L=32: %.2f"
+                  % (mode, seed, time.time() - t0, clean,
+                     "OK" if valid else "⛔ SAP, LOAI",
                      grid["512"]["1e-03"], grid["32"]["1e-03"]), flush=True)
             io.open(OUT, "w", encoding="utf-8").write(json.dumps(doc, ensure_ascii=False, indent=1))
     print("  da ghi %s" % OUT)

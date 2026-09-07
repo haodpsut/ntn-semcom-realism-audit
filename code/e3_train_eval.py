@@ -141,6 +141,12 @@ def train(mode, seed, tr):
             loss = F.mse_loss(xh, x)
             opt.zero_grad(set_to_none=True)
             loss.backward()
+            # ⛔ THEM 07/09/2026. KHONG co dong nay thi 3/5 seed HOI TU toi epoch 10 (loss
+            #    ~0,004) roi PHAN KY len ~0,28, tuc sap ve dau ra hang so, va bo khung van bao
+            #    ra so PSNR ~5,7 dB nhu the do la mot ket qua. Do la mo hinh CHET bi doc thanh
+            #    hieu ung kenh. Chuan hoa cong suat chia cho ||v|| lam gradient no khi ||v||
+            #    nho, va Adam lr=1e-3 khong co chan thi di theo.
+            torch.nn.utils.clip_grad_norm_(m.parameters(), 1.0)
             opt.step()
         if (ep + 1) % 10 == 0:
             print("      %s seed%d ep%02d loss %.5f" % (mode, seed, ep + 1, loss.item()),
