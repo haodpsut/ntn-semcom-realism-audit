@@ -81,7 +81,7 @@ defensible. The cost appears instead as a cliff on the axis nobody
 instantiates, with \numDropCfoEb~dB lost at a residual frequency offset of $10^{-3}$ when that
 offset is allowed to accumulate across a coded block. What sets the cliff is the interval over
 which phase accumulates rather than Doppler as such: re-estimating carrier phase every
-\numLmin{} symbols removes the collapse entirely, and the cliff position scales inversely with
+\numLprac{} symbols removes the collapse entirely, and the cliff position scales inversely with
 the accumulation length across a factor of \numLspan{}, at a constant \numCliffRatio{} of the
 value the accumulated-phase argument predicts. The tolerable residual is therefore a property of
 the codec together with its carrier recovery, which is what no work in the population states.
@@ -151,7 +151,7 @@ That effect is the residual frequency offset, and more precisely the interval ov
 allowed to accumulate. Left to accumulate across a block, an offset of $\varepsilon = 10^{-3}$
 costs \numDropCfoEb~dB where $\varepsilon = 10^{-4}$ costs \numDropCfoEa~dB, a cliff rather
 than a slope. Interrupting the accumulation moves it: re-estimating carrier phase every
-\numLmin{} symbols leaves the same codec at \numPsnrLlTt~dB where the open-loop case has fallen
+\numLprac{} symbols leaves the same codec at \numPsnrLlTt~dB where the open-loop case has fallen
 to \numPsnrLlFth~dB, and the cliff position tracks the accumulation length across a factor of
 \numLspan{}. What a deployed system tolerates is therefore set by the pair of codec and carrier
 recovery, and neither the residual nor the recovery interval is stated by the works in the
@@ -934,7 +934,7 @@ in~\eqref{eq:phase} predicts a cliff at $\varepsilon = 1/(2(L-1))$, which across
 Figure~\ref{fig:blocklen} reports the outcome and it is the clearest result in the paper. With
 perfect tracking the codec is flat across the whole sweep, reaching \numPsnrLlOne~dB at
 $\varepsilon = 10^{-3}$ where the open-loop case has fallen to \numPsnrLlFth~dB. Re-estimating
-every $\numLmin$ symbols is almost as good, \numPsnrLlTt~dB, and the intervals between fall in
+every $\numLprac$ symbols is almost as good, \numPsnrLlTt~dB, and the intervals between fall in
 order, \numPsnrLlTwo{}, \numPsnrLlEight{} and \numPsnrLlOtt~dB. Panel~(b) places the measured
 cliff against the predicted one: the \numLpts{} points fall on a line parallel to the diagonal at
 a constant $\numCliffRatio\times$, with a range of \numCliffRatioLo{} to \numCliffRatioHi{}
@@ -963,7 +963,8 @@ It qualifies it, and the qualification is the substantive one. A residual of
 $\varepsilon = 10^{-3}$ at a symbol rate of $10$~Msym/s is $10$~kHz, which against the median
 Ka-band shift of \numDopKaMed~kHz is ninety-seven per cent compensation. But that number is a
 statement about a receiver that lets the residual accumulate over $\numK{}$ symbols. The same
-receiver re-estimating every $\numLmin$ symbols tolerates roughly \numLspan{} times the residual,
+receiver re-estimating every $\numLprac$ symbols tolerates roughly \numLpracRatio{} times the
+residual,
 and a tracking loop tighter still is unaffected at any offset tested here. The tolerable residual
 is therefore a property of the pair (codec, carrier recovery interval) and not of the codec alone,
 which is precisely why it belongs in the evaluation and precisely what no work in the population
@@ -1017,7 +1018,7 @@ Section~\ref{sec:cost} shows why: between $\varepsilon = 10^{-4}$ and $10^{-3}$ 
 \numDropCfoEb~dB under open-loop accumulation, so a single evaluation point on this axis carries
 almost no information about the neighbouring decade. State the carrier recovery interval
 alongside it, because Section~\ref{sec:blocklen} shows the two cannot be separated: the same
-codec is unharmed at the same offset when phase is re-estimated every \numLmin{} symbols.
+codec is unharmed at the same offset when phase is re-estimated every \numLprac{} symbols.
 Sweeping both costs nothing beyond the sweep, and~\eqref{eq:phase} says where to look.
 
 % =====================================================================

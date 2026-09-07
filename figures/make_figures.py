@@ -729,6 +729,7 @@ def fig_blocklen(e3b):
     #    bang chu. Thieu ten thi hai L khac nhau cung rut ve mot macro, va chot "dat hai lan
     #    khac gia tri" trong M() da bat dung ca do khi noi dai luoi L.
     nm = {1: "One", 2: "Two", 8: "Eight", 32: "Tt", 128: "Ott", 512: "Fth"}
+    assert nm[32] == "Tt", "van xuoi trich numPsnrLlTt nhu so cua L=32; doi anh xa la lam sai bai"
     assert all(L in nm for L in e3b["L_grid"]), "thieu ten chu cho L: %s" % [
         L for L in e3b["L_grid"] if L not in nm]
     for L in e3b["L_grid"]:
@@ -746,6 +747,14 @@ def fig_blocklen(e3b):
         M("numCliffRatioHi", vn(float(max(rr)), 2))
         M("numPhiFrac", vn(float(np.median(rr)), 2))
     M("numLspan", str(max(e3b["L_grid"]) // min(x for x in e3b["L_grid"] if x > 1)))
+    # ⛔ `numLmin` = min(L>1) DOI NGHIA khi noi luoi: no tu 32 thanh 2, va van xuoi viet cho 32
+    #    boi nhien noi "uoc luong lai moi 2 ky hieu ... 27,52 dB" trong khi 27,52 la so cua L=32.
+    #    Moi cong van xanh. ⇒ Dat MOT macro rieng cho khoang "thuc te" ma van xuoi dang noi toi,
+    #    va CHOT rang no dung la L di kem gia tri PSNR duoc trich.
+    L_PRAC = 32
+    assert L_PRAC in e3b["L_grid"], "L thuc te %d khong co trong luoi" % L_PRAC
+    M("numLprac", str(L_PRAC))
+    M("numLpracRatio", str(max(e3b["L_grid"]) // L_PRAC))
     M("numLpts", str(len([x for x in e3b["L_grid"] if x > 1])))
     # ⚠ Do tan cua ti so bi chi phoi boi DO PHAN GIAI cua luoi eps: cac buoc cach nhau ~3 lan,
     #    nen vi tri vach da chi xac dinh duoc trong pham vi do. Phai bao ra con so nay.
