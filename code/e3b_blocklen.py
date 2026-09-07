@@ -47,7 +47,11 @@ import e3_train_eval as E3                                            # noqa: E4
 ROOT = os.path.dirname(HERE)
 OUT = os.path.join(ROOT, "results", "e3b_blocklen.json")
 
-SEEDS = [0, 1, 2, 3, 4]                    # 5 seed: diem 4 cua phan bien
+# ⛔ Ti le SAP cao (4/10 tren hai lan chay), nen so seed can chay > so lan chay hop le muon co.
+#    Cho phep chi dinh dai seed va nhanh qua bien moi truong, va GOP vao tep ket qua da co thay
+#    vi ghi de: chay them seed KHONG duoc lam mat cac lan chay hop le da co.
+SEEDS = [int(x) for x in os.environ.get("NTN_SEEDS", "0,1,2,3,4").split(",")]
+MODES = tuple(os.environ.get("NTN_MODES", "fixed,aug").split(","))
 K = E3.C_CH * 8 * 8 // 2                   # 512 ky hieu phuc, giu nguyen bo ma
 # ⛔ NOI DAI 07/09/2026 theo de nghi cua phan bien vong 2: ba diem tren 16x la mong de khang
 #    dinh mot quy luat co gian. Nay nam diem kiem duoc tren 256x (L = 2 den 512).
@@ -109,9 +113,17 @@ def main():
                                for L in L_GRID},
            "note": "bo ma va ti le nen KHONG doi giua cac L; chi khoang uoc luong lai pha doi",
            "runs": {}}
-    for mode in ("fixed", "aug"):
-        doc["runs"][mode] = []
+    # gop voi ket qua da co
+    if os.path.exists(OUT):
+        prev = json.load(io.open(OUT, encoding="utf-8"))
+        doc["runs"] = prev.get("runs", {})
+        doc["seeds"] = sorted(set(prev.get("seeds", [])) | set(SEEDS))
+    for mode in MODES:
+        doc["runs"].setdefault(mode, [])
+        done = {r["seed"] for r in doc["runs"][mode]}
         for seed in SEEDS:
+            if seed in done:
+                continue
             t0 = time.time()
             m = E3.train(mode, seed, tr)
             # ⚠ Luu trong so: L la tham so DANH GIA, nen moi lan nay dai L sau nay khong can

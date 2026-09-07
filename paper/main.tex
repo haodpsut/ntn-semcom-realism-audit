@@ -553,7 +553,9 @@ broken detector is indistinguishable from a finding. Three controls therefore ru
 zero is quoted. Sentences written the way papers actually write them must be caught, including
 phrasings that avoid the obvious keyword. Near misses must be rejected, among them a mention of
 3GPP that is not a channel model. And the detectors must demonstrably fire on the real corpus,
-which rules out an empty-input failure in which every count is zero because nothing was read. All
+which they do, returning \numCtrlHits{} matching sentences across the \numCtrlDocs{}
+retrieved works, ruling out an empty-input failure in which every count is zero because nothing
+was read. All
 three pass, and the controls are released as an executable script rather than described.
 
 % =====================================================================
@@ -723,7 +725,9 @@ the things a digital twin should represent semantically, which is a statement ab
 encode rather than about how a channel was generated. Both are released with the scan so the
 judgement can be checked.
 
-The zeros are therefore not an artefact of a narrow vocabulary. What they remain vulnerable to is
+A pattern several times longer than the original, applied to \numWideSent{} sentences,
+therefore adds \numWideRate{} and \numWideTrace{} candidate sentences and no evaluation
+condition: the zeros are not an artefact of a narrow vocabulary. What they remain vulnerable to is
 a work that instantiates the effect without describing it in any of these terms, which
 Section~\ref{sec:threats} states as a residual threat.
 
@@ -844,10 +848,18 @@ constant output, which the harness will happily report as a low reconstruction q
 low number is exactly what the hypothesis under test predicts, such a run would be a failure that
 looks like a confirmation. We therefore declared a validity criterion before running, namely that
 a run counts only if its quality on the \emph{clean} channel exceeds \numValidMin~dB, and we
-report the outcome rather than quietly dropping the failures. Of \numRunsTot{} runs,
-\numRunsOk{} were valid and \numRunsBad{} diverged; every figure below uses the valid runs and
-states the count. Gradient clipping reduced but did not eliminate the failures, so the criterion
-does work that the recipe alone does not.
+report the outcome rather than quietly dropping the failures. Of \numRunsTot{} runs, \numRunsOk{} were valid and \numRunsBad{} diverged, and every figure
+below uses the valid runs and states the count: \numOkFixed{} for the fixed regime and
+\numOkAug{} for the randomised one. Gradient clipping reduced but did not eliminate the
+failures, so the criterion does work that the recipe alone does not.
+
+Two properties of that failure are worth recording because they bear on reproduction. It is not
+seed-determined: the same seed produced a valid run in one execution and a divergent one in
+another, which we attribute to non-deterministic GPU kernels, so a seed here labels an
+independent run rather than a reproducible one. And it is regime-dependent: every divergence
+occurred in the fixed regime, while the randomised regime completed \numOkAug{} of
+\numOkAug{} runs. Randomising the training conditions appears to stabilise optimisation as well
+as to harden the codec, which we did not anticipate and do not test further.
 
 \subsection{The signal-to-noise axis is not where the problem is}
 
@@ -916,16 +928,24 @@ so that~\eqref{eq:cfo} becomes $\varphi_m = 2\pi\varepsilon\,(m \bmod L)$, with 
 open-loop case and $L = 1$ perfect tracking. Changing $L$ rather than $k$ matters: $k$ is tied to
 the bandwidth ratio through~\eqref{eq:codec}, so sweeping it would confound accumulation length
 with compression, while $L$ leaves the codec untouched. Substituting $L$ for $k$
-in~\eqref{eq:phase} predicts a cliff at $\varepsilon = 1/(2(L-1))$, which moves by a factor of
-\numLspan{} across the range of $L$ tested.
+in~\eqref{eq:phase} predicts a cliff at $\varepsilon = 1/(2(L-1))$, which across the
+\numLpts{} values of $L$ tested moves by a factor of \numLspan{}, four decades.
 
 Figure~\ref{fig:blocklen} reports the outcome and it is the clearest result in the paper. With
 perfect tracking the codec is flat across the whole sweep, reaching \numPsnrLlOne~dB at
 $\varepsilon = 10^{-3}$ where the open-loop case has fallen to \numPsnrLlFth~dB. Re-estimating
-every $\numLmin$ symbols is almost as good, \numPsnrLlTt~dB, and the intermediate interval sits
-between at \numPsnrLlOtt~dB. Panel~(b) places the measured cliff against the predicted one: the three points fall on a line
-parallel to the diagonal at a constant $\numCliffRatio\times$, with a range of
-\numCliffRatioLo{} to \numCliffRatioHi{} across a factor of \numLspan{} in $L$.
+every $\numLmin$ symbols is almost as good, \numPsnrLlTt~dB, and the intervals between fall in
+order, \numPsnrLlTwo{}, \numPsnrLlEight{} and \numPsnrLlOtt~dB. Panel~(b) places the measured
+cliff against the predicted one: the \numLpts{} points fall on a line parallel to the diagonal at
+a constant $\numCliffRatio\times$, with a range of \numCliffRatioLo{} to \numCliffRatioHi{}
+across the factor of \numLspan{} in $L$.
+
+The scatter in that constant is not evidence against the scaling, and its size is set by the
+measurement rather than by the codec. The offset grid steps by about
+$\numEpsStep\times$ per point, so the first point falling three decibels below the clean value
+locates the cliff only to within that spacing; a scatter of roughly a factor of two in the ratio
+is what a grid of that resolution produces. Refining the grid would tighten the constant without
+changing the slope, which is the quantity under test.
 
 What that constant is, and is not, matters. Equation~\eqref{eq:phase} predicts the \emph{scaling}
 correctly: the cliff moves inversely with the accumulation length over the whole range tested. It

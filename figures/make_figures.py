@@ -678,8 +678,8 @@ def fig_blocklen(e3b):
     xp = np.array([1e-6 if e == 0 else e for e in eps])
     fig, ax = plt.subplots(1, 2, figsize=(W_WIDE, 2.15))
     fig.subplots_adjust(wspace=0.34)
-    cols = [C["verm"], C["orange"], C["green"], C["blue"]]
-    mks = ["o", "^", "s", "D"]
+    cols = [C["verm"], C["orange"], C["green"], C["blue"], C["gray"], "#7A3E9D"]
+    mks = ["o", "^", "s", "D", "v", "P"]
     for (L, col, mk) in zip(e3b["L_grid"], cols, mks):
         Y = np.array([[r["grid"][str(L)]["%.0e" % e] for e in eps] for r in ok["fixed"]])
         lab = "perfect tracking" if L == 1 else ("open loop, $L=k$" if L == e3b["k_symbols"]
@@ -725,7 +725,12 @@ def fig_blocklen(e3b):
     ax[1].set_ylabel(r"measured $\varepsilon$ at $-3$ dB")
     save(fig, "fig8-blocklen")
 
-    nm = {1: "One", 32: "Tt", 128: "Ott", 512: "Fth"}
+    # ⛔ Ten macro KHONG duoc chua chu so (M() loc chung di), nen moi gia tri L phai co MOT ten
+    #    bang chu. Thieu ten thi hai L khac nhau cung rut ve mot macro, va chot "dat hai lan
+    #    khac gia tri" trong M() da bat dung ca do khi noi dai luoi L.
+    nm = {1: "One", 2: "Two", 8: "Eight", 32: "Tt", 128: "Ott", 512: "Fth"}
+    assert all(L in nm for L in e3b["L_grid"]), "thieu ten chu cho L: %s" % [
+        L for L in e3b["L_grid"] if L not in nm]
     for L in e3b["L_grid"]:
         Y = np.median([r["grid"][str(L)]["1e-03"] for r in ok["fixed"]])
         A = np.median([r["grid"][str(L)]["1e-03"] for r in ok["aug"]]) if ok["aug"] else float("nan")
@@ -741,6 +746,11 @@ def fig_blocklen(e3b):
         M("numCliffRatioHi", vn(float(max(rr)), 2))
         M("numPhiFrac", vn(float(np.median(rr)), 2))
     M("numLspan", str(max(e3b["L_grid"]) // min(x for x in e3b["L_grid"] if x > 1)))
+    M("numLpts", str(len([x for x in e3b["L_grid"] if x > 1])))
+    # ⚠ Do tan cua ti so bi chi phoi boi DO PHAN GIAI cua luoi eps: cac buoc cach nhau ~3 lan,
+    #    nen vi tri vach da chi xac dinh duoc trong pham vi do. Phai bao ra con so nay.
+    g = sorted(x for x in e3b["eps_grid"] if x > 0)
+    M("numEpsStep", vn(float(np.median([g[i + 1] / g[i] for i in range(len(g) - 1)])), 1))
     M("numLmin", str(min(x for x in e3b["L_grid"] if x > 1)))
     print("     macro do dai khoi")
 
