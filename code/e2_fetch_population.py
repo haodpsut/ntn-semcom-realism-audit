@@ -32,7 +32,7 @@ ROOT = os.path.dirname(HERE)
 POP = os.path.join(ROOT, "data", "population_refs.json")
 CACHE = os.path.join(ROOT, "data", "fulltext")
 OUT = os.path.join(ROOT, "results", "e2_fetch_population.json")
-UA = {"User-Agent": "ntn-semcom-audit/1.0 (research; haodp.sut@gmail.com)"}
+UA = {"User-Agent": "ntn-semcom-audit/1.0 (research; haodp@dau.edu.vn)"}
 
 
 def parse_title(cite):

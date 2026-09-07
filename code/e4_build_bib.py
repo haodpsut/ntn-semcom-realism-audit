@@ -30,7 +30,7 @@ ROOT = os.path.dirname(HERE)
 FETCH = os.path.join(ROOT, "results", "e2_fetch_population.json")
 OUTB = os.path.join(ROOT, "paper", "refs-population.bib")
 OUTJ = os.path.join(ROOT, "results", "e4_bib.json")
-UA = {"User-Agent": "ntn-semcom-audit/1.0 (research; haodp.sut@gmail.com)"}
+UA = {"User-Agent": "ntn-semcom-audit/1.0 (research; haodp@dau.edu.vn)"}
 
 
 def api(aid):

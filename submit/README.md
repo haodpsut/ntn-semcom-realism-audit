@@ -20,7 +20,7 @@ thức, 39 tham khảo.
 - Hình và bảng đánh số **đúng thứ tự được nhắc**
 - Cỡ chữ hiệu dụng của 8 hình lệch nhau dưới 2%
 
-## ⛔ Ba chỗ nhớ kiểm bằng mắt trước khi bấm nộp
+## ⛔ Ba chỗ nhớ soi bằng mắt trước khi bấm nộp
 
 1. **Câu khai QMI ở cuối thư PHẢI còn.** Mở `cover-letter.pdf`, tìm đoạn *"For transparency I
    disclose one related manuscript"*. QMI (audit QFL-KAN) **đã nộp và đang được xem xét**, nên
@@ -29,7 +29,7 @@ thức, 39 tham khảo.
    ⚠ Hai bài AICON **chưa nộp** nên không khai, và hai bài IEEE không dính chủ đề nên cũng
    không. **Nếu AICON được nộp trước bài này thì phải khai thêm chúng vào câu đó.**
 
-2. **Email.** Đang dùng `haodp.sut@gmail.com`. Bản nộp QMI dùng `haodp@dau.edu.vn`. Tạp chí
-   thường ưa email cơ quan.
+2. **Email đã đồng bộ:** `haodp@dau.edu.vn` ở cả bản thảo lẫn thư ngỏ, khớp bản nộp QMI. Nếu
+   sửa lại thì phải sửa **cả hai chỗ**, đừng để lệch nhau.
 3. **Điểm yếu tự khai, đừng bỏ.** Mục 9 nói rõ chưa có hệ số đồng thuận vì chỉ một người mã hoá.
    Đó là giới hạn thật và bài chọn khai ra; đừng gỡ nếu sửa lại thư.
