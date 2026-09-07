@@ -9,7 +9,7 @@ thức, 39 tham khảo.
 | `manuscript.pdf` | Manuscript |
 | `cover-letter.pdf` | Cover Letter |
 | `highlights.txt` | Highlights (5 gạch, đều dưới 85 ký tự, đã đếm) |
-| `declaration-of-interest.txt` | Declaration of Interest + khai dùng AI |
+| `declaration-of-interest.txt` | Declaration of Interest + khai dùng AI (ô riêng của cổng nộp) |
 | `latex-source.zip` | LaTeX Source (nộp khi được nhận, hoặc nếu tạp chí đòi ngay) |
 
 ## Đã kiểm trước khi đóng gói
@@ -19,6 +19,18 @@ thức, 39 tham khảo.
 - `latex-source.zip` **dịch lại được từ thư mục sạch**: 28 trang, 39 ref, 0 lỗi
 - Hình và bảng đánh số **đúng thứ tự được nhắc**
 - Cỡ chữ hiệu dụng của 8 hình lệch nhau dưới 2%
+
+## Ba mục Elsevier in TRONG bài, đã có sẵn
+
+Bản thảo đã mang đủ ba mục theo đúng thứ tự và từ vựng Elsevier in trong bài đã xuất bản:
+**CRediT authorship contribution statement** · **Declaration of competing interest** ·
+**Declaration of generative AI and AI-assisted technologies in the writing process**.
+
+⚠ Các vai trò CRediT là **từ vựng có kiểm soát**, phải giữ nguyên văn kể cả dấu gạch nối trong
+*"Writing – original draft"*. Đổi cách viết là không còn là thuật ngữ chuẩn.
+
+⚠ Bài một tác giả nên **không** liệt kê Funding acquisition, Resources, Supervision hay Project
+administration. Chỉ ghi vai trò thực sự đã làm.
 
 ## ⛔ Ba chỗ nhớ soi bằng mắt trước khi bấm nộp
 
