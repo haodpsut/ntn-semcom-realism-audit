@@ -1,0 +1,7 @@
+Highlights (Computer Networks; max 85 characters each)
+
+- Orbital elements fix each NTN effect by measurement, not by assumption
+- Of 26 codeable works, none drives its channel from orbital data
+- The pass-scale SNR sweep costs a codec only 3 dB, defending common practice
+- Collapse is set by carrier re-estimation interval, not by Doppler itself
+- Cliff position scales as predicted across four decades of that interval

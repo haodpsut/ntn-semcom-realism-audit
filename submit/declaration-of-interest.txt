@@ -1,0 +1,11 @@
+Declaration of interests
+
+The author declares that he has no known competing financial interests or personal
+relationships that could have appeared to influence the work reported in this paper.
+
+Declaration of generative AI in the writing process
+
+During the preparation of this work the author used Anthropic Claude in order to draft and
+revise prose, to write and debug analysis and figure-generation code, and to review
+intermediate drafts. After using this tool the author reviewed and edited the content as
+needed and takes full responsibility for the content of the publication.

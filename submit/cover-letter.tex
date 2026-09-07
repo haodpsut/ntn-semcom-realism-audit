@@ -1,0 +1,84 @@
+% ⛔ DOAN KHAI BAI LIEN QUAN o cuoi thu KHONG DUOC XOA khi sua lai thu nay.
+%    23/08/2026 mot cover letter da bi viet lai va roi mat dung 12 dong khai bao do, va ban
+%    sao luu nam ngay canh van con nguyen. Neu venue nhan bai roi phat hien tac gia co bai
+%    lien quan dang cho o noi khac ma khong khai, do la van de LIEM CHINH chu khong phai
+%    desk reject. Xem so: feedback-cover-letter-roi-mat-khai-bao.
+\documentclass[11pt,a4paper]{letter}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{parskip}
+\usepackage[hidelinks]{hyperref}
+
+\signature{Phuc Hao Do}
+\address{Phuc Hao Do\\
+CAIRA-DAU, Center for Advanced Innovation, Research \& Application\\
+Danang Architecture University\\
+Da Nang, Viet Nam\\
+haodp.sut@gmail.com}
+
+\begin{document}
+\begin{letter}{The Editor-in-Chief\\Computer Networks\\Elsevier}
+
+\opening{Dear Editor,}
+
+I submit for consideration the manuscript \emph{``Evaluated Under What? A Channel-Realism Audit
+of Semantic Communication for Non-Terrestrial Networks''} as a regular research paper.
+
+\textbf{What the paper does.} Surveys of semantic communication for non-terrestrial networks map
+each constraint of the satellite link onto the works said to address it. The paper tests that
+mapping by measuring both of its sides. It propagates public orbital elements to fix the
+magnitude of each effect from geometry rather than assumption, codes the works a recent survey
+lists as representative according to whether an effect appears in the framing of a paper or in
+its evaluation, and then applies the measured conditions to a codec trained under the assumption
+the population most often makes.
+
+\textbf{What it finds, including against itself.} Two results run against the audit's own
+premise and are reported as such: the link budget moves slowly enough that a static
+signal-to-noise ratio within a transmission block is sound, and a codec trained at one operating
+point loses only about three decibels across the full pass. The cost appears instead on an axis
+no work in the population instantiates, and the paper shows that what governs it is the interval
+over which carrier phase is allowed to accumulate rather than Doppler as such, with the failure
+threshold scaling as the model predicts across four decades of that interval.
+
+\textbf{Why Computer Networks.} The paper is an evaluation-methodology contribution rather than a
+new mechanism, and this journal has published both that genre, including reassessments and
+negative results, and the domain, including work on low Earth orbit constellations and on
+platforms for evaluating them.
+
+\textbf{Reproducibility.} The checklist, the coding sheet carrying the sentence behind every
+decision, the orbital generator, the detector controls and the evaluation harness are released at
+\url{https://github.com/haodpsut/ntn-semcom-realism-audit}, together with the raw result files
+rather than summaries of them. Every number in the manuscript is generated from those files. The
+manuscript also states which machine produced which measurement and the version of every library
+involved, and reports the rate at which training runs failed a validity criterion declared before
+the experiments were run, rather than reporting only the runs that succeeded.
+
+\textbf{Originality and related submissions.} The manuscript is original, has not been published
+before, and is not under consideration elsewhere. It is single-authored. For full transparency I
+disclose the following manuscripts of mine that are currently under review or in preparation, and
+the line separating each from this work:
+
+\begin{itemize}
+\item A study of quantum federated learning with Kolmogorov-Arnold networks, under review at
+      \emph{Quantum Machine Intelligence}. It shares the audit genre but concerns a different
+      method family, a different application and a different population; there is no shared text,
+      data or figure.
+\item Two manuscripts under review at IEEE journals concerning intrusion detection and
+      unmanned-aerial-vehicle scheduling. Neither concerns semantic communication, channel
+      realism, or the evaluation of either.
+\item Two short papers in preparation for a workshop on quantum-inspired artificial intelligence
+      for non-terrestrial networks. One concerns evaluation protocol for optimisation methods and
+      the other a geometric-algebra benchmark. Both are in the non-terrestrial domain and both
+      are audits, so I name them explicitly, but neither treats semantic communication, and
+      neither shares data, figures or text with this submission.
+\end{itemize}
+
+I declare no competing financial or personal interests. No generative model is an author; the
+Acknowledgment section of the manuscript states where such tools were used in its preparation.
+
+Thank you for your consideration.
+
+\closing{Yours sincerely,}
+\end{letter}
+\end{document}
