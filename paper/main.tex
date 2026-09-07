@@ -57,37 +57,28 @@ Communication for Non-Terrestrial Networks}
 
 \begin{abstract}
 Semantic communication is recommended for non-terrestrial networks on the argument that it
-tolerates the conditions those links impose: large propagation delay, Doppler shifts of hundreds
-of kilohertz, short visibility windows and an elevation-dependent link budget. Surveys of the
-area map each of these limitations onto the works said to address it. We ask the narrower
-question those mappings leave open, namely whether the works cited as addressing a limitation are
-evaluated under it. Two measurements answer it. First, propagating \numSats{} public Starlink
-two-line element sets with SGP4 over \numPasses{} distinct passes fixes the magnitude of each
-effect from orbital geometry rather than from assumption. At one station and a minimum elevation
-of $25^\circ$, over \numPassesStation{} of those passes, the peak Doppler shift of a pass has a
-median of \numDopKaMed~kHz at Ka-band and reaches \numDopKaMax~kHz, with a drift of up to
-\numDopRateMax~kHz/s, and the geometric term of the link budget sweeps
-\numFsplMed~dB across a median visibility window of \numDurMed~s. Second, a coding of the
-\numPop{} works a recent survey lists as representative, of which \numFull{} could be obtained
-in full text, records for each whether an effect appears in the framing of the paper or in its
-evaluation. Of \numCoded{} codeable works, \numEvCHAWGN{} evaluate over an additive white
-Gaussian noise channel, \numEvCHGPP{} use a standardised non-terrestrial channel model,
-\numEvCHTRACE{} drive their channel from orbital data, and \numEvDOPPLERRATE{} instantiate the
-time-varying component of Doppler. Third, training a semantic codec under the modal
-assumption and evaluating it under the measured conditions locates the cost precisely. It is not
-where an audit would expect: sweeping the signal-to-noise ratio across the full pass costs
+tolerates what those links impose: long delay, large Doppler, short visibility windows and a
+varying link budget. Surveys of the area map each limitation onto the works said to address it. We test that mapping by measuring both of its
+sides. Propagating \numSats{} public Starlink two-line element sets with SGP4 over
+\numPasses{} distinct passes fixes each effect from geometry rather than assumption: the peak
+Doppler shift of a pass has a median of \numDopKaMed~kHz at Ka-band and drifts at up to
+\numDopRateMax~kHz/s, while the geometric term of the link budget sweeps \numFsplMed~dB across a
+median visibility window of \numDurMed~s. Coding the \numPop{} works a survey lists as representative,
+\numFull{} readable in full, records whether each effect appears in a paper's framing or in its
+evaluation. Of \numCoded{} codeable works,
+\numEvCHAWGN{} evaluate over additive white Gaussian noise and \numEvCHGPP{} use a standardised
+non-terrestrial channel model, but \numEvCHTRACE{} drive their channel from orbital data and
+\numEvDOPPLERRATE{} instantiate the time-varying component of Doppler.
+Applying those conditions to a codec trained under the population's modal assumption locates the
+cost, and not where an audit would expect: the pass-scale signal-to-noise sweep costs
 \numPsnrDrop~dB and degrades gracefully, so the fixed operating point most works adopt is
-defensible. The cost appears instead as a cliff on the axis nobody
-instantiates, with \numDropCfoEb~dB lost at a residual frequency offset of $10^{-3}$ when that
-offset is allowed to accumulate across a coded block. What sets the cliff is the interval over
-which phase accumulates rather than Doppler as such: re-estimating carrier phase every
-\numLprac{} symbols removes the collapse entirely, and the cliff position scales inversely with
-the accumulation length across a factor of \numLspan{}, at a constant \numCliffRatio{} of the
-value the accumulated-phase argument predicts. The tolerable residual is therefore a property of
-the codec together with its carrier recovery, which is what no work in the population states.
-Randomising the offset during training recovers \numAugGainCfo~dB of the open-loop loss. The checklist, the
-coding sheet with the sentence justifying every decision, the orbital generator and the
-evaluation harness are released.
+defensible. The cost is a cliff on the axis nobody instantiates, \numDropCfoEb~dB at a residual
+frequency offset of $10^{-3}$ left to accumulate across a coded block. What governs it is the
+carrier re-estimation interval rather than Doppler as such: re-estimating every \numLprac{}
+symbols removes the collapse, and the cliff scales inversely with that interval across a factor
+of \numLspan{}. Randomising the offset during training recovers \numAugGainCfo~dB of the
+open-loop loss. The checklist, coding sheet, orbital generator and evaluation harness are
+released.
 \end{abstract}
 
 \begin{keyword}
