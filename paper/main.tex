@@ -433,8 +433,8 @@ be applied to it. Table~\ref{tab:population} in the appendix enumerates all \num
 reference number the source survey assigns it, the entry in this paper's bibliography where one
 exists, its title, and whether it was retrieved and coded. The \numNotRetrieved{} works that
 could not be retrieved are named there rather than left as a count, and the table is the
-crosswalk that makes the survey reference numbers used in Table~\ref{tab:agreement} and
-Figure~\ref{fig:matrix} resolvable. Excluding the position paper leaves the \numCoded{} works on
+crosswalk that makes the survey reference numbers used throughout
+Section~\ref{sec:census} resolvable. Excluding the position paper leaves the \numCoded{} works on
 which every count in Section~\ref{sec:census} is computed. Of those, \numSat{} come from the satellite tables,
 \numAerial{} from the aerial tables and \numIntegrated{} from the integrated tables, a split
 that Section~\ref{sec:threats} uses to check the main result.
@@ -755,15 +755,6 @@ or a topology rather than a propagation environment. The column is the closest t
 literature has to a record of channel realism, and it is not one. In \numAgrExtra{} case $\mathcal{D}(w)$ is non-empty, with the column naming an effect the
 evaluation section does not contain.
 
-\begin{table}[t]
-\centering
-\caption{The survey's channel-consideration entry against the evaluation sections, for the
-\numAgrN{} works where both could be read. ``Named'' counts checklist items the entry mentions,
-``In eval.'' counts items the evaluation instantiates.}
-\label{tab:agreement}
-\input{../figures/out/tab5-agreement.tex}
-\end{table}
-
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{../figures/out/fig5-census.pdf}
@@ -793,6 +784,16 @@ instantiates.}
 section, ``Evaluation'' counts appearances within it. A work may appear in both columns.}
 \label{tab:census}
 \input{../figures/out/tab2-census.tex}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{The survey's channel-consideration entry against the evaluation sections, for the
+\numAgrN{} works where both could be read. ``Named'' counts checklist items the entry mentions,
+``In eval.'' counts items the evaluation instantiates.}
+\label{tab:agreement}
+\input{../figures/out/tab5-agreement.tex}
 \end{table}
 
 % =====================================================================
@@ -862,6 +863,29 @@ that a transmission block sees a static channel; this section finds that even th
 sweep costs a codec only a few decibels. Training at a single signal-to-noise ratio is a
 defensible choice, and an audit that stopped at the channel model and called the fixed operating
 point a flaw would be wrong.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{../figures/out/fig7-mismatch.pdf}
+\caption{A codec trained at a single operating point, evaluated across the conditions
+Section~\ref{sec:orbit} measured, over the \numSeeds{} valid runs of the fixed regime.
+(a) test signal-to-noise ratio; (b) residual normalised frequency offset
+of~\eqref{eq:cfo} under the open-loop assumption, on a logarithmic axis with the zero-offset case
+at the left edge. ``Single SNR'' is the fixed-operating-point regime and ``randomised'' the
+regime that draws both quantities during training.}
+\label{fig:mismatch}
+\end{figure}
+
+
+\begin{table}[t]
+\centering
+\caption{Reconstruction quality in dB under the two training regimes, median over the valid runs
+with the range across them. Offsets are open loop, that is $L = k$. The evaluation conditions are
+those measured in Section~\ref{sec:orbit}, not chosen for this table.}
+\label{tab:mismatch}
+\input{../figures/out/tab6-mismatch.tex}
+\end{table}
+
 
 \subsection{The residual frequency offset is, and it is a cliff}
 
@@ -947,27 +971,6 @@ And it moves the cliff rather than removing it, since at $\varepsilon = 10^{-2}$
 codec has itself fallen to \numPsnrAugCfoEc~dB. What the comparison establishes is narrower and
 more useful than a fix: the failure lives in the training distribution rather than in the
 architecture, and it is therefore visible to anyone who evaluates for it.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=\textwidth]{../figures/out/fig7-mismatch.pdf}
-\caption{A codec trained at a single operating point, evaluated across the conditions
-Section~\ref{sec:orbit} measured, over the \numSeeds{} valid runs of the fixed regime.
-(a) test signal-to-noise ratio; (b) residual normalised frequency offset
-of~\eqref{eq:cfo} under the open-loop assumption, on a logarithmic axis with the zero-offset case
-at the left edge. ``Single SNR'' is the fixed-operating-point regime and ``randomised'' the
-regime that draws both quantities during training.}
-\label{fig:mismatch}
-\end{figure}
-
-\begin{table}[t]
-\centering
-\caption{Reconstruction quality in dB under the two training regimes, median over the valid runs
-with the range across them. Offsets are open loop, that is $L = k$. The evaluation conditions are
-those measured in Section~\ref{sec:orbit}, not chosen for this table.}
-\label{tab:mismatch}
-\input{../figures/out/tab6-mismatch.tex}
-\end{table}
 
 % =====================================================================
 \section{Recommendations}
