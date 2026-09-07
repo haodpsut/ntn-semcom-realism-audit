@@ -1,0 +1,24 @@
+{
+ "n_docs": 27,
+ "patterns": {
+  "DOPPLER_RATE": "doppler[- ]?(rate|drift|slope|acceleration|derivative|variation|dynamics)|(rate|drift|slope|acceleration|derivative)\\s+of\\s+(the\\s+)?doppler|time[- ]var(y|ing)\\s+(doppler|frequency\\s+offset|cfo)|frequency\\s+(drift|ramp|slope|acceleration)|second[- ]order\\s+phase|quadratic\\s+phase|phase\\s+acceleration|\\bchirp\\b|\\bLFM\\b|linear\\s+frequency\\s+modulat|doppler.{0,40}(per\\s+second|/s\\b|kHz/s)|residual\\s+(doppler|cfo).{0,30}(track|vary|change)",
+  "CH_TRACE": "\\bTLE\\b|two[- ]line\\s+element|\\bSGP4\\b|\\bSDP4\\b|ephemerid|ephemeris|celestrak|space[- ]track\\b|\\bSTK\\b|systems\\s+tool\\s+kit|orbit\\s+(propagat|simulat|generat)|propagat\\w*\\s+the\\s+orbit|keplerian|orbital\\s+element|walker\\s+constellation|\\bskyfield\\b|\\bpoliastro\\b|\\bGMAT\\b|\\bpyephem\\b|\\borekit\\b|starlink\\s+(trace|ephemer|data)|real\\s+(orbit|constellation)\\s+data|measured\\s+(trace|channel)\\s+data"
+ },
+ "hits": {
+  "DOPPLER_RATE": [
+   {
+    "ref": 179,
+    "sentence": "Additionally, longer intervals allow user mobility cause channel phase variations as frequency drift component becomes dominant, introducing semantic mismatches.",
+    "also_narrow": false
+   }
+  ],
+  "CH_TRACE": [
+   {
+    "ref": 200,
+    "sentence": "This requirement goes far beyond simple data-format conversion and instead demands capturing the deeper “meaning” of data: from orbital elements and communication payload status of satellites, to flight attitudes and sensor parameters of UAVs, to mission objectives and QoS requirements of ground vehicles.",
+    "also_narrow": false
+   }
+  ]
+ },
+ "n_sentences": 8914
+}

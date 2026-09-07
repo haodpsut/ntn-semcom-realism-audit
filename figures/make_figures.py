@@ -211,6 +211,60 @@ def tab_subgroup(e2b, e2a):
         M("numDropRef", str(drop[0]["ref"]))
 
 
+
+def tab_population(e2a, e2b):
+    """Bang phu luc: LIET KE TOAN BO quan the, de nguoi khac dung lai duoc.
+
+    ⛔ SINH RA TU DIEM CHAN SO 1 cua phan bien ngoai: bai noi 46 cong trinh nhung chi 27 cai
+    xuat hien trong thu muc tham khao, 19 cai con lai KHONG duoc goi ten, va bang doi chieu lai
+    dung so tham chieu CUA KHAO SAT NGUON ma khong co cau noi sang thu muc cua bai. Nhu vay
+    quan the khong kiem chung duoc, va do la loi nang voi mot bai lay tinh kiem chung lam de tai.
+    """
+    import json as _json
+    bib = {}
+    bp = os.path.join(ROOT, "results", "e4_bib.json")
+    if os.path.exists(bp):
+        for r in _json.load(io.open(bp, encoding="utf-8"))["items"]:
+            if r.get("key"):
+                bib[r["ref"]] = r["key"]
+    ev = {r["ref"]: r for r in e2b["items"]}
+    rows = []
+    for it in sorted(e2a["items"], key=lambda x: x["ref"]):
+        r = it["ref"]
+        got = it.get("status") == "toan van OK"
+        coded = bool(ev.get(r, {}).get("eval_section_found"))
+        if got and coded:
+            state = "coded"
+        elif got:
+            state = "no eval.\\ section"
+        else:
+            state = "not retrieved"
+        rows.append((r, bib.get(r), state, (it.get("title") or "")[:58]))
+    # ⛔ 46 dong KHONG vua mot trang: LaTeX bao "Float too large for page by 547pt" va bo bang
+    #    ra ngoai. Phai la `longtable` de no tu ngat trang, va longtable KHONG duoc boc trong
+    #    moi truong `table`. Chu thich va nhan nam luon trong tep sinh ra.
+    with io.open(os.path.join(OUTD, "tab7-population.tex"), "w", encoding="utf-8") as f:
+        f.write("\\begin{longtable}{rll p{52mm}}\n")
+        f.write("\\caption{All %d works in the sampling frame. ``Coded\'\' means full text was "
+                "retrieved and an evaluation section could be located; ``no eval.\\ section\'\' "
+                "means the text was retrieved but carries no conventional evaluation; ``not "
+                "retrieved\'\' means no full text could be obtained, and those works are excluded "
+                "from every count rather than assumed absent.}\n" % len(rows))
+        f.write("\\label{tab:population}\\\\\n\\toprule\n")
+        hdr = ("Ref.\\ in~\\cite{survey2026ntnsemcom} & This paper & Status & Title"
+               " \\\\\n\\midrule\n")
+        f.write(hdr + "\\endfirsthead\n")
+        f.write("\\toprule\n" + hdr + "\\endhead\n")
+        f.write("\\bottomrule\n\\endfoot\n")
+        for r, k, st, t in rows:
+            cite = ("\\cite{%s}" % k) if k else "---"
+            t = t.replace("&", "\\&").replace("_", "\\_")
+            f.write("{[%d]} & %s & %s & %s \\\\\n" % (r, cite, st, t))
+        f.write("\\end{longtable}\n")
+    print("     tab7-population (%d dong)" % len(rows))
+    M("numNotRetrieved", str(sum(1 for x in rows if x[2] == "not retrieved")))
+
+
 def tab_controls(e2b):
     """So cau bo do bat duoc tren toan van THAT: dung cho cau ve doi chung o muc giao thuc."""
     its = [r for r in e2b["items"] if r.get("fulltext")]
@@ -591,6 +645,18 @@ def fig_e3(e3):
 
 
 
+
+def zero_sens(z):
+    """Macro cho phep thu do nhay cua HAI SO 0 (E2d)."""
+    if not z:
+        return
+    M("numWideSent", "{:,}".format(z["n_sentences"]))
+    M("numWideDocs", str(z["n_docs"]))
+    for code, tag in (("DOPPLER_RATE", "Rate"), ("CH_TRACE", "Trace")):
+        M("numWide" + tag, str(len(z["hits"][code])))
+    print("     macro do nhay so 0")
+
+
 def env_macros(env):
     """Moi truong chay cung di qua chuoi MOT NGUON nhu moi so khac, khong go tay vao bai."""
     if not env:
@@ -616,6 +682,7 @@ def main():
     e2b, e3 = load("e2b_evidence.json"), load("e3_train_eval.json")
     tl = load("e1b_pass_timeline.json")
     env_macros(load("environment.json"))
+    zero_sens(load("e2d_zero_sensitivity.json"))
     print("  sinh hien vat:")
     if e1:
         fig_orbital(e1)
@@ -625,6 +692,7 @@ def main():
     if e2b and e2a:
         tab_controls(e2b)
         tab_subgroup(e2b, e2a)
+        tab_population(e2a, e2b)
         fig_census(e2b, e2a)
         fig_matrix(e2b)
         tab_checklist(e2b)

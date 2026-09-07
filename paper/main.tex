@@ -17,6 +17,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage{longtable}
 \usepackage{amsmath,amssymb}
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
@@ -62,7 +63,8 @@ area map each of these limitations onto the works said to address it. We ask the
 question those mappings leave open, namely whether the works cited as addressing a limitation are
 evaluated under it. Two measurements answer it. First, propagating \numSats{} public Starlink
 two-line element sets with SGP4 over \numPasses{} distinct passes fixes the magnitude of each
-effect from orbital geometry rather than from assumption: the peak Doppler shift of a pass has a
+effect from orbital geometry rather than from assumption. At one station and a minimum elevation
+of $25^\circ$, over \numPassesStation{} of those passes, the peak Doppler shift of a pass has a
 median of \numDopKaMed~kHz at Ka-band and reaches \numDopKaMax~kHz, with a drift of up to
 \numDopRateMax~kHz/s, and the geometric term of the link budget sweeps
 \numFsplMed~dB across a median visibility window of \numDurMed~s. Second, a coding of the
@@ -373,7 +375,12 @@ implies gives
   \label{eq:cfo}
 \end{equation}
 where $R_s$ is the symbol rate and $\rho \in [0,1]$ is the fraction of the shift that
-compensation leaves uncorrected. Parameterising by the normalised offset $\varepsilon$ rather
+compensation leaves uncorrected. Note that $\varepsilon$ in~\eqref{eq:cfo} is
+\emph{constant} within a block, so the phase it produces grows linearly with $m$. That is a
+fixed frequency offset, not the time-varying Doppler of the checklist, which is a non-zero
+$\dot f_{\rm dop}$ in~\eqref{eq:doppler} and would appear as a quadratic phase. The model of
+this paper therefore does not itself instantiate the checklist item it finds nobody instantiating,
+and does not claim to. Parameterising by the normalised offset $\varepsilon$ rather
 than by $f_{\rm res}$ avoids committing to a symbol rate, which no work in the population states.
 The phase error is not a random perturbation but accumulates deterministically across the block,
 \begin{equation}
@@ -416,8 +423,13 @@ accessibility of the literature and not a gap to be filled by inference.
 One further work, reference~[\numDropRef] of the source survey, is retrieved but not coded. It is
 a position paper on goal-oriented communication for interplanetary and non-terrestrial links and
 carries no conventional evaluation section, so the partition of Section~\ref{sec:formal} cannot
-be applied to it. Excluding it leaves the \numCoded{} works on which every count in
-Section~\ref{sec:census} is computed. Of those, \numSat{} come from the satellite tables,
+be applied to it. Table~\ref{tab:population} in the appendix enumerates all \numPop{} works, giving for each the
+reference number the source survey assigns it, the entry in this paper's bibliography where one
+exists, its title, and whether it was retrieved and coded. The \numNotRetrieved{} works that
+could not be retrieved are named there rather than left as a count, and the table is the
+crosswalk that makes the survey reference numbers used in Table~\ref{tab:agreement} and
+Figure~\ref{fig:matrix} resolvable. Excluding the position paper leaves the \numCoded{} works on
+which every count in Section~\ref{sec:census} is computed. Of those, \numSat{} come from the satellite tables,
 \numAerial{} from the aerial tables and \numIntegrated{} from the integrated tables, a split
 that Section~\ref{sec:threats} uses to check the main result.
 
@@ -516,8 +528,17 @@ Where two coders assign~\eqref{eq:code} independently, agreement is reported as
   \label{eq:kappa}
 \end{equation}
 with $p_o$ the observed proportion of matching decisions and $p_e$ the proportion expected by
-chance. The released coding sheet carries the sentence behind every decision, so a disputed entry
-can be settled against the evidence rather than against~\eqref{eq:kappa}.
+chance. \textbf{No value of~\eqref{eq:kappa} is reported here, because a second coder was not
+available.} The procedure is stated so that the estimate can be supplied by anyone extending this
+work, and the released coding sheet carries the sentence behind every decision, so a disputed
+entry can be settled against the evidence rather than against a coefficient.
+
+That substitution is adequate for items where evidence exists and a coder could disagree about
+it. It is not adequate for the two items that return zero, where there is no sentence for two
+coders to read and disagree over, and where a coefficient computed over the other items would
+say nothing about them. The zeros are therefore defended differently, by asking whether the
+detector was too narrow rather than whether a second reader would agree with it, and
+Section~\ref{sec:zerosens} does that.
 
 \subsection{Testing the instrument before trusting it}
 
@@ -627,7 +648,12 @@ which is the same shell property Table~\ref{tab:stations} reports.}
 \begin{table}[t]
 \centering
 \caption{Full statistics at one station for the three elevation thresholds. Link-budget figures
-are the geometric term only and are therefore lower bounds.}
+are the geometric term only and are therefore lower bounds. Two entries look contradictory and
+are not. Peak Doppler falls as the threshold rises because the largest range rate occurs near the
+horizon, which a stricter threshold discards, while median drift rises because the largest drift
+occurs at closest approach, which a stricter threshold retains. The maximum drift is identical at
+all three thresholds because the single most extreme pass clears $30^\circ$ and so belongs to
+every set.}
 \label{tab:orbital}
 \input{../figures/out/tab4-orbital.tex}
 \end{table}
@@ -666,6 +692,34 @@ Doppler appears in the evaluation of \numEvDOPPLER{} works and in the framing of
 \numInDOPPLER{}. Its time-varying component appears in \numEvDOPPLERRATE{}. Elevation-dependent
 loss appears in \numEvPATHLOSSELEV{}, propagation delay in \numEvDELAY{}, a finite visibility
 window in \numEvVISIBILITY{}, and an on-board compute limit in \numEvONBOARD{}.
+
+\subsection{Were the detectors too narrow? A sensitivity test on the zeros}
+\label{sec:zerosens}
+
+A zero invites one specific objection: that the vocabulary searched for was too narrow, and that
+the effect is present under wording the detector never looked for. The controls of
+Section~\ref{sec:protocol} answer the opposite question, whether the detector fires when it
+should, so they do not settle this one.
+
+We therefore re-scanned the corpus for the two zero items with a deliberately wide net, several
+times the length of the original pattern and including phrasings that avoid the obvious keyword:
+for time-varying Doppler, terms such as frequency drift, frequency ramp, phase acceleration,
+second-order or quadratic phase, chirp and linear frequency modulation; for orbital traces, terms
+such as ephemeris, Keplerian, orbital element, Walker constellation, orbit propagation, Celestrak
+and Space-Track, together with the names of the common propagation libraries and of Systems Tool
+Kit.
+
+Across \numWideSent{} sentences in \numWideDocs{} works the wide net returns
+\numWideRate{} sentence for time-varying Doppler and \numWideTrace{} for orbital traces, and
+neither is an evaluation condition. The first attributes a frequency drift to \emph{user
+mobility} on an aerial link while motivating the problem. The second lists orbital elements among
+the things a digital twin should represent semantically, which is a statement about what to
+encode rather than about how a channel was generated. Both are released with the scan so the
+judgement can be checked.
+
+The zeros are therefore not an artefact of a narrow vocabulary. What they remain vulnerable to is
+a work that instantiates the effect without describing it in any of these terms, which
+Section~\ref{sec:threats} states as a residual threat.
 
 \paragraph{Reading the two zeros}
 The zeros for time-varying Doppler and for orbital traces are measurements, not silence: the
@@ -969,6 +1023,15 @@ has two values, and no number produced on one machine is compared directly again
 produced on the other: the orbital side is pure geometry on the workstation and the codec side is
 training on the server. Where the two meet, in Section~\ref{sec:cost}, the orbital results enter
 only as the endpoints of a sweep.
+
+\appendix
+\section{The population, enumerated}
+
+Table~\ref{tab:population} lists every work in the sampling frame. It exists so that the census
+can be checked rather than taken on trust: a reader who disagrees with a coding decision can find
+the work, and a reader who wants to know what the audit could not see can find that too.
+
+{\small\input{../figures/out/tab7-population.tex}}
 
 \bibliographystyle{elsarticle-num}
 \bibliography{refs,refs-population}
