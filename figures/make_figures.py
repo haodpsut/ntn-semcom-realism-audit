@@ -590,11 +590,32 @@ def fig_e3(e3):
     M("numBwRatio", vn(e3["bandwidth_ratio"], 3))
 
 
+
+def env_macros(env):
+    """Moi truong chay cung di qua chuoi MOT NGUON nhu moi so khac, khong go tay vao bai."""
+    if not env:
+        return
+    w = env["machines"]["workstation"]
+    g = env["machines"]["gpu_server"]
+    M("numRepo", env["repo"])
+    M("numWsCpu", w["cpu"])
+    M("numWsPy", w["python"])
+    M("numWsNumpy", w["numpy"])
+    M("numWsSgp", w["sgp4"])
+    M("numGpuName", g["gpu"])
+    M("numGpuCpu", g["cpu"].replace("(R)", "").replace("(TM)", "").split(" CPU")[0].strip())
+    M("numGpuPy", g["python"])
+    M("numTorch", g["torch"])
+    M("numCuda", g["cuda"])
+    print("     macro moi truong")
+
+
 # =====================================================================
 def main():
     e1, e2a = load("e1_orbital_reality.json"), load("e2_fetch_population.json")
     e2b, e3 = load("e2b_evidence.json"), load("e3_train_eval.json")
     tl = load("e1b_pass_timeline.json")
+    env_macros(load("environment.json"))
     print("  sinh hien vat:")
     if e1:
         fig_orbital(e1)

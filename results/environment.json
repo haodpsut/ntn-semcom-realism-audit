@@ -1,0 +1,27 @@
+{
+ "_note": "Ghi lai MOI TRUONG CHAY that su cua tung phep do. Bai nay di kiem toan nguoi khac vi khong khai dieu kien danh gia, nen chinh no phai khai. Thu bang code/e0_environment.py.",
+ "machines": {
+  "workstation": {
+   "role": "E1, E1b, E2, E4 va toan bo sinh hinh/bang",
+   "os": "Darwin arm64",
+   "cpu": "Apple M5",
+   "python": "3.9.6",
+   "numpy": "2.0.2",
+   "matplotlib": "3.9.4",
+   "sgp4": "2.25",
+   "torch": "2.8.0"
+  },
+  "gpu_server": {
+   "role": "E3, huan luyen va danh gia bo ma semantic",
+   "os": "Linux x86_64",
+   "cpu": "Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz",
+   "gpu": "NVIDIA GeForce RTX 4090",
+   "python": "3.11.16",
+   "torch": "2.5.1+cu121",
+   "cuda": "12.1",
+   "numpy": "2.4.6"
+  }
+ },
+ "repo": "https://github.com/haodpsut/ntn-semcom-realism-audit",
+ "split_rationale": "Khong phep do nao chay tren CA HAI may, nen khong dai luong nao co hai gia tri. E1 la hinh hoc quy dao thuan CPU; E3 can GPU. So cua hai phep do khong bao gio duoc so sanh truc tiep voi nhau trong bai."
+}

@@ -945,9 +945,30 @@ on the one that does, and that closing the distance is cheap: the orbital elemen
 the propagation is a library call, and the harness that connects them to an existing codec is
 released with this paper.
 
-\section*{Data availability}
+\section*{Data and code availability}
+
 The checklist, the coding sheet with the sentence justifying every decision, the orbital
-generator, the detector controls and the evaluation harness are released.
+generator, the detector controls and the evaluation harness are released at
+% ⛔ URL tren mot dong rieng: de trong van xuoi thi no bi TACH NGANG QUA TRANG, nua dia chi o
+%    trang 18 va nua kia o trang 19.
+\begin{center}\url{\numRepo}\end{center}
+\noindent The repository also carries the raw result files rather than summaries of them, so
+every number in this paper can be recomputed from the command that produced it.
+
+\paragraph{Where each measurement ran}
+A paper that audits others for not stating the conditions of their evaluation should state its
+own. The orbital measurements of Section~\ref{sec:orbit}, the census of
+Section~\ref{sec:census} and all figure and table generation ran on a workstation
+(\numWsCpu, Python~\numWsPy, NumPy~\numWsNumpy, SGP4~\numWsSgp). The codec experiments of
+Section~\ref{sec:cost} ran on a server with an \numGpuCpu{} and a \numGpuName{}
+(Python~\numGpuPy, PyTorch~\numTorch, CUDA~\numCuda).
+
+Splitting the work across two machines is worth declaring because floating-point results are not
+always portable between them. No measurement in this paper ran on both, so no reported quantity
+has two values, and no number produced on one machine is compared directly against a number
+produced on the other: the orbital side is pure geometry on the workstation and the codec side is
+training on the server. Where the two meet, in Section~\ref{sec:cost}, the orbital results enter
+only as the endpoints of a sweep.
 
 \bibliographystyle{elsarticle-num}
 \bibliography{refs,refs-population}
