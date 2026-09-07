@@ -22,13 +22,12 @@ thức, 39 tham khảo.
 
 ## ⛔ Ba chỗ nhớ kiểm bằng mắt trước khi bấm nộp
 
-1. **Đoạn khai bài liên quan đã được BỎ HẲN, có chủ ý.** Thư giờ chỉ giữ lời khai bắt buộc:
-   bài gốc, chưa đăng, **không đang được xem xét ở nơi nào khác**, một tác giả. Hảo chốt 07/09
-   rằng QMI và hai bài AICON **chưa nộp**, mà nghĩa vụ khai chỉ áp cho bản thảo **đang được xem
-   xét** ở nơi khác; hai bài IEEE thì không liên quan chủ đề.
-   ⚠ Đây **không phải** lớp lỗi 23/08/2026 (thư bị viết lại rồi rơi mất đoạn khai). Đừng tự ý
-   thêm lại. **Nhưng nếu QMI hoặc AICON được nộp trước khi bài này nộp thì phải khai lại**, và
-   lúc đó câu "không đang được xem xét ở nơi nào khác" vẫn đúng vì nó nói về CHÍNH bản thảo này.
+1. **Câu khai QMI ở cuối thư PHẢI còn.** Mở `cover-letter.pdf`, tìm đoạn *"For transparency I
+   disclose one related manuscript"*. QMI (audit QFL-KAN) **đã nộp và đang được xem xét**, nên
+   khai là bắt buộc. Ngày 23/08/2026 một cover letter của dự án này bị viết lại và **rơi mất
+   đúng đoạn đó**, nên đây là chỗ dễ mất nhất.
+   ⚠ Hai bài AICON **chưa nộp** nên không khai, và hai bài IEEE không dính chủ đề nên cũng
+   không. **Nếu AICON được nộp trước bài này thì phải khai thêm chúng vào câu đó.**
 
 2. **Email.** Đang dùng `haodp.sut@gmail.com`. Bản nộp QMI dùng `haodp@dau.edu.vn`. Tạp chí
    thường ưa email cơ quan.
