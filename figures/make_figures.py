@@ -46,10 +46,13 @@ C = {"blue": "#0072B2", "verm": "#D55E00", "green": "#009E73",
 # ⛔ elsarticle o che do `preprint` la MOT COT rong 4.60 in, khong phai 7.0 in nhu ban hai cot.
 #    Ve theo 7.0 roi nhet vao 4.60 lam hinh bi thu con he so 0.66 va CHU TUT XUONG 6.0pt.
 #    Ve dung be rong SE DUOC DUNG thi he so bang 1.0 va co chu giu nguyen 9pt.
-W_TEXT = 4.60                      # \textwidth
-W_WIDE = 4.60                      # hinh trai het khung
-W_HALF = 2.99                      # hinh dat o 0.65\textwidth
-W_COL = 2.85                       # hinh dat o 0.62\textwidth
+# ⛔ 12/09/2026: 4,60 in la SAI. [preprint,11pt,3p] elsarticle co \textwidth = 468 pt = 6,48 in, DO bang
+#    \typeout{\the\textwidth} trong main.tex. Ban da nop COMNET ve 4,60 roi width=\textwidth => phong 1,41 lan,
+#    chu ~12,7 pt. Sua truoc khi nop lai Physical Communication (cung elsarticle, cung khung).
+W_TEXT = 6.48                      # \textwidth, do thuc
+W_WIDE = 6.48                      # hinh trai het khung
+W_HALF = 4.21                      # hinh dat o 0.65\textwidth
+W_COL = 4.02                       # hinh dat o 0.62\textwidth
 NUM = {}
 
 
@@ -131,7 +134,7 @@ def fig_orbital(e1):
     # ⛔ wspace phai rong: nhan truc x cua bang trai tung dam vao nhan truc y cua bang phai,
     #    va chu thich "median" dat theo toa do DU LIEU thi tran ra ngoai khung o bang thu ba.
     #    Ca hai chi lo ra khi NHIN anh, khong cong nao bat duoc.
-    fig, ax = plt.subplots(1, 3, figsize=(W_WIDE, 1.85))
+    fig, ax = plt.subplots(1, 3, figsize=(W_WIDE, 2.61))
     fig.subplots_adjust(wspace=0.46)
     # ⛔ Nhan phai NGAN: o khung 4,60 in moi bang chi rong ~1,2 in, nhan dai se chong len
     #    bang ben canh va bi cat o bang cuoi. Ten day du chuyen sang chu thich hinh.
@@ -293,7 +296,7 @@ def fig_census(e2b, e2a):
 
     order = np.argsort(ev)
     y = np.arange(len(codes))
-    fig, ax = plt.subplots(figsize=(W_WIDE, 2.45))
+    fig, ax = plt.subplots(figsize=(W_WIDE, 3.45))
     ax.barh(y - 0.19, [it_[i] for i in order], 0.36, color=C["gray"], alpha=0.55,
             label="mentioned in framing")
     ax.barh(y + 0.19, [ev[i] for i in order], 0.36, color=C["verm"],
@@ -359,7 +362,7 @@ def fig_pass(tl):
     if not tl:
         return
     t = np.array(tl["t_s"])
-    fig, ax = plt.subplots(3, 1, figsize=(W_WIDE, 3.20), sharex=True)
+    fig, ax = plt.subplots(3, 1, figsize=(W_WIDE, 4.51), sharex=True)
     ax[0].plot(t, tl["elev_deg"], color=C["green"])
     ax[0].set_ylabel("elevation ($^\\circ$)")
     ax[1].plot(t, tl["doppler_Ka_khz"], color=C["verm"], label="Ka, 20 GHz")
@@ -391,7 +394,7 @@ def fig_elevation(e1):
     keys = [("dur_s", "window (s)", C["green"]),
             ("doppler_Ka_peak_khz", "Doppler (kHz)", C["verm"]),
             ("fspl_swing_db", "swing (dB)", C["blue"])]
-    fig, ax = plt.subplots(1, 3, figsize=(W_WIDE, 1.85))
+    fig, ax = plt.subplots(1, 3, figsize=(W_WIDE, 2.61))
     fig.subplots_adjust(wspace=0.46)
     for a, (k, lab, col) in zip(ax, keys):
         for sn, mk, ls in zip(e1["stations"], ("o", "s", "^", "D"), ("-", "--", "-.", ":")):
@@ -453,7 +456,7 @@ def fig_matrix(e2b):
     Mx = Mx[idx]
     from matplotlib.colors import ListedColormap
     cm = ListedColormap(["#EEEEEE", C["gray"], C["verm"]])
-    fig, ax = plt.subplots(figsize=(W_WIDE, 3.30))
+    fig, ax = plt.subplots(figsize=(W_WIDE, 4.65))
     ax.imshow(Mx.T, cmap=cm, aspect="auto", vmin=0, vmax=2, interpolation="nearest")
     ax.set_yticks(range(len(codes)))
     ax.set_yticklabels([LABEL[c] for c in codes], fontsize=7)
@@ -568,7 +571,7 @@ def fig_e3(e3b):
     if not ok["fixed"]:
         return
     K = str(e3b["k_symbols"])
-    fig, ax = plt.subplots(1, 2, figsize=(W_WIDE, 2.05))
+    fig, ax = plt.subplots(1, 2, figsize=(W_WIDE, 2.89))
     fig.subplots_adjust(wspace=0.34)
     styles = {"fixed": (C["verm"], "o", "-", "single SNR"),
               "aug": (C["blue"], "s", "--", "randomised")}
@@ -676,7 +679,7 @@ def fig_blocklen(e3b):
 
     eps = [e for e in e3b["eps_grid"]]
     xp = np.array([1e-6 if e == 0 else e for e in eps])
-    fig, ax = plt.subplots(1, 2, figsize=(W_WIDE, 2.15))
+    fig, ax = plt.subplots(1, 2, figsize=(W_WIDE, 3.03))
     fig.subplots_adjust(wspace=0.34)
     cols = [C["verm"], C["orange"], C["green"], C["blue"], C["gray"], "#7A3E9D"]
     mks = ["o", "^", "s", "D", "v", "P"]
