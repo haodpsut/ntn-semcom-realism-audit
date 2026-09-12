@@ -1,4 +1,4 @@
-Highlights (Computer Networks; max 85 characters each)
+Highlights (Physical Communication; max 85 characters each)
 
 - Orbital elements fix each NTN effect by measurement, not by assumption
 - Of 26 codeable works, none drives its channel from orbital data

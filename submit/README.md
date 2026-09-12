@@ -1,4 +1,4 @@
-# Gói nộp: Computer Networks (Elsevier)
+# Gói nộp: Physical Communication (Elsevier) — sau COMNET desk reject vì scope 12/09/2026
 
 **Evaluated Under What? A Channel-Realism Audit of Semantic Communication for
 Non-Terrestrial Networks** · Phuc Hao Do (CAIRA-DAU) · 28 trang, 8 hình, 7 bảng, 19 công
